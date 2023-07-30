@@ -1,0 +1,33 @@
+{
+  "name": "sleepbabysleep",
+  "version": "1.0.0",
+  "description": "WEB app to normalize baby sleeping",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoveBosikova/sleepBabySleep.git"
+  },
+  "keywords": [
+    "sleep"
+  ],
+  "author": "Bosikova Liubov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoveBosikova/sleepBabySleep/issues"
+  },
+  "homepage": "https://github.com/LoveBosikova/sleepBabySleep#readme",
+  "dependencies": {
+    "css-loader": "^6.8.1",
+    "sass": "^1.64.1",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^4.15.1"
+  }
+}
