@@ -1,8 +1,10 @@
+// Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт
 import './sass/main.scss'
 import moment from 'moment'
+import Chart from 'chart.js/auto'
 
+// Примеры импортов кода и картинок
 import tesla from './assets/picture.jpg'
-const hello = require('./js/hello')
+import hello from'./js/hello'
 
-console.log(moment().format());
 

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/LoveBosikova/sleepBabySleep#readme",
   "dependencies": {
+    "chart.js": "^4.3.3",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
     "moment": "^2.29.4",

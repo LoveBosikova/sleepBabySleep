@@ -1,6 +1,5 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
-const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 
 module.exports = {
     mode: 'development',
@@ -47,9 +46,6 @@ module.exports = {
             title: 'SleepBabySleep',
             filename: 'index.html',
             template: 'src/index.html'
-        }),
-        new MomentLocalesPlugin({
-            localesToKeep: ['ru'],
         }),
     ],
 }
