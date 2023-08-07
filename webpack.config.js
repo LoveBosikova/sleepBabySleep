@@ -24,6 +24,7 @@ module.exports = {
             directory: path.join(__dirname, 'dist')
         }
     },
+    
     module: {
         rules: [
             {
@@ -41,6 +42,7 @@ module.exports = {
             }
         ]
     },
+
     plugins: [
         new htmlWebpackPlugin({
             title: 'SleepBabySleep',
