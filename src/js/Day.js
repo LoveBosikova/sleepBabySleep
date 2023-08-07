@@ -1,4 +1,4 @@
-class Day {
+export default class Day {
     constructor (data) {
         this.data = data;
         this.dayNaps = [];
