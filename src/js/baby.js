@@ -22,13 +22,13 @@ class Baby {
             day: todayDay - this.birthday.getDate(),
         }
     }
-    getDaytimeSleep(newTime) {
+    getDaySleep(newTime) {
         return daySleeps.push(newTime);
     }
     getNightSleep(newTime) {
         return nightSleeps.push(newTime);
     }
-    getBetterDaySpeep() {
+    getBetterDaySleep() {
         let max = daySleeps.sort((a, b) => b - a)[0];
         return max;
     }
