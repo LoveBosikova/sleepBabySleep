@@ -1,14 +1,16 @@
 class Baby {
-    constructor(name, mother, father, birthday, temperament) {
-        this.name = name;
-        this.mother = mother;
-        this.father = father;
+    constructor(babyName, birthday, temperament, motherName, fatherName) {
+        this.babyName = babyName;
         this.birthday = birthday;
         this.temperament = temperament;
+        this.motherName = motherName;
+        this.fatherName = fatherName;
     }
     getImage() {
         return {
-            image: this.image
+            babyImage: this.babyImage,
+            motherImage: this.motherImage,
+            fatherImage: this.fatherImage
         };
     }
     getAge() {
