@@ -1,7 +1,7 @@
 
 export default class Day {
     constructor () {
-        this.data = moment(day);
+        this.data = moment(day, 'YYYY-MM-DD');
         this.dayNaps = [];
         this.nightSleep = [];
         this.bestMatch;
