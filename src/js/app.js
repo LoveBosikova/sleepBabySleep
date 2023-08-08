@@ -10,6 +10,21 @@ import hello from'./js/hello';
 
 const app = () => {
 
+    const fullformat = 'DD.MM.YYYY';
+
+    //Комплексное состояние приложения
+    const state = {
+        registrationForm: {
+            valid: false,
+            errors: [],
+            fields: {
+                name: '',
+            },
+            },
+    }
+
 }
 
 export default app;
+
+
