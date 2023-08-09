@@ -6,7 +6,8 @@ import Day from './js/Day.js';
 
 // Примеры импортов кода и картинок
 import tesla from './assets/picture.jpg';
-import hello from'./js/hello';
+import hello from './js/hello';
+import quotes from './js/quotes.js';
 
 const app = () => {
 
@@ -20,11 +21,9 @@ const app = () => {
             fields: {
                 name: '',
             },
-            },
+        },
     }
 
 }
 
 export default app;
-
-
