@@ -1,8 +1,11 @@
 class Baby {
     constructor(babyName, birthday, temperament, motherName, fatherName) {
         this.babyName = babyName;
-        this.birthday = birthday;
+        this.birthday = moment(birthday).format('DD-MM-YYYY');
         this.temperament = temperament;
+        this.babyImage = babyImage;
+        this.motherImage = motherImage;
+        this.fatherImage = fatherImage;
         this.motherName = motherName;
         this.fatherName = fatherName;
     }
@@ -14,14 +17,11 @@ class Baby {
         };
     }
     getAge() {
-        let todayYear = new Date().getFullYear();
-        let todayMonth = new Date().getMonth();
-        let todayDay = new Date().getDate();
-
+        let today = moment().format('DD-MM-YYYY');
         return {
-            year: todayYear - this.birthday.getFullYear(),
-            month: todayMonth - this.birthday.getMonth(),
-            day: todayDay - this.birthday.getDate(),
+            days: today.diff(this.birthday, 'days'),
+            month: today.diff(this.birthday, 'month'),
+            years: today.diff(this.birthday, 'years'),
         }
     }
     getDaySleep(newTime) {
