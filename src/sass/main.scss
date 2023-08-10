@@ -59,6 +59,7 @@ a {
     width: 165px;
     height: 26px;
 }
+
 .navbar-toggle {
 }
 .bar {
@@ -68,10 +69,12 @@ a {
     display: flex;
     flex-direction: row;
     gap: 20px;
-}
-.nav__info {
+    
+    &__info {
+    }
 
 }
+
 .nav-btn {
     margin-left: 32px;
     width: 291px;
