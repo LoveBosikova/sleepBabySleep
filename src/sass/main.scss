@@ -9,7 +9,6 @@ $blue-color: #2F80EC;
 
 @mixin belota-text-font {
     font-family: 'Bellota Text', cursive;
-    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -38,19 +37,20 @@ a {
 }
 
 .header {
-    max-width: 1292px;
-    height: 48px;
     margin-top: 48px;
 }
 .container {
-    
+    max-width: 1292px;
+    height: 48px;
 }
 .navbar {
+    font-size: 14px;
     @include header-flex();
     align-items: center;
 }
 
 .logo {
+    margin-left: 300px;
     display: flex;
     align-items: center;
 }
@@ -73,11 +73,12 @@ a {
 
 }
 .nav-btn {
+    margin-left: 32px;
     width: 291px;
     height: 45px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 32px;
 
     &-1 {
         display: flex;
@@ -86,6 +87,7 @@ a {
     }
 
    &-2 {
+    @include belota-text-font();
     width: 191px;
     height: 45px;
     font-size: 14px;

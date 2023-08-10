@@ -1,7 +1,6 @@
 body {
   background-color: #10132F;
   font-family: "Bellota Text", cursive;
-  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -18,12 +17,16 @@ a {
 }
 
 .header {
-  max-width: 1292px;
-  height: 48px;
   margin-top: 48px;
 }
 
+.container {
+  max-width: 1292px;
+  height: 48px;
+}
+
 .navbar {
+  font-size: 14px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,6 +34,7 @@ a {
 }
 
 .logo {
+  margin-left: 300px;
   display: flex;
   align-items: center;
 }
@@ -47,11 +51,12 @@ a {
 }
 
 .nav-btn {
+  margin-left: 32px;
   width: 291px;
   height: 45px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 32px;
 }
 .nav-btn-1 {
   display: flex;
@@ -59,6 +64,11 @@ a {
   font-size: 14px;
 }
 .nav-btn-2 {
+  font-family: "Bellota Text", cursive;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   width: 191px;
   height: 45px;
   font-size: 14px;
