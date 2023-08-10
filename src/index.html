@@ -6,7 +6,32 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <header></header>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img class="header__logo" src="/src/assets/header__logo.png" alt="header__logo">
+                </div>
+                <!-- BURGER-MENU -->
+        <div class="navbar-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <!-- BURGER-MENU END -->
+          <ul class="nav">
+            <li><a class="nav__info" href="#">Качество сна</a></li>
+            <li><a class="nav__info" href="#">Периоды</a></li>
+            <li><a class="nav__info" href="#">Статистика</a></li>
+            <li><a class="nav__info" href="#">Частые вопросы</a></li>
+          </ul>
+          <div class="nav-btn">
+            <a class="nav-btn-1" href="#"><img src="/src/assets/header__button.png" alt="header__button">Войти</a>
+            <button class="nav-btn-2" name="registration">Зарегистрироваться</button>
+          </div>
+            </nav>
+        </div>
+    </header>
     <main>
 
         <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
