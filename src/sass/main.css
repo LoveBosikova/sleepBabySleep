@@ -1,7 +1,7 @@
 body {
   background-color: #10132F;
   font-family: "Bellota Text", cursive;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -17,29 +17,28 @@ a {
 }
 
 .header {
-  margin-top: 48px;
+  margin-top: 3rem;
 }
-
-.container {
+.header__container {
   max-width: 1292px;
   height: 48px;
 }
 
 .navbar {
-  font-size: 14px;
+  font-size: 0.875rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-
-.logo {
+.navbar__logo {
   margin-left: 300px;
   display: flex;
   align-items: center;
+  width: 165px;
+  height: 26px;
 }
-
-.header__logo {
+.navbar__logo-img {
   width: 165px;
   height: 26px;
 }
@@ -47,31 +46,31 @@ a {
 .nav {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
-.nav-btn {
-  margin-left: 32px;
-  width: 291px;
-  height: 45px;
+.btn {
+  margin-left: 2rem;
+  width: 18.188rem;
+  height: 2.813rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.nav-btn-1 {
+.btn__enter {
   display: flex;
   align-items: flex-end;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
-.nav-btn-2 {
+.btn__registration {
   font-family: "Bellota Text", cursive;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width: 191px;
-  height: 45px;
-  font-size: 14px;
+  width: 11.938rem;
+  height: 2.813rem;
+  font-size: 0.875rem;
   border-radius: 8px;
   border: 2px solid #2F80EC;
   background-color: #10132F;

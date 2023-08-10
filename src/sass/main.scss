@@ -1,30 +1,36 @@
 $base-color: #10132F;
-$light-color: #FFFFFF;
+$light-color-white: #FFFFFF;
 $dark-color: black;
 $blue-color: #2F80EC;
+
 
 @mixin reset-list-style {
     list-style-type: none;
 }
 
-@mixin belota-text-font {
+@mixin belota-text-font-weight400-font-size18px {
     font-family: 'Bellota Text', cursive;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
-@mixin header-flex {
+@mixin flex-row-space-between {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
     
+@mixin flex-space-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 body {
     background-color: $base-color;
-    @include belota-text-font;
+    @include belota-text-font-weight400-font-size18px();
 }
 
 li {
@@ -32,32 +38,36 @@ li {
 }
 
 a {
-    color: $light-color;
+    color: $light-color-white;
     text-decoration: none;
 }
 
 .header {
-    margin-top: 48px;
+    margin-top: 3rem;
+
+    &__container {
+        max-width: 1292px;
+        height: 48px;
+    }
 }
-.container {
-    max-width: 1292px;
-    height: 48px;
-}
+
 .navbar {
-    font-size: 14px;
-    @include header-flex();
+    font-size: 0.875rem;
+    @include flex-row-space-between();
     align-items: center;
-}
 
-.logo {
-    margin-left: 300px;
-    display: flex;
-    align-items: center;
-}
+    &__logo {
+        margin-left: 300px;
+        display: flex;
+        align-items: center;
+        width: 165px;
+        height: 26px;
+    }
 
-.header__logo {
-    width: 165px;
-    height: 26px;
+    &__logo-img {
+        width: 165px;
+        height: 26px;
+    }
 }
 
 //.navbar-toggle {
@@ -68,35 +78,33 @@ a {
 .nav {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 1.25rem;
     
     //&__info {
     //}
 
 }
 
-.nav-btn {
-    margin-left: 32px;
-    width: 291px;
-    height: 45px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.btn {
+    margin-left: 2rem;
+    width: 18.188rem;
+    height: 2.813rem;
+    @include flex-space-between-center();
 
-    &-1 {
+    &__enter {
         display: flex;
         align-items: flex-end;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
-   &-2 {
-    @include belota-text-font();
-    width: 191px;
-    height: 45px;
-    font-size: 14px;
+   &__registration {
+    @include belota-text-font-weight400-font-size18px();
+    width: 11.938rem;
+    height: 2.813rem;
+    font-size: 0.875rem;
     border-radius: 8px;
     border: 2px solid $blue-color;
     background-color: $base-color;
-    color: $light-color;
+    color: $light-color-white;
    }
 }
