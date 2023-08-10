@@ -25,6 +25,7 @@
     "html-webpack-plugin": "^5.5.3",
     "maven": "^5.0.0",
     "moment": "^2.29.4",
+    "on-change": "^4.0.2",
     "sass": "^1.64.1",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
