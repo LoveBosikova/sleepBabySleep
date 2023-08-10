@@ -1,3 +1,69 @@
 body {
-  background-color: rgb(55, 17, 159);
+  background-color: #10132F;
+  font-family: "Bellota Text", cursive;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.header {
+  max-width: 1292px;
+  height: 48px;
+  margin-top: 48px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  width: 165px;
+  height: 26px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.nav-btn {
+  width: 291px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-btn-1 {
+  display: flex;
+  align-items: flex-end;
+  font-size: 14px;
+}
+.nav-btn-2 {
+  width: 191px;
+  height: 45px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 2px solid #2F80EC;
+  background-color: #10132F;
+  color: #FFFFFF;
 }/*# sourceMappingURL=main.css.map */
