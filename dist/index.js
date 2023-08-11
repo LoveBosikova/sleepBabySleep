@@ -1398,7 +1398,7 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\n//! mome
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass/main.scss */ \"./src/sass/main.scss\");\n/* harmony import */ var _js_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/app */ \"./src/js/app.js\");\n// Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт\n\n\n(0,_js_app__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack://sleepbabysleep/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass/main.scss */ \"./src/sass/main.scss\");\n/* harmony import */ var _js_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/app */ \"./src/js/app.js\");\n/* harmony import */ var _assets_header_logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/header__logo.png */ \"./src/assets/header__logo.png\");\n// Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт\n\n\n\n(0,_js_app__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack://sleepbabysleep/./src/index.js?");
 
 /***/ }),
 
@@ -1420,7 +1420,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ \"./node_modules/moment/moment.js\");\n/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var on_change__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! on-change */ \"./node_modules/on-change/index.js\");\n/* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js/auto */ \"./node_modules/chart.js/auto/auto.js\");\n/* harmony import */ var _Day_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Day.js */ \"./src/js/Day.js\");\n/* harmony import */ var _view_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view.js */ \"./src/js/view.js\");\n\n\n\n\n\nconst app = () => {\n  const fullformat = 'DD.MM.YYYY';\n\n  //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице\n  const state = {\n    registrationForm: {\n      valid: false,\n      errors: [],\n      fields: {\n        name: ''\n      }\n    }\n  };\n\n  // Это наш вотчерю он смотрит за любыми изменениями, которые происходят в состоянии\n  // Первый параметр - за каким объектом следим, второй - какую функцию запускаем\n  const watchedState = (0,on_change__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(state, _view_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\n  // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)\n  (0,_view_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(state);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (app);\n\n//# sourceURL=webpack://sleepbabysleep/./src/js/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ \"./node_modules/moment/moment.js\");\n/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var on_change__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! on-change */ \"./node_modules/on-change/index.js\");\n/* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js/auto */ \"./node_modules/chart.js/auto/auto.js\");\n/* harmony import */ var _Day_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Day.js */ \"./src/js/Day.js\");\n/* harmony import */ var _view_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view.js */ \"./src/js/view.js\");\n// Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт\n\n\n\n\n\n\n\n// Примеры импортов кода и картинок\n\nconst app = () => {\n  const fullformat = 'DD.MM.YYYY';\n\n  //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице\n  const state = {\n    registrationForm: {\n      valid: false,\n      errors: [],\n      fields: {\n        name: ''\n      }\n    }\n  };\n\n  // Это наш вотчерю он смотрит за любыми изменениями, которые происходят в состоянии\n  // Первый параметр - за каким объектом следим, второй - какую функцию запускаем\n  const watchedState = (0,on_change__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(state, _view_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\n  // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)\n  (0,_view_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(state);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (app);\n\n//# sourceURL=webpack://sleepbabysleep/./src/js/app.js?");
 
 /***/ }),
 
@@ -1431,7 +1431,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst render = state => {\n  // Это пример\n  const submit = document.querySelector( /* .... */);\n  const input = document.querySelector( /* .... */);\n  submit.disabled = !state.registrationForm.valid;\n  if (state.registrationForm.valid) {\n    input.style.border = null;\n  } else {\n    input.style.border = 'thick solid red';\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (render);\n\n//# sourceURL=webpack://sleepbabysleep/./src/js/view.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst render = state => {\n  // Это пример\n  // const submit = document.querySelector(/* .... */);\n  // const input = document.querySelector(/* .... */);\n\n  // submit.disabled = !state.registrationForm.valid;\n\n  // if (state.registrationForm.valid) {\n  //     input.style.border = null;\n  // } else {\n  //     input.style.border = 'thick solid red';\n  // }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (render);\n\n//# sourceURL=webpack://sleepbabysleep/./src/js/view.js?");
 
 /***/ }),
 
@@ -1442,7 +1442,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `body {\n  background-color: #10132F;\n  font-family: \"Bellota Text\", cursive;\n  font-size: 1.125rem;\n  font-style: normal;\n  font-weight: 400;\n  line-height: normal;\n}\n\nli {\n  list-style-type: none;\n}\n\na {\n  color: #FFFFFF;\n  text-decoration: none;\n}\n\n.header {\n  margin-top: 3rem;\n}\n.header__container {\n  max-width: 1292px;\n  height: 48px;\n}\n\n.navbar {\n  font-size: 0.875rem;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n.navbar__logo {\n  margin-left: 300px;\n  display: flex;\n  align-items: center;\n  width: 165px;\n  height: 26px;\n}\n.navbar__img {\n  width: 165px;\n  height: 26px;\n}\n\n.nav {\n  display: flex;\n  flex-direction: row;\n  gap: 1.25rem;\n}\n\n.btn {\n  margin-left: 2rem;\n  width: 18.188rem;\n  height: 2.813rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.btn__enter {\n  display: flex;\n  align-items: flex-end;\n  font-size: 0.875rem;\n}\n.btn__registration {\n  font-family: \"Bellota Text\", cursive;\n  font-size: 1.125rem;\n  font-style: normal;\n  font-weight: 400;\n  line-height: normal;\n  width: 11.938rem;\n  height: 2.813rem;\n  font-size: 0.875rem;\n  border-radius: 8px;\n  border: 2px solid #2F80EC;\n  background-color: #10132F;\n  color: #FFFFFF;\n}`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://sleepbabysleep/./src/sass/main.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `body {\n  background-color: #10132F;\n  font-family: \"Bellota Text\", cursive;\n  font-style: normal;\n  line-height: normal;\n  font-weight: 400;\n  font-size: 18px;\n}\n\n* li {\n  list-style-type: none;\n}\n* a {\n  color: #FFFFFF;\n  text-decoration: none;\n}\n\n.header {\n  margin-top: 3rem;\n}\n.header__container {\n  max-width: 1292px;\n  height: 48px;\n}\n\n.navbar {\n  font-size: 0.875rem;\n  align-items: center;\n}\n.navbar__logo {\n  margin-left: 300px;\n  display: flex;\n  align-items: center;\n  width: 165px;\n  height: 26px;\n}\n.navbar__img {\n  width: 165px;\n  height: 26px;\n}\n\n.nav {\n  display: flex;\n  flex-direction: row;\n  gap: 1.25rem;\n}\n\n.btn {\n  margin-left: 2rem;\n  width: 18.188rem;\n  height: 2.813rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.btn__enter {\n  display: flex;\n  align-items: flex-end;\n  font-size: 0.875rem;\n}\n.btn__registration {\n  font-family: \"Bellota Text\", cursive;\n  font-style: normal;\n  line-height: normal;\n  font-weight: 400;\n  font-size: 18px;\n  width: 11.938rem;\n  height: 2.813rem;\n  font-size: 0.875rem;\n  border-radius: 8px;\n  border: 2px solid #2F80EC;\n  background-color: #10132F;\n  color: #FFFFFF;\n}`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://sleepbabysleep/./src/sass/main.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -1530,6 +1530,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj
 
 "use strict";
 eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://sleepbabysleep/./node_modules/style-loader/dist/runtime/styleTagTransform.js?");
+
+/***/ }),
+
+/***/ "./src/assets/header__logo.png":
+/*!*************************************!*\
+  !*** ./src/assets/header__logo.png ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("module.exports = __webpack_require__.p + \"header__logo.png\";\n\n//# sourceURL=webpack://sleepbabysleep/./src/assets/header__logo.png?");
 
 /***/ }),
 
@@ -1928,6 +1939,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -1951,6 +1974,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */

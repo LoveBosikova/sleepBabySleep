@@ -74,6 +74,11 @@
     font-weight: 400;
     font-size: 14px;
 }
+@mixin flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @mixin flex-row-space-between {
     display: flex;
