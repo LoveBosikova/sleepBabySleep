@@ -1,9 +1,9 @@
-export class Sleeping {
-    constructor(startTime, startTimeDiff, endTime, endTimeDiff, recommendations) {
-        this.startTime = startTime;
-        this.startTimeDiff = startTimeDiff;
-        this.endTime = endTime;
-        this.endTimeDiff = endTimeDiff;
+class Sleeping {
+    constructor(startTime, startTimeDiffPerfectTime, endTime, endTimeDiffPerfectTime, recommendations) {
+        this.startTime = moment(startTime);
+        this.startTimeDiffPerfectTime = moment.duration(startTimeDiffPerfectTime);
+        this.endTime = moment(endTime);
+        this.endTimeDiffPerfectTime = moment.duration(endTimeDiffPerfectTime);
         this.recommendations = recommendations;
     }
 }
@@ -12,32 +12,32 @@ Sleeping.prototype.getStartTime = function () {
     return this.startTime;
 };
 
-Sleeping.prototype.setStartTime = function (value) {
-    this.startTime = value;
+Sleeping.prototype.setStartTime = function (dateObj) {
+    this.startTime = moment(dateObj).format;
 };
 
-Sleeping.prototype.getStartTimeDiff = function () {
-    return this.startTimeDiff;
+Sleeping.prototype.getStartTimeDiffPerfectTime = function () {
+    return this.startTimeDiffPerfectTime;
 };
 
-Sleeping.prototype.setStartTimeDiff = function (value) {
-    this.startTimeDiff = value;
+Sleeping.prototype.setStartTimeDiffPerfectTime = function (value) {
+    this.startTimeDiffPerfectTime = moment(value);
 };
 
 Sleeping.prototype.getEndTime = function () {
     return this.endTime;
 };
 
-Sleeping.prototype.setEndTime = function (value) {
-    this.endTime = value;
+Sleeping.prototype.setEndTime = function (dateObj) {
+    this.endTime = moment(dateObj);
 };
 
-Sleeping.prototype.getEndTimeDiff = function () {
-    return this.endTimeDiff;
+Sleeping.prototype.getEndTimeDiffPerfectTime = function () {
+    return this.endTimeDiffPerfectTime;
 };
 
-Sleeping.prototype.setEndTimeDiff = function (value) {
-    this.endTimeDiff = value;
+Sleeping.prototype.setEndTimeDiffPerfectTime = function (value) {
+    this.endTimeDiffPerfectTime = moment.duration(value);
 };
 
 Sleeping.prototype.getRecommendations = function () {
@@ -45,13 +45,15 @@ Sleeping.prototype.getRecommendations = function () {
 };
 
 Sleeping.prototype.setRecommendations = function (value) {
-    this.setRecommendations = value;
+    this.setRecommendations = moment.duration(value);
 };
 
 Sleeping.prototype.getSleepDuration = function () {
-    return new Date(this.endTime.getTime() - this.startTime.getTime());
+    return moment.duration(this.endTime.diff(this.startTime));
 };
 
 export class DayNap extends Sleeping {}
 
 export class NightSleep extends Sleeping {}
+
+export default Sleeping;
