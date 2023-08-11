@@ -1,5 +1,5 @@
 $base-color: #10132F;
-$light-color-white: #FFFFFF;
+$light-white: #FFFFFF;
 $dark-color: black;
 $blue-color: #2F80EC;
 
@@ -8,7 +8,7 @@ $blue-color: #2F80EC;
     list-style-type: none;
 }
 
-@mixin belota-text-font-weight400-font-size18px {
+@mixin belota-400-18 {
     font-family: 'Bellota Text', cursive;
     font-size: 1.125rem;
     font-style: normal;
@@ -30,7 +30,7 @@ $blue-color: #2F80EC;
 
 body {
     background-color: $base-color;
-    @include belota-text-font-weight400-font-size18px();
+    @include belota-400-18();
 }
 
 li {
@@ -38,7 +38,7 @@ li {
 }
 
 a {
-    color: $light-color-white;
+    color: $light-white;
     text-decoration: none;
 }
 
@@ -64,25 +64,16 @@ a {
         height: 26px;
     }
 
-    &__logo-img {
+    &__img {
         width: 165px;
         height: 26px;
     }
 }
 
-//.navbar-toggle {
-//}
-//.bar {
-//}
-
 .nav {
     display: flex;
     flex-direction: row;
     gap: 1.25rem;
-    
-    //&__info {
-    //}
-
 }
 
 .btn {
@@ -97,14 +88,14 @@ a {
         font-size: 0.875rem;
     }
 
-   &__registration {
-    @include belota-text-font-weight400-font-size18px();
-    width: 11.938rem;
-    height: 2.813rem;
-    font-size: 0.875rem;
-    border-radius: 8px;
-    border: 2px solid $blue-color;
-    background-color: $base-color;
-    color: $light-color-white;
-   }
+    &__registration {
+        @include belota-400-18();
+        width: 11.938rem;
+        height: 2.813rem;
+        font-size: 0.875rem;
+        border-radius: 8px;
+        border: 2px solid $blue-color;
+        background-color: $base-color;
+        color: $light-white;
+    }
 }
