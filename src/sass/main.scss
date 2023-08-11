@@ -1,45 +1,19 @@
-$base-color: #10132F;
-$light-white: #FFFFFF;
-$dark-color: black;
-$blue-color: #2F80EC;
-
-
-@mixin reset-list-style {
-    list-style-type: none;
-}
-
-@mixin belota-400-18 {
-    font-family: 'Bellota Text', cursive;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-@mixin flex-row-space-between {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-    
-@mixin flex-space-between-center {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+@import 'mixins';
+@import 'colors';
 
 body {
     background-color: $base-color;
     @include belota-400-18();
 }
 
-li {
-    @include reset-list-style();
-}
-
-a {
-    color: $light-white;
-    text-decoration: none;
+* {
+    li {
+        @include reset-list-style();
+    }
+    a {
+        color: $light-white;
+        text-decoration: none;
+    }
 }
 
 .header {
