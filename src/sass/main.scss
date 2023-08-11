@@ -17,6 +17,19 @@ body {
     }
 }
 
+.blinking {
+    animation-name: blinking;
+    animation-duration: 1s;
+    animation-iteration-count: 100;
+
+    @keyframes blinking {
+        50% {
+            border-color: linear-gradient(90deg, rgba(16,19,47,1) 0%, rgba(47,128,236,1) 50%, rgba(25,27,45,1) 100%);;
+        }
+    }
+}
+
+
 .header {
     margin-top: 3rem;
 
