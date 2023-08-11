@@ -112,8 +112,10 @@ body {
     &__cardInnerContainer {
         padding: .7rem;
         margin: .9rem;
-        background-color: $dark-grey;
         height: 100%;
+        background-color: $dark-grey;
+        border: 2px solid $border-blue;
+        border-radius: 6px;
     }
     &__card {
         flex: 30% 1 1;
