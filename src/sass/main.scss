@@ -116,8 +116,17 @@ body {
         background-color: $dark-grey;
         border: 2px solid $border-blue;
         border-radius: 6px;
+        &--last {
+            position: relative;
+        }
     }
     &__card {
         flex: 30% 1 1;
     }
+}
+
+.arrowDown {
+    position: absolute;
+    right: 5%;
+    top: 45%;
 }
