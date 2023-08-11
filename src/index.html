@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/sass/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bellota+Text&family=Roboto&display=swap" rel="stylesheet">
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <header></header>
+    <header class="header">
+        <div class="header__container">
+            <nav class="navbar">
+                <div class="navbar__logo">
+                    <img class="navbar__logo-img" src="/src/assets/header__logo.png" alt="navbar">
+                </div>
+                <!-- BURGER-MENU -->
+        <div class="navbar-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <!-- BURGER-MENU END -->
+          <ul class="nav">
+            <li><a class="nav__info" href="#">Качество сна</a></li>
+            <li><a class="nav__info" href="#">Периоды</a></li>
+            <li><a class="nav__info" href="#">Статистика</a></li>
+            <li><a class="nav__info" href="#">Частые вопросы</a></li>
+          </ul>
+          <div class="btn">
+            <div class="btn__enter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                <circle cx="11.803" cy="11.4998" r="11" transform="rotate(-0.588053 11.803 11.4998)" fill="#26283D"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5234 6.71756C9.52345 6.71756 7.77702 7.80391 6.84239 9.41961C6.79043 9.50943 6.6755 9.54012 6.58568 9.48816C6.49586 9.4362 6.46517 9.32127 6.51713 9.23145C7.51616 7.50442 9.3839 6.3418 11.5234 6.3418C14.7153 6.3418 17.303 8.9294 17.303 12.1214C17.303 15.3133 14.7153 17.901 11.5234 17.901C9.3839 17.901 7.51616 16.7383 6.51713 15.0113C6.46517 14.9215 6.49586 14.8066 6.58568 14.7546C6.6755 14.7026 6.79043 14.7333 6.84239 14.8232C7.77702 16.4389 9.52345 17.5252 11.5234 17.5252C14.5078 17.5252 16.9272 15.1058 16.9272 12.1214C16.9272 9.13693 14.5078 6.71756 11.5234 6.71756ZM11.3905 10.0176C11.3172 9.94418 11.3172 9.82522 11.3905 9.75185C11.4639 9.67848 11.5829 9.67848 11.6562 9.75185L13.8929 11.9885C13.9663 12.0619 13.9663 12.1809 13.8929 12.2542L11.6562 14.4909C11.5829 14.5643 11.4639 14.5643 11.3905 14.4909C11.3172 14.4175 11.3172 14.2986 11.3905 14.2252L13.3065 12.3093L6.49086 12.3093C6.3871 12.3093 6.30298 12.2251 6.30298 12.1214C6.30298 12.0176 6.3871 11.9335 6.49086 11.9335L13.3065 11.9335L11.3905 10.0176Z" fill="white"/>
+              </svg><a class="btn__enter" href="#">Войти</a></div>
+              <div class="btn__registration">
+                <button class="btn__registration" name="btn__registration">Зарегистрироваться</button>
+              </div>
+          </div>
+            </nav>
+        </div>
+    </header>
     <main>
 
         <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>

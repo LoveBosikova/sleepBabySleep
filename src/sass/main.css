@@ -1,3 +1,78 @@
 body {
-  background-color: rgb(55, 17, 159);
+  background-color: #10132F;
+  font-family: "Bellota Text", cursive;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.header {
+  margin-top: 3rem;
+}
+.header__container {
+  max-width: 1292px;
+  height: 48px;
+}
+
+.navbar {
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__logo {
+  margin-left: 300px;
+  display: flex;
+  align-items: center;
+  width: 165px;
+  height: 26px;
+}
+.navbar__logo-img {
+  width: 165px;
+  height: 26px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+}
+
+.btn {
+  margin-left: 2rem;
+  width: 18.188rem;
+  height: 2.813rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn__enter {
+  display: flex;
+  align-items: flex-end;
+  font-size: 0.875rem;
+}
+.btn__registration {
+  font-family: "Bellota Text", cursive;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 11.938rem;
+  height: 2.813rem;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  border: 2px solid #2F80EC;
+  background-color: #10132F;
+  color: #FFFFFF;
 }/*# sourceMappingURL=main.css.map */
