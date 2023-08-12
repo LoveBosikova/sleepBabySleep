@@ -109,7 +109,7 @@
                     </div>
                     <div class="calendar__container">
                         <div class="calendar__datesWrap">
-                            <div class="calendar__dates">
+                            <div class="calendar__dates" id="datesWrap">
                             </div>
 
                             <div class="calendar__pagination calendar__pagination--left">
@@ -144,24 +144,28 @@
                                     <div class="calendar__startTime">
                                         <label for="start-sleeping">
                                             Сон начался в
-                                            </label>
-                                            <input
-                                            id="start-sleeping"
-                                            type="time"
-                                            name="start-sleeping"
-                                            required/>
-                                            <span class="validity"></span>
+                                        </label>
+                                        <input class="calendar__startInput" id="start-sleeping" type="time" name="start-sleeping" required/>
+                                        <span class="calendar__startCheckmark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                            <circle class="calendar__startCheckmarkBg" cx="11.1126" cy="11.728" r="11" transform="rotate(-0.588053 11.1126 11.728)" fill="#26283D"/>
+                                            <path class="calendar__startCheckmarkArrow" fill-rule="evenodd" clip-rule="evenodd" d="M11.2501 15.8522L7.06887 10.3949L15.3184 10.3102L11.2501 15.8522Z" fill="white"/>
+                                            </svg>
+                                        </span>
+                                        <span class="validity"></span>
                                     </div>
                                     <div class="calendar__endTime">
                                         <label for="end-sleeping">
                                             Сон закончился в
-                                            </label>
-                                            <input
-                                            id="end-sleeping"
-                                            type="time"
-                                            name="end-sleeping"
-                                            required/>
-                                            <span class="validity"></span>
+                                        </label>
+                                        <input class="calendar__endInput" id="end-sleeping" type="time" name="end-sleeping" required/>
+                                        <span class="calendar__endCheckmark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                                <circle class="calendar__endCheckmarkBg" cx="11.1126" cy="11.728" r="11" transform="rotate(-0.588053 11.1126 11.728)" fill="#26283D"/>
+                                                <path class="calendar__endCheckmarkArrow" fill-rule="evenodd" clip-rule="evenodd" d="M11.2501 15.8522L7.06887 10.3949L15.3184 10.3102L11.2501 15.8522Z" fill="white"/>
+                                                </svg>
+                                        </span>
+                                        <span class="validity"></span>
                                     </div>
                                 </div>
                                 <ul class="calendar__tags">
@@ -191,7 +195,7 @@
                                     </li>
                                 </ul>
                                 <p class="calendar__commentWrap">
-                                    <textarea class="calendar__comment" rows="10" cols="70" name="comment" id="comment" placeholder="Оставьте комментарий, чтобы потом лучше проанализировать режим"></textarea>
+                                    <textarea class="calendar__comment" name="comment" id="comment" placeholder="Оставьте комментарий, чтобы потом лучше проанализировать режим"></textarea>
                                 </p>
                             </fieldset>
 

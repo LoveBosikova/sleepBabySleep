@@ -1,4 +1,8 @@
+import createDays from './createDays.js'
+
 const render = (state) => {
+
+    createDays(state.stateUI.calendarWeek);
     // Это пример
     // const submit = document.querySelector(/* .... */);
     // const input = document.querySelector(/* .... */);

@@ -10,7 +10,7 @@ body {
     color: $white;
     font-family: 'Bellota Text', cursive;
     font-size: 16px;
-    
+
     li {
         @include reset-list-style();
     }
@@ -177,13 +177,17 @@ body {
 
         &--left {
             left: 0;
-            top: 4vh;
+            top: 3vh;
         }
 
         &--right {
             right: 0;
-            top: 4vh;
+            top: 3vh;
         }
+    }
+
+    &__inputs {
+        max-width: 100%;
     }
 
     &__sleepType {
@@ -201,5 +205,86 @@ body {
 
         flex: 48% 1 1;
         width: 48%;
+    }
+
+    &__startTime, &__endTime {
+        position: relative;
+        margin: .4rem;
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-bottom: 20px;
+        border: 1px solid $white;
+        border-radius: 6px;
+    }
+
+    &__startTime {
+        &:hover .calendar__startInput ~ .calendar__startCheckmark {
+            background-color: #ccc;
+        }
+    }
+
+    &__endTime {
+        &:hover .calendar__endInput ~ .calendar__endCheckmark {
+            background-color: #ccc;
+        }
+    }
+
+    &__startInput, &__endInput {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    &__startCheckmark, &__endCheckmark {
+        position: absolute;
+        top: 30%;
+        right: 20px;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__tag {
+        flex: 50% 1 1;
+        width: 45%;
+        max-width: 45%;
+        min-width: fit-content;
+    }
+
+    &__commentWrap {
+        margin: .4rem;
+    }
+
+    &__commentWrap, &__comment {
+        width: 95.5%;
+        max-width: 95.5%;
+    }
+
+    &__comment {
+        height: 100%;
+        max-height: 100%;
+        border: 0;
+        border-radius: 6px;
+        background-color: $base-dark-blue;
+        border: 1px solid $white;
+        border-radius: 6px;
+        padding: 20px;
+    }
+
+    &__dates {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center
     }
 }

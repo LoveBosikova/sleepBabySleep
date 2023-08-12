@@ -5,10 +5,11 @@ import onChange from 'on-change';
 import Chart from 'chart.js/auto';
 import Day from './Day.js';
 import render from './view.js';
+import createDays from './createDays.js'
 
 // Примеры импортов кода и картинок
 
-const app = () => {
+const app = async () => {
 
     const fullformat = 'DD.MM.YYYY';
 
@@ -20,7 +21,18 @@ const app = () => {
             fields: {
                 name: '',
             },
-            },
+        },
+        stateUI: {
+            calendarWeek:[
+                [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
+                [moment().day(-2).format('ddd'), moment().day(-2).format('DD'), moment().day(-2)],
+                [moment().day(-1).format('ddd'), moment().day(-1).format('DD'), moment().day(-1)],
+                [moment().day(0).format('ddd'), moment().day(0).format('DD'), moment().day(0)],
+                [moment().day(1).format('ddd'), moment().day(1).format('DD'), moment().day(1)],
+                [moment().day(2).format('ddd'), moment().day(2).format('DD'), moment().day(2)],
+                [moment().day(3).format('ddd'), moment().day(3).format('DD'), moment().day(3)],
+            ]
+        }
     }
 
     // Это наш вотчерю он смотрит за любыми изменениями, которые происходят в состоянии
