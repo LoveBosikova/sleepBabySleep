@@ -143,3 +143,33 @@ body {
     right: 5%;
     top: 45%;
 }
+
+//блок цитаты Ричарда Фербера 
+
+.ferber {
+    margin: 2rem 19rem;
+
+    &__container {
+        gap: 127px;
+        display: inline-flex;
+     }
+    }
+
+.quotes {
+    height: 558px;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        margin-top: 56px;}
+}
+
+.sentence {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;}
+
+    &__text {
+        font-size: 18px;}
+
+//Конец блока Цитаты Ричарда Фербера
