@@ -143,3 +143,39 @@ body {
     right: 5%;
     top: 45%;
 }
+
+.mainSection {
+    display: flex;
+    margin: 5rem 2rem;
+
+    &__container {
+        padding: .5rem;
+        display: inline;
+        flex: 50% 1 1;
+        width: 50%;
+        max-width: 50%;
+    }
+}
+
+.calendar {
+    &__datesWrap {
+        position: relative;
+        height: 10vh;
+        z-index: 0;
+    }
+
+    &__pagination {
+        position: absolute;
+        z-index: 2;
+
+        &--left {
+            left: 0;
+            top: 4vh;
+        }
+
+        &--right {
+            right: 0;
+            top: 4vh;
+        }
+    }
+}
