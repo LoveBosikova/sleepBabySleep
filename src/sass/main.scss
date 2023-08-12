@@ -167,9 +167,11 @@ body {
 .sentence {
     gap: 40px;
     display: flex;
-    flex-direction: column;}
-
+    flex-direction: column;
+   
     &__text {
         font-size: 18px;}
+    }
+
 
 //Конец блока Цитаты Ричарда Фербера
