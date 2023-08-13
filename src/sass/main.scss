@@ -187,6 +187,7 @@ body {
     }
 
     &__inputs {
+        margin-top: 1rem;
         max-width: 100%;
     }
 
@@ -280,11 +281,43 @@ body {
 
     &__dates {
         width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 1rem auto;
         height: 100%;
         display: flex;
         justify-content: space-evenly;
-        align-items: center
+        align-items: center;
     }
+
+    &__dayWrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 55%;
+    }
+
+    &__dayNumber {
+        @include belota-700-16;
+    }
+
+    &__dayWeek {
+        @include belota-300-11;
+        color: $grey;
+    }
+
+    &__currentDay {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 44.5%;
+        width: 10%;
+        height: 100%;
+
+        border-radius: 8px;
+        border: 1px solid #2F80EC;
+    }
+    
 }
+
+// .calendar__dates:nth-child(4) {
+//     border: 2px solid white;
+// }

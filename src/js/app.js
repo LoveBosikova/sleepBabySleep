@@ -3,15 +3,19 @@
 import moment from 'moment';
 import onChange from 'on-change';
 import Chart from 'chart.js/auto';
-import Day from './Day.js';
 import render from './view.js';
 import createDays from './createDays.js'
+import { dayForward, dayBackward } from './changeDay.js'
 
 // Примеры импортов кода и картинок
 
 const app = async () => {
 
     const fullformat = 'DD.MM.YYYY';
+    const btnDayForward = document.getElementById('btn-dayForward');
+    const btnDayBackward = document.getElementById('btn-dayBackward');
+    console.log(btnDayForward);
+    console.log(btnDayBackward);
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -31,13 +35,22 @@ const app = async () => {
                 [moment().day(1).format('ddd'), moment().day(1).format('DD'), moment().day(1)],
                 [moment().day(2).format('ddd'), moment().day(2).format('DD'), moment().day(2)],
                 [moment().day(3).format('ddd'), moment().day(3).format('DD'), moment().day(3)],
+
             ]
         }
     }
-
     // Это наш вотчерю он смотрит за любыми изменениями, которые происходят в состоянии
     // Первый параметр - за каким объектом следим, второй - какую функцию запускаем
     const watchedState = onChange(state, render);
+
+    // Обработчики событий ничего не меняют во внешнем виде приложения, они меняют состояние. 
+    // А уже функция рендеринга обрабатывает состояние и меняет внешний вид
+
+    btnDayForward.addEventListener('click', ()=> { dayForward(state)});
+    btnDayBackward.addEventListener('click', ()=> { dayBackward(state)});
+
+
+
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
 

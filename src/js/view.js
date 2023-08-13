@@ -1,8 +1,10 @@
 import createDays from './createDays.js'
 
 const render = (state) => {
-
+    const daysWrap = document.getElementById('datesWrap');
+    daysWrap.innerHTML = '';
     createDays(state.stateUI.calendarWeek);
+    
     // Это пример
     // const submit = document.querySelector(/* .... */);
     // const input = document.querySelector(/* .... */);
