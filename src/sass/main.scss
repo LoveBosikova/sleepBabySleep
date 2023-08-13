@@ -1,5 +1,12 @@
 @import 'mixins';
 @import 'colors';
+@import 'fonts';
+
+@font-face {
+    font-family: 'Shnobel';
+    src: url("../fonts/Shnobel-Regular.otf");
+    font-weight: 400;
+}
 
 body {
     background-color: $base-dark-blue;
@@ -9,9 +16,11 @@ body {
 * {
     color: $white;
     font-family: 'Bellota Text', cursive;
+
     li {
         @include reset-list-style();
     }
+
     a {
         text-decoration: none;
     }
@@ -24,74 +33,97 @@ body {
 
     @keyframes blinking {
         50% {
-            border-color: linear-gradient(90deg, rgba(16,19,47,1) 0%, rgba(47,128,236,1) 50%, rgba(25,27,45,1) 100%);;
+            border-color: linear-gradient(90deg, rgba(16, 19, 47, 1) 0%, rgba(47, 128, 236, 1) 50%, rgba(25, 27, 45, 1) 100%);
+            ;
         }
     }
 }
 
+//Header
 
 .header {
-    margin-top: 3rem;
-
-    &__container {
-        max-width: 98vw;
-        height: 6rem;
-    }
-}
-
-.navbar {
-    font-size: 0.875rem;
-    @include flex-row-space-between();
-    font-family:  "BellotaText-Bold";
-    align-items: center;
+    margin: 3rem auto 0 auto;
+    @include flex-space-between-center;
+    max-width: 80.75rem;
 
     &__logo {
-        margin-left: 300px;
+        @include flex-space-between-center;
+        gap: 1rem;
+    }
+
+    &__nav__items {
+        width: 32.438rem;
+        @include flex-space-between-center;
+    }
+
+    &__buttons {
         display: flex;
-        align-items: center;
-        width: 165px;
-        height: 26px;
     }
 
-    &__img {
-        width: 165px;
-        height: 26px;
-    }
-}
-
-.nav {
-    display: flex;
-    flex-direction: row;
-    gap: 1.25rem;
-}
-
-.btn {
-    margin-left: 2rem;
-    width: 18.188rem;
-    height: 2.813rem;
-    @include flex-space-between-center();
-
-    &__enter {
-        display: flex;
-        align-items: flex-end;
-        font-size: 0.875rem;
+    &__log_in {
+        @include flex-space-between-center;
+        margin-right: 2rem;
     }
 
-    &__registration {
-        @include belota-400-18();
-        width: 11.938rem;
-        height: 2.813rem;
-        font-size: 0.875rem;
-        border-radius: 8px;
+    &__log_in__btn {
+        border: none;
+        background-color: transparent;
+        color: $white;
+        @include belota-400-15;
+    }
+
+    &__sign_in {
         border: 2px solid $border-blue;
-        background-color: $base-dark-blue;
+        border-radius: 8px;
+        background-color: transparent;
+        color: $white;
+        @include belota-400-15;
+        padding: 0.875rem 1.56rem;
+    }
+}
+
+.tracker {
+    &__desc1 {
+        @include shnobel-400-23;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    &__info {
+        @include flex-row-space-between;
+        margin: auto;
+        max-width: 80.75rem;
+        background-image: url('../assets/parents.png');
+        background-repeat: no-repeat;
+        background-position: bottom -5.125rem right -4.555rem;
+    }
+
+    &__text {
+        margin-top: 14rem;
+        width: 37.5rem;
+        flex-basis: 37rem;
+        margin-bottom: 17.5rem;
+    }
+
+    &__title {
+        @include belota-700-47;
+        margin-top: 0;
+    }
+
+    &__to_know {
+        margin-top: 1rem;
+        padding: 1.1rem 3.5rem;
+        background-color: $border-blue;
+        color: $white;
+        border-radius: 0.5rem;
     }
 }
 
 .normalize {
-    margin: 5rem 2rem;
+    //Убрала отступы
+    // margin: 5rem 2rem;
 
-    &__container{
+    &__container {
         padding: .5rem;
     }
 
@@ -110,18 +142,31 @@ body {
         display: flex;
         justify-content: space-evenly;
         gap: 2rem;
+        //Добавила отступ слева 3rem 
+        padding-left: 3rem;
     }
 
-    &__picDescription{
+    &__picDescription {
         padding-left: .5rem;
         display: flex;
         align-items: center;
+    }
+
+    //Добавила шрифты к uptitle и title, убрала margin-top у title
+    &__uptitle {
+        @include shnobel-400-23;
+    }
+
+    &__title {
+        @include belota-700-47;
+        margin-top: 0;
     }
 
     &__cards {
         @include flex-row-space-between;
         margin-top: 2rem;
     }
+
     &__cardInnerContainer {
         padding: .7rem;
         margin: .9rem;
@@ -129,10 +174,12 @@ body {
         background-color: $dark-grey;
         border: 2px solid $border-blue;
         border-radius: 6px;
+
         &--last {
             position: relative;
         }
     }
+
     &__card {
         flex: 30% 1 1;
     }
