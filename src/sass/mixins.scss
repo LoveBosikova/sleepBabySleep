@@ -2,78 +2,6 @@
     list-style-type: none;
 }
 
-@mixin belota-700-47 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    line-height: normal;
-    font-weight: 700;
-    font-size: 47px;
-}
-
-@mixin belota-700-34 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 34px;
-}
-
-@mixin belota-700-33 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 33px;
-}
-
-@mixin belota-700-25 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-}
-
-@mixin belota-700-24 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-}
-
-@mixin belota-700-19 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 19px;
-}
-
-@mixin belota-700-15 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-}
-
-@mixin belota-700-12 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-}
-
-@mixin belota-400-18 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    line-height: normal;
-    font-weight: 400;
-    font-size: 18px;
-}
-
-@mixin belota-400-14 {
-    font-family: 'Bellota Text', cursive;
-    font-style: normal;
-    line-height: normal;
-    font-weight: 400;
-    font-size: 14px;
-}
 @mixin flex-center-center {
     display: flex;
     justify-content: center;
@@ -85,7 +13,7 @@
     flex-direction: row;
     justify-content: space-between;
 }
-    
+
 @mixin flex-space-between-center {
     display: flex;
     justify-content: space-between;
