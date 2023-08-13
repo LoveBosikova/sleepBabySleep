@@ -1,5 +1,9 @@
+
+
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: 'development',
@@ -39,7 +43,7 @@ module.exports = {
             { 
                 test: /\.(js)$/, 
                 use: 'babel-loader' 
-            }
+            },
         ]
     },
 

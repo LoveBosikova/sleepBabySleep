@@ -1,15 +1,12 @@
 // Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт
-import './sass/main.scss';
+
 import moment from 'moment';
 import onChange from 'on-change';
 import Chart from 'chart.js/auto';
-import Day from './js/Day.js';
+import Day from './Day.js';
 import render from './view.js';
 
 // Примеры импортов кода и картинок
-import tesla from './assets/picture.jpg';
-import hello from './js/hello';
-import quotes from './js/quotes.js';
 
 const app = () => {
 
