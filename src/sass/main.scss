@@ -16,6 +16,8 @@ body {
 * {
     color: $white;
     font-family: 'Bellota Text', cursive;
+    font-size: 16px;
+
 
     li {
         @include reset-list-style();
@@ -190,3 +192,217 @@ body {
     right: 5%;
     top: 45%;
 }
+
+.mainSection {
+    display: flex;
+    margin: 5rem 2rem;
+
+    &__container {
+        width: 100%;
+        padding: .5rem;
+    }
+}
+
+.calendarSide {
+        flex: 50% 1 1;
+        width: 40%;
+        max-width: 40%;
+        margin-right: auto;
+}
+
+
+.calendar {
+    &__datesWrap {
+        position: relative;
+        height: 10vh;
+        z-index: 0;
+    }
+
+    &__pagination {
+        position: absolute;
+        z-index: 2;
+
+        &--left {
+            left: 0;
+            top: 3vh;
+        }
+
+        &--right {
+            right: 0;
+            top: 3vh;
+        }
+    }
+
+    &__inputs {
+        margin-top: 1rem;
+        max-width: 100%;
+    }
+
+    &__sleepType {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__sleepType-rbtn {
+        margin: .4rem;
+        border: 1px solid $white;
+        padding: 1.2rem;
+        text-align: center;
+        border-radius: 6px;
+
+        @include flex-center-center;
+
+        flex: 48% 1 1;
+        width: 48%;
+    }
+
+    &__sleepType-rbtn:active {
+        background-color: $border-blue;
+        border: 1px solid $border-blue;
+    }
+
+    &__sleepType-checkbox {
+        opacity: 0;
+        height: 1px;
+        width: 1px;
+    }
+
+    &__sleepType-text {
+        margin-left: -.5rem;
+    }
+
+    &__startTime, &__endTime {
+        position: relative;
+        margin: .4rem;
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-bottom: 20px;
+        border: 1px solid $white;
+        border-radius: 6px;
+    }
+
+    &__startTime {
+        &:hover .calendar__startInput ~ .calendar__startCheckmark {
+            background-color: #ccc;
+        }
+    }
+
+    &__endTime {
+        &:hover .calendar__endInput ~ .calendar__endCheckmark {
+            background-color: #ccc;
+        }
+    }
+
+    &__startInput, &__endInput {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    &__startCheckmark, &__endCheckmark {
+        position: absolute;
+        top: 30%;
+        right: 20px;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+    }
+
+    &__tags {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: .5rem 1rem;
+        border-radius: 6px;
+        border: 1px dashed $border-blue;
+        padding: 20px 23px;
+
+        @include belota-400-12;
+    }
+
+    &__tag {
+        position: relative;
+        min-width: fit-content;
+        margin-top: .1rem;
+        margin-bottom: .1rem;
+        border-radius: 6px;
+        border: 1px solid #FFF;
+        padding: 7px 10px;
+
+        text-align: center;
+
+        @include flex-center-center;
+        @include belota-400-12;
+    }
+
+    &__tagCheckbox {
+        position: absolute;
+        opacity: 0;
+        height: 1px;
+        width: 1px;
+    }
+
+    &__commentWrap {
+        margin: .4rem;
+    }
+
+    &__commentWrap, &__comment {
+        width: 95.5%;
+        max-width: 95.5%;
+    }
+
+    &__comment {
+        height: 100%;
+        max-height: 100%;
+        border: 0;
+        border-radius: 6px;
+        background-color: $base-dark-blue;
+        border: 1px solid $white;
+        border-radius: 6px;
+        padding: 20px;
+    }
+
+    &__dates {
+        width: 90%;
+        margin: 1rem auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    &__dayWrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 55%;
+    }
+
+    &__dayNumber {
+        @include belota-700-16;
+    }
+
+    &__dayWeek {
+        @include belota-300-11;
+        color: $grey;
+    }
+
+    &__currentDay {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 44.5%;
+        width: 10%;
+        height: 100%;
+
+        border-radius: 8px;
+        border: 1px solid #2F80EC;
+    }
+    
+}
+
+// .calendar__dates:nth-child(4) {
+//     border: 2px solid white;
+// }
