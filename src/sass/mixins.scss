@@ -82,6 +82,14 @@
     font-size: 14px;
 }
 
+@mixin belota-400-12 {
+    font-family: 'Bellota Text', cursive;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400;
+    font-size: 12px;
+}
+
 @mixin belota-300-11 {
     font-family: 'Bellota Text', cursive;
     font-style: normal;

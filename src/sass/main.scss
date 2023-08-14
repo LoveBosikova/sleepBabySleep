@@ -246,13 +246,29 @@ body {
     &__sleepType-rbtn {
         margin: .4rem;
         border: 1px solid $white;
-        padding-top: 20px;
-        padding-left: 30px;
-        padding-bottom: 20px;
+        padding: 1.2rem;
+        text-align: center;
         border-radius: 6px;
+
+        @include flex-center-center;
 
         flex: 48% 1 1;
         width: 48%;
+    }
+
+    &__sleepType-rbtn:active {
+        background-color: $border-blue;
+        border: 1px solid $border-blue;
+    }
+
+    &__sleepType-checkbox {
+        opacity: 0;
+        height: 1px;
+        width: 1px;
+    }
+
+    &__sleepType-text {
+        margin-left: -.5rem;
     }
 
     &__startTime, &__endTime {
@@ -295,15 +311,37 @@ body {
     }
 
     &__tags {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: .5rem 1rem;
+        border-radius: 6px;
+        border: 1px dashed $border-blue;
+        padding: 20px 23px;
+
+        @include belota-400-12;
     }
 
     &__tag {
-        flex: 50% 1 1;
-        width: 45%;
-        max-width: 45%;
+        position: relative;
         min-width: fit-content;
+        margin-top: .1rem;
+        margin-bottom: .1rem;
+        border-radius: 6px;
+        border: 1px solid #FFF;
+        padding: 7px 10px;
+
+        text-align: center;
+
+        @include flex-center-center;
+        @include belota-400-12;
+    }
+
+    &__tagCheckbox {
+        position: absolute;
+        opacity: 0;
+        height: 1px;
+        width: 1px;
     }
 
     &__commentWrap {

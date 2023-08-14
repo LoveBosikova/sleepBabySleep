@@ -245,12 +245,12 @@
                             <fieldset form="calendar" class="calendar__inputs">
                                 <div class="calendar__sleepType">
                                     <div class="calendar__sleepType-rbtn">
-                                        <input type="radio" id="dayType" name="sleepingType" value="dayNap"/>
-                                        <label for="dayType">Дневной сон</label>
+                                        <input class="calendar__sleepType-checkbox" type="radio" id="dayType" name="sleepingType" value="dayNap"/>
+                                        <label class="calendar__sleepType-text" for="dayType">Дневной сон</label>
                                     </div>
                                     <div class="calendar__sleepType-rbtn">
-                                        <input type="radio" id="nightType" name="sleepingType" value="nightSleeping"/>
-                                    <label for="nightType">Ночной сон</label>
+                                        <input class="calendar__sleepType-checkbox"type="radio" id="nightType" name="sleepingType" value="nightSleeping"/>
+                                        <label class="calendar__sleepType-text" for="nightType">Ночной сон</label>
                                     </div>
                                 </div>
 
@@ -282,31 +282,31 @@
                                         <span class="validity"></span>
                                     </div>
                                 </div>
-                                <ul class="calendar__tags">
-                                    <li class="calendar__tag">
-                                        <input type="checkbox" id="nipple" value="nipple" name="sleepingTag"/>
+                                <ul class="calendar__tags" id="tagsWrap">
+                                    <!-- <li class="calendar__tag">
+                                        <input class="calendar__tagCheckbox" type="checkbox" id="nipple" value="nipple" name="sleepingTag"/>
                                         <label for="sleepingTag">Соска</label>
                                     </li>
                                     <li class="calendar__tag">
-                                        <input type="checkbox" id="bottle" value="bottle" name="sleepingTag"/>
+                                        <input class="calendar__tagCheckbox" type="checkbox" id="bottle" value="bottle" name="sleepingTag"/>
                                         <label for="sleepingTag">Бутылочка</label>
                                     </li>
                                     <li class="calendar__tag">
-                                        <input type="checkbox" id="sleepHisteria" value="sleepHisteria" name="sleepingTag"/>
+                                        <input class="calendar__tagCheckbox" type="checkbox" id="sleepHisteria" value="sleepHisteria" name="sleepingTag"/>
                                         <label for="sleepingTag">Заснул с истерикой</label>
                                     </li>
                                     <li class="calendar__tag">
-                                        <input type="checkbox" id="weakingUpHisteria" value="weakingUpHisteria" name="sleepingTag"/>
+                                        <input class="calendar__tagCheckbox" type="checkbox" id="weakingUpHisteria" value="weakingUpHisteria" name="sleepingTag"/>
                                         <label for="sleepingTag">Проснулся с истерикой</label>
                                     </li>
                                     <li class="calendar__tag">
-                                        <input type="checkbox" id="perfectSleeping" value="perfectSleeping" name="sleepingTag"/>
+                                        <input class="calendar__tagCheckbox" type="checkbox" id="perfectSleeping" value="perfectSleeping" name="sleepingTag"/>
                                         <label for="sleepingTag">Хорошо заснул</label>
                                     </li>
                                     <li class="calendar__tag">
-                                        <input type="checkbox" id="perfectWeakingUp" value="perfectWeakingUp" name="sleepingTag"/>
+                                        <input class="calendar__tagCheckbox" type="checkbox" id="perfectWeakingUp" value="perfectWeakingUp" name="sleepingTag"/>
                                         <label for="sleepingTag">Проснулся в настроении</label>
-                                    </li>
+                                    </li> -->
                                 </ul>
                                 <p class="calendar__commentWrap">
                                     <textarea class="calendar__comment" name="comment" id="comment" placeholder="Оставьте комментарий, чтобы потом лучше проанализировать режим"></textarea>

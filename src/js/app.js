@@ -6,6 +6,7 @@ import Chart from 'chart.js/auto';
 import render from './view.js';
 import createDays from './createDays.js'
 import { dayForward, dayBackward } from './changeDay.js'
+import renderTags from './renderTags.js';
 
 // Примеры импортов кода и картинок
 
@@ -14,8 +15,6 @@ const app = async () => {
     const fullformat = 'DD.MM.YYYY';
     const btnDayForward = document.getElementById('btn-dayForward');
     const btnDayBackward = document.getElementById('btn-dayBackward');
-    console.log(btnDayForward);
-    console.log(btnDayBackward);
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -25,7 +24,26 @@ const app = async () => {
             fields: {
                 name: '',
             },
-            },
+        },
+        stateUI: {
+            calendarWeek:[
+                [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
+                [moment().day(-2).format('ddd'), moment().day(-2).format('DD'), moment().day(-2)],
+                [moment().day(-1).format('ddd'), moment().day(-1).format('DD'), moment().day(-1)],
+                [moment().day(0).format('ddd'), moment().day(0).format('DD'), moment().day(0)],
+                [moment().day(1).format('ddd'), moment().day(1).format('DD'), moment().day(1)],
+                [moment().day(2).format('ddd'), moment().day(2).format('DD'), moment().day(2)],
+                [moment().day(3).format('ddd'), moment().day(3).format('DD'), moment().day(3)],
+            ],
+            tags: [
+                { value: 'nipple', text: 'Соска', isChecked: false},
+                { value: 'bottle', text: 'Бутылочка', isChecked: false},
+                { value: 'sleepHisteria', text: 'Заснул с истерикой', isChecked: false},
+                { value: 'perfectSleeping', text: 'Хорошо заснул', isChecked: false},
+                { value: 'weakingUpHisteria', text: 'Проснулся с истерикой', isChecked: false},
+                { value: 'perfectWeakingUp', text: 'Проснулся в настроении', isChecked: false}
+            ]
+        }
     }
     // Это наш вотчерю он смотрит за любыми изменениями, которые происходят в состоянии
     // Первый параметр - за каким объектом следим, второй - какую функцию запускаем
@@ -37,11 +55,16 @@ const app = async () => {
     btnDayForward.addEventListener('click', ()=> { dayForward(state)});
     btnDayBackward.addEventListener('click', ()=> { dayBackward(state)});
 
-
-
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
 
+    
+    const tags = [...document.querySelectorAll('.calendar__tag')];
+    tags.forEach((tag)=>{
+        tag.addEventListener('click', (e)=>{
+            
+        })
+    })
 }
 
 export default app;
