@@ -194,7 +194,7 @@ body {
 //блок цитаты Ричарда Фербера 
 
 .ferber {
-    margin: 2rem 19rem;
+    margin: 6rem 19rem;
 
     &__container {
         gap: 127px;
@@ -208,7 +208,11 @@ body {
     flex-direction: column;
 
     &__header {
-        margin-top: 56px;}
+        margin-top: 56px;
+        display: inline-flex;
+        gap: 20px;
+    }
+        
 }
 
 .sentence {
