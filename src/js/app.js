@@ -59,12 +59,23 @@ const app = async () => {
     render(state);
 
     
-    const tags = [...document.querySelectorAll('.calendar__tag')];
-    tags.forEach((tag)=>{
-        tag.addEventListener('click', (e)=>{
-            
+    const tags = document.querySelectorAll('.calendar__tagLabel');
+
+    for (const tag of tags) {
+        console.log(tag);
+        tag.addEventListener('click', (e) => {
+            console.log(state.stateUI.tags);
+            console.log(e.target.previousSibling);
+            for(const item of state.stateUI.tags){
+                if (item.value == e.target.previousElementSibling.value) {
+                    item.isChecked = item.isChecked == false ? true : false;
+                }
+            };
+            console.log(state.stateUI.tags);
+            render(state);
         })
-    })
+    }
 }
+
 
 export default app;
