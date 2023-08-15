@@ -16,5 +16,4 @@ const renderTags = (tags) => {
 
 }
 
-
 export default renderTags;

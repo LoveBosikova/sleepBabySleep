@@ -63,6 +63,13 @@
     font-size: 18px;
 }
 
+@mixin belota-400-15 {
+    font-family: 'Bellota Text', cursive;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400;
+    font-size: 15px;
+}
 @mixin belota-400-14 {
     font-family: 'Bellota Text', cursive;
     font-style: normal;
@@ -71,15 +78,21 @@
     font-size: 14px;
 }
 
-@mixin belota-400-15 {
+
+@mixin belota-400-12 {
     font-family: 'Bellota Text', cursive;
     font-style: normal;
     line-height: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 @mixin shnobel-400-23 {
     font-family: 'Shnobel', sans-serif;
-    font-size: 1.4rem;
+    font-size: 23px;
+}
+
+@mixin shnobel-400-20 {
+    font-family: 'Shnobel', sans-serif;
+    font-size: 20px;
 }
