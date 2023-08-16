@@ -133,6 +133,7 @@ body {
     &__container {
         padding: .5rem;
         margin-bottom: 15rem;
+        background-color: $cloud-light-blue;
     }
 
     &__header {
@@ -158,16 +159,19 @@ body {
         padding-left: .5rem;
         display: flex;
         align-items: center;
+        color: $main-black;
     }
 
     //Добавила шрифты к uptitle и title, убрала margin-top у title
     &__uptitle {
         @include shnobel-400-23;
+        color: $main-black;
     }
 
     &__title {
         @include belota-700-47;
         margin-top: 0;
+        color: $main-black;
     }
 
     &__cards {
@@ -203,32 +207,41 @@ body {
     margin: 18rem 5rem;
 
     &__container {
-        @include flex-space-between-center;
+        //Поменяла flex-space-between-center на flex-row-space-between 
+        @include flex-row-space-between;
         max-width: 76%;
         margin-left: auto;
         margin-right: auto;
+        gap: 6.875rem;
+        display: flex;
     }
 }
 
 .calendarSide {
-    flex: 50% 1 1;
+    // Поменяла расположение
+    flex-basis: 50%;
+    // flex: 50% 1 1;
     width: 40%;
     max-width: 40%;
     margin-right: auto;
-    flex: 50% 1 1;
+    // flex: 50% 1 1;
     max-width: 41.5%;
     margin-left: auto;
     margin-right: auto;
 
     &__uptitle {
-        @include shnobel-400-20;
+        //Поменяла шрифт
+        // @include shnobel-400-20;
+        @include shnobel-400-23;
         margin: 0;
         padding-bottom: 1rem;
         padding-left: .5rem;
     }
 
     &__title {
-        @include belota-700-34;
+        //Поменяла шрифт
+        // @include belota-700-34;
+        @include belota-700-47;
         margin: 0;
 
     }
@@ -459,12 +472,56 @@ body {
 
     }
 
-    .statistic {
-        flex: 50% 1 1;
-        width: 40vw;
-        height: 100%;
-    }
+    // .statistic {
+    //     flex: 50% 1 1;
+    //     width: 40vw;
+    //     height: 100%;
+    // }
 
     // .calendar__dates:nth-child(4) {
     //     border: 2px solid white;
     // }
+}
+
+.statistic {
+    flex-basis: 50%;
+
+    &__notification {
+        display: flex;
+        gap: 2.094rem;
+        margin-bottom: 3rem;
+    }
+
+    &__notification__desc {
+        max-width: 25.55rem;
+        @include belota-400-18;
+        padding-top: 1rem;
+    }
+
+    &__dreams {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.563;
+    }
+
+    &__dreams__btn {
+        background-color: transparent;
+        border: 1px solid #2CB57F;
+        @include belota-400-18;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+    }
+
+    &__dreams__btn:focus {
+        background-color: #2CB57F;
+    }
+
+    &__diagram {
+        width: 37.375rem;
+        height: 32.125rem;
+        border-radius: 6px;
+        border: 2px dashed #2F80EC;
+        margin-top: 3.438rem;
+        margin-bottom: 3.438rem;
+    }
+}
