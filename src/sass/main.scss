@@ -135,7 +135,6 @@ body {
     &__container {
         padding: .5rem;
         margin-bottom: 15rem;
-        background-color: $cloud-light-blue;
     }
 
     &__header {
@@ -161,19 +160,16 @@ body {
         padding-left: .5rem;
         display: flex;
         align-items: center;
-        color: $main-black;
     }
 
     //Добавила шрифты к uptitle и title, убрала margin-top у title
     &__uptitle {
         @include shnobel-400-23;
-        color: $main-black;
     }
 
     &__title {
         @include belota-700-47;
         margin-top: 0;
-        color: $main-black;
     }
 
     &__cards {
@@ -213,8 +209,6 @@ body {
         max-width: 81%;
         margin-left: auto;
         margin-right: auto;
-        gap: 6.875rem;
-        display: flex;
     }
 }
 
@@ -225,18 +219,14 @@ body {
     margin-right: auto;
 
     &__uptitle {
-        //Поменяла шрифт
-        // @include shnobel-400-20;
-        @include shnobel-400-23;
+        @include shnobel-400-20;
         margin: 0;
         padding-bottom: 1rem;
         padding-left: .5rem;
     }
 
     &__title {
-        //Поменяла шрифт
-        // @include belota-700-34;
-        @include belota-700-47;
+        @include belota-700-34;
         margin: 0;
 
     }
