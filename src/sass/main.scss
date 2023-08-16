@@ -11,6 +11,8 @@
 body {
     background-color: $base-dark-blue;
     @include belota-400-18();
+    padding: 0;
+    margin: 0;
 }
 
 * {
@@ -444,6 +446,92 @@ body {
     height: 100%;
 }
 
-// .calendar__dates:nth-child(4) {
-//     border: 2px solid white;
-// }
+.footer {
+    background-image: url('../assets/footerClouds.png');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-position-y: 3rem;
+    margin-bottom: -2rem;
+    height: 27vh;
+    &__container {
+        max-width: 1920px;
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    &__rights {
+        @include belota-700-12;
+    }
+    
+    &__svgWrap {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    &__svgWrap > svg {
+        max-width: fit-content;
+        width: 40%;
+    }
+
+    &__babyHead {
+        margin-right: 0.5rem;
+    }
+
+    &__upTitle {
+        @include shnobel-400-23;
+        margin: 0;
+    }
+
+    &__donat {
+        @include belota-400-14;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__donatBtn {
+        padding: .6rem 1.5rem;
+        background-color: $border-blue;
+        border-color: $border-blue;
+        border-radius: 8px;
+        @include belota-400-18;
+        cursor: pointer;
+    }
+
+    &__rightSection {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    &__enter {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__btn {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        &>svg {
+            margin-right: .5rem;
+        }
+    }
+
+    &__login {
+        background-color: transparent;
+        border: 2px solid $border-blue;
+        border-radius: 8px;
+        padding: .6rem 1.5rem;
+        cursor: pointer;
+    }
+}
