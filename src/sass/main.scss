@@ -204,7 +204,7 @@ body {
 
     &__container {
         @include flex-space-between-center;
-        max-width: 76%;
+        max-width: 81%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -212,7 +212,7 @@ body {
 
 .calendarSide {
         flex: 50% 1 1;
-        max-width: 41.5%;
+        max-width: 30.5%;
         margin-left: auto;
         margin-right: auto;
 
@@ -295,10 +295,13 @@ body {
 
     &__startTime, &__endTime {
         position: relative;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
         margin-top: 1rem;
-        padding-top: 1rem;
-        padding-left: 30px;
-        padding-bottom: 1rem;
+        padding: 1rem 4rem;
+
         border: 1px solid $white;
         border-radius: 6px;
     }
@@ -316,20 +319,9 @@ body {
     }
 
     &__startInput, &__endInput {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
-
-    &__startCheckmark, &__endCheckmark {
-        position: absolute;
-        top: 30%;
-        right: 20px;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
+        margin-left: auto;
+        width: 30%;
+        color: $dark-grey;
     }
 
     &__tags {
