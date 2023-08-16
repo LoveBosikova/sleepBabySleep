@@ -60,35 +60,40 @@ body {
         gap: 1rem;
     }
 
-    &__nav__items {
-        width: 32.438rem;
-        @include flex-space-between-center;
-    }
-
     &__buttons {
         display: flex;
     }
 
-    &__log_in {
+    &__log-in {
         @include flex-space-between-center;
         margin-right: 2rem;
     }
 
-    &__log_in__btn {
-        border: none;
-        background-color: transparent;
-        color: $white;
-        @include belota-400-15;
-    }
-
-    &__sign_in {
+    &__sign-in {
         border: 2px solid $border-blue;
         border-radius: 8px;
         background-color: transparent;
         color: $white;
         @include belota-400-15;
         padding: 0.875rem 1.56rem;
+        cursor: pointer;
     }
+}
+
+.nav__items {
+    width: 32.438rem;
+    @include flex-space-between-center;
+}
+
+.log-in__btn {
+    border: none;
+    background-color: transparent;
+    color: $white;
+    @include belota-400-15;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    cursor: pointer;
 }
 
 .tracker {
@@ -119,7 +124,7 @@ body {
         margin-top: 0;
     }
 
-    &__to_know {
+    &__to-know {
         margin-top: 1rem;
         padding: 1.1rem 3.5rem;
         background-color: $border-blue;
@@ -213,7 +218,8 @@ body {
 }
 
 .calendarSide {
-    flex: 50% 1 1;
+    // flex: 50% 1 1;
+    flex-basis: 50%;
     max-width: 30.5%;
     margin-left: auto;
     margin-right: auto;
@@ -444,9 +450,50 @@ body {
 }
 
 .statistic {
-    flex: 50% 1 1;
+    flex-basis: 50%;
+    // flex: 50% 1 1;
     width: 40vw;
+    max-width: 38rem;
     height: 100%;
+
+    &__notification {
+        display: flex;
+        gap: 2.094rem;
+        margin-bottom: 3rem;
+    }
+
+    &__dreams {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.563;
+    }
+
+    &__diagram {
+        width: 37.375rem;
+        height: 32.125rem;
+        border-radius: 6px;
+        border: 2px dashed #2F80EC;
+        margin-top: 3.438rem;
+        margin-bottom: 3.438rem;
+    }
+}
+
+.notification__desc {
+    max-width: 25.55rem;
+    @include belota-400-18;
+    padding-top: 1rem;
+}
+
+.dreams__btn {
+    background-color: transparent;
+    border: 1px solid #2CB57F;
+    @include belota-400-18;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+}
+
+.dreams__btn:focus {
+    background-color: #2CB57F;
 }
 
 .footer {
