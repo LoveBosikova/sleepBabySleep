@@ -1,15 +1,11 @@
-// function changeVisibility(i) {
-//     switch (state[i].display) {
-//         case 'block':
-//             state[i].display = 'none';
-//             break;
-//         case 'none':
-//             state[i].display = 'block';
-//             break;
-//     }
-//     const faqList = document.getElementById('faqList');
-//     faqList.innerHTML = '';
-//     createFaq(state);
-// }
+function changeVisibility(state, i) {
+    if (state.display == 'none') {
+        state.display = 'block';
+    } else {
+        state.display = 'none';
+    }
+    const answers = [...document.getElementsByClassName('accordion__answer')];
+    answers[i].style.display = state.display;
+}
 
-// export default changeVisibility;
+export default changeVisibility;
