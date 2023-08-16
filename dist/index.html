@@ -260,53 +260,39 @@
                                             Сон начался в
                                         </label>
                                         <input class="calendar__startInput" id="start-sleeping" type="time" name="start-sleeping" required/>
-                                        <span class="calendar__startCheckmark">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
-                                            <circle class="calendar__startCheckmarkBg" cx="11.1126" cy="11.728" r="11" transform="rotate(-0.588053 11.1126 11.728)" fill="#26283D"/>
-                                            <path class="calendar__startCheckmarkArrow" fill-rule="evenodd" clip-rule="evenodd" d="M11.2501 15.8522L7.06887 10.3949L15.3184 10.3102L11.2501 15.8522Z" fill="white"/>
-                                            </svg>
-                                        </span>
-                                        <span class="validity"></span>
                                     </div>
                                     <div class="calendar__endTime">
                                         <label for="end-sleeping">
                                             Сон закончился в
                                         </label>
                                         <input class="calendar__endInput" id="end-sleeping" type="time" name="end-sleeping" required/>
-                                        <span class="calendar__endCheckmark">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
-                                                <circle class="calendar__endCheckmarkBg" cx="11.1126" cy="11.728" r="11" transform="rotate(-0.588053 11.1126 11.728)" fill="#26283D"/>
-                                                <path class="calendar__endCheckmarkArrow" fill-rule="evenodd" clip-rule="evenodd" d="M11.2501 15.8522L7.06887 10.3949L15.3184 10.3102L11.2501 15.8522Z" fill="white"/>
-                                                </svg>
-                                        </span>
-                                        <span class="validity"></span>
                                     </div>
                                 </div>
                                 <ul class="calendar__tags" id="tagsWrap">
-                                    <!-- <li class="calendar__tag">
+                                    <li class="calendar__tag">
                                         <input class="calendar__tagCheckbox" type="checkbox" id="nipple" value="nipple" name="sleepingTag"/>
-                                        <label for="sleepingTag">Соска</label>
+                                        <label class="calendar__tagLabel" for="sleepingTag">Соска</label>
                                     </li>
                                     <li class="calendar__tag">
                                         <input class="calendar__tagCheckbox" type="checkbox" id="bottle" value="bottle" name="sleepingTag"/>
-                                        <label for="sleepingTag">Бутылочка</label>
+                                        <label class="calendar__tagLabel" for="sleepingTag">Бутылочка</label>
                                     </li>
                                     <li class="calendar__tag">
                                         <input class="calendar__tagCheckbox" type="checkbox" id="sleepHisteria" value="sleepHisteria" name="sleepingTag"/>
-                                        <label for="sleepingTag">Заснул с истерикой</label>
+                                        <label  class="calendar__tagLabel"for="sleepingTag">Заснул с истерикой</label>
                                     </li>
                                     <li class="calendar__tag">
                                         <input class="calendar__tagCheckbox" type="checkbox" id="weakingUpHisteria" value="weakingUpHisteria" name="sleepingTag"/>
-                                        <label for="sleepingTag">Проснулся с истерикой</label>
+                                        <label class="calendar__tagLabel" for="sleepingTag">Проснулся с истерикой</label>
                                     </li>
                                     <li class="calendar__tag">
                                         <input class="calendar__tagCheckbox" type="checkbox" id="perfectSleeping" value="perfectSleeping" name="sleepingTag"/>
-                                        <label for="sleepingTag">Хорошо заснул</label>
+                                        <label class="calendar__tagLabel" for="sleepingTag">Хорошо заснул</label>
                                     </li>
                                     <li class="calendar__tag">
                                         <input class="calendar__tagCheckbox" type="checkbox" id="perfectWeakingUp" value="perfectWeakingUp" name="sleepingTag"/>
-                                        <label for="sleepingTag">Проснулся в настроении</label>
-                                    </li> -->
+                                        <label class="calendar__tagLabel" for="sleepingTag">Проснулся в настроении</label>
+                                    </li>
                                 </ul>
                                 <p class="calendar__commentWrap">
                                     <textarea class="calendar__comment" name="comment" id="comment" placeholder="Оставьте комментарий, чтобы потом лучше проанализировать режим"></textarea>
@@ -330,7 +316,14 @@
         </section>
 
     </main>
-    <footer></footer>
+    <footer class="footer">
+        <div class="footer__container">
+
+        </div>
+        <div class="footer__cloudsWrap">
+            <img src="footerClouds.png" alt="">
+        </div>
+    </footer>
     </script>
 </body>
 
