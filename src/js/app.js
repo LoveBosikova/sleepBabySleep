@@ -11,6 +11,8 @@ import {
 } from './changeDay.js'
 import renderTags from './renderTags.js';
 import faq from './faq.js';
+import createFaq from './createFAQ.js';
+import changeVisibility from './changeVisibility.js';
 
 // Примеры импортов кода и картинок
 
@@ -22,7 +24,6 @@ const app = async () => {
 
     const faqAcc = Array.from(faq.map((item) => {
         return {
-            faqId: item.id,
             question: item.question,
             answer: item.answer,
             display: 'none',
@@ -94,7 +95,9 @@ const app = async () => {
     });
 
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
+    createFaq(state.stateUI.accordion);
     render(state);
+
 
     const tags = document.querySelectorAll('.calendar__tagLabel');
 
@@ -109,7 +112,13 @@ const app = async () => {
             render(state);
         })
     }
-}
 
+    const btnsAcc = [...document.getElementsByClassName('accordion__question')];
+    btnsAcc.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            changeVisibility(state.stateUI.accordion[i], i)
+        })
+    })
+}
 
 export default app;
