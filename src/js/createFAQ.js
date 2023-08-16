@@ -1,5 +1,4 @@
 import createFaqDiv from "./createFaqDiv";
-import faq from "./faq";
 
 function createFaq(faq) {
     const faqList = document.getElementById('faqList');
