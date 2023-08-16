@@ -45,10 +45,7 @@ const app = async () => {
             ]
         }
     }
-    // Это наш вотчерю он смотрит за любыми изменениями, которые происходят в состоянии
-    // Первый параметр - за каким объектом следим, второй - какую функцию запускаем
-    const watchedState = onChange(state, render);
-
+    
     // Обработчики событий ничего не меняют во внешнем виде приложения, они меняют состояние. 
     // А уже функция рендеринга обрабатывает состояние и меняет внешний вид
 
@@ -57,14 +54,20 @@ const app = async () => {
 
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
-
     
-    const tags = [...document.querySelectorAll('.calendar__tag')];
-    tags.forEach((tag)=>{
-        tag.addEventListener('click', (e)=>{
-            
+    const tags = document.querySelectorAll('.calendar__tagLabel');
+
+    for (const tag of tags) {
+        console.log(tag);
+        tag.addEventListener('click', (e) => {
+            for(const item of state.stateUI.tags){
+                if (item.value == e.target.previousElementSibling.value) {
+                    item.isChecked = item.isChecked == false ? true : false;
+                }
+            };
+            render(state);
         })
-    })
+    }
 }
 
 export default app;

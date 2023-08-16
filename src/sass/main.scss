@@ -26,6 +26,11 @@ body {
     a {
         text-decoration: none;
     }
+
+    fieldset {
+        border: none;
+        padding: 0;
+    }
 }
 
 .blinking {
@@ -127,6 +132,7 @@ body {
 
     &__container {
         padding: .5rem;
+        margin-bottom: 15rem;
     }
 
     &__header {
@@ -194,12 +200,13 @@ body {
 }
 
 .mainSection {
-    display: flex;
-    margin: 5rem 2rem;
+    margin: 18rem 5rem;
 
     &__container {
-        width: 100%;
-        padding: .5rem;
+        @include flex-space-between-center;
+        max-width: 76%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -208,11 +215,31 @@ body {
     width: 40%;
     max-width: 40%;
     margin-right: auto;
+    flex: 50% 1 1;
+    max-width: 41.5%;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__uptitle {
+        @include shnobel-400-20;
+        margin: 0;
+        padding-bottom: 1rem;
+        padding-left: .5rem;
+    }
+
+    &__title {
+        @include belota-700-34;
+        margin: 0;
+
+    }
 }
 
 
 .calendar {
+
+
     &__datesWrap {
+        margin-top: 3rem;
         position: relative;
         height: 10vh;
         z-index: 0;
@@ -244,16 +271,15 @@ body {
     }
 
     &__sleepType-rbtn {
-        margin: .4rem;
         border: 1px solid $white;
-        padding: 1.2rem;
+        padding: .8rem;
         text-align: center;
         border-radius: 6px;
 
         @include flex-center-center;
 
-        flex: 48% 1 1;
-        width: 48%;
+        flex: 50% 1 1;
+        max-width: 42%;
     }
 
     &__sleepType-rbtn:active {
@@ -274,10 +300,10 @@ body {
     &__startTime,
     &__endTime {
         position: relative;
-        margin: .4rem;
-        padding-top: 20px;
+        margin-top: 1rem;
+        padding-top: 1rem;
         padding-left: 30px;
-        padding-bottom: 20px;
+        padding-bottom: 1rem;
         border: 1px solid $white;
         border-radius: 6px;
     }
@@ -314,15 +340,14 @@ body {
     }
 
     &__tags {
+        margin-top: 1.1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         gap: .5rem 1rem;
         border-radius: 6px;
         border: 1px dashed $border-blue;
         padding: 20px 23px;
-
-        @include belota-400-12;
     }
 
     &__tag {
@@ -332,7 +357,7 @@ body {
         margin-bottom: .1rem;
         border-radius: 6px;
         border: 1px solid #FFF;
-        padding: 7px 10px;
+        padding: .1rem .2rem;
 
         text-align: center;
 
@@ -347,6 +372,10 @@ body {
         width: 1px;
     }
 
+    &__tagLabel {
+        @include belota-400-12;
+    }
+
     &__commentWrap {
         margin: .4rem;
     }
@@ -355,58 +384,87 @@ body {
     &__comment {
         width: 95.5%;
         max-width: 95.5%;
+
+        &__commentWrap,
+        &__comment {
+            width: 100%;
+            max-width: 95%;
+        }
+
+        &__comment {
+            height: 100%;
+            max-height: 100%;
+            border: 0;
+            border-radius: 6px;
+            background-color: $base-dark-blue;
+            border: 1px solid $white;
+            border-radius: 6px;
+            padding: 20px;
+            margin-left: -.5rem;
+        }
+
+        &__dates {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        &__dayWrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 55%;
+        }
+
+        &__dayNumber {
+            @include belota-700-16;
+        }
+
+        &__dayWeek {
+            @include belota-300-11;
+            color: $grey;
+        }
+
+        &__currentDay {
+            position: absolute;
+            z-index: 3;
+            top: 6px;
+            left: 44.5%;
+            width: 10%;
+            height: 80%;
+
+            border-radius: 8px;
+            border: 1px solid $border-blue;
+        }
+
+        &__buttons {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        &__btn {
+            margin-top: .5rem;
+            border-radius: 8px;
+            border: 1px solid $border-blue;
+            background-color: transparent;
+            padding: .8rem 1rem;
+            width: 40%;
+
+            @include belota-400-15;
+        }
+
     }
 
-    &__comment {
+    .statistic {
+        flex: 50% 1 1;
+        width: 40vw;
         height: 100%;
-        max-height: 100%;
-        border: 0;
-        border-radius: 6px;
-        background-color: $base-dark-blue;
-        border: 1px solid $white;
-        border-radius: 6px;
-        padding: 20px;
     }
 
-    &__dates {
-        width: 90%;
-        margin: 1rem auto;
-        height: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    &__dayWrap {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 55%;
-    }
-
-    &__dayNumber {
-        @include belota-700-16;
-    }
-
-    &__dayWeek {
-        @include belota-300-11;
-        color: $grey;
-    }
-
-    &__currentDay {
-        position: absolute;
-        z-index: 3;
-        top: 0;
-        left: 44.5%;
-        width: 10%;
-        height: 100%;
-
-        border-radius: 8px;
-        border: 1px solid #2F80EC;
-    }
-
-}
-
-// .calendar__dates:nth-child(4) {
-//     border: 2px solid white;
-// }
+    // .calendar__dates:nth-child(4) {
+    //     border: 2px solid white;
+    // }
