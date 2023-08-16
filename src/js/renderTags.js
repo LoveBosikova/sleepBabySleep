@@ -29,20 +29,20 @@ function createTag(tag) {
 
 const renderTags = (tags) => {
     const tagsWrap = document.getElementById('tagsWrap');
-    
+
     // выводим элемент на страницу
-    function printLi (el) {
+    function printLi(el) {
         tagsWrap.append(el);
     }
 
     // создаем li для каждого тега, а затем выводим на страницу
-    tags.forEach((el)=> {
+    tags.forEach((el) => {
         printLi(createTag(el));
     })
 }
 
 
-export  {
+export default {
     renderTags,
     //makeCheckboxChecked
 }

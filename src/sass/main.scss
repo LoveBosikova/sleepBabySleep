@@ -204,10 +204,10 @@ body {
 }
 
 .calendarSide {
-        flex: 50% 1 1;
-        width: 40%;
-        max-width: 40%;
-        margin-right: auto;
+    flex: 50% 1 1;
+    width: 40%;
+    max-width: 40%;
+    margin-right: auto;
 }
 
 
@@ -271,7 +271,8 @@ body {
         margin-left: -.5rem;
     }
 
-    &__startTime, &__endTime {
+    &__startTime,
+    &__endTime {
         position: relative;
         margin: .4rem;
         padding-top: 20px;
@@ -282,18 +283,19 @@ body {
     }
 
     &__startTime {
-        &:hover .calendar__startInput ~ .calendar__startCheckmark {
+        &:hover .calendar__startInput~.calendar__startCheckmark {
             background-color: #ccc;
         }
     }
 
     &__endTime {
-        &:hover .calendar__endInput ~ .calendar__endCheckmark {
+        &:hover .calendar__endInput~.calendar__endCheckmark {
             background-color: #ccc;
         }
     }
 
-    &__startInput, &__endInput {
+    &__startInput,
+    &__endInput {
         position: absolute;
         opacity: 0;
         cursor: pointer;
@@ -301,7 +303,8 @@ body {
         width: 0;
     }
 
-    &__startCheckmark, &__endCheckmark {
+    &__startCheckmark,
+    &__endCheckmark {
         position: absolute;
         top: 30%;
         right: 20px;
@@ -348,7 +351,8 @@ body {
         margin: .4rem;
     }
 
-    &__commentWrap, &__comment {
+    &__commentWrap,
+    &__comment {
         width: 95.5%;
         max-width: 95.5%;
     }
@@ -400,7 +404,7 @@ body {
         border-radius: 8px;
         border: 1px solid #2F80EC;
     }
-    
+
 }
 
 // .calendar__dates:nth-child(4) {
