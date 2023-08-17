@@ -12,6 +12,7 @@ function changeVisibility(state) {
             questions[i].style.fontFamily = 'Bellota Text';
             questions[i].style.fontWeight = '700';
             items[i].style.backgroundColor = '#10132F';
+            items[i].style.paddingBottom = '1em';
         } else {
             content[i].textContent = '-';
             content[i].style.color = '#2F80EC';
@@ -19,6 +20,7 @@ function changeVisibility(state) {
             questions[i].style.fontFamily = 'JetBrains Mono';
             questions[i].style.fontWeight = '300';
             items[i].style.backgroundColor = '#2F80EC';
+            items[i].style.paddingBottom = '3em';
         }
 
         answers[i].style.display = el.display;
