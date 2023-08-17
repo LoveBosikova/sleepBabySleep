@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-    const openRegForm = document.querySelector('.header__sign_in');
+    const openRegForm = document.querySelector('.header__sign-in');
     const modalRegForm = document.querySelector('.registration-form__modal');
     const closeRegForm = document.querySelector('.registration-form__close-icon');
 
