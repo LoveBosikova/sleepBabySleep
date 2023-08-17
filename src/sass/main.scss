@@ -211,23 +211,23 @@ body {
 }
 
 .calendarSide {
-        flex: 50% 1 1;
-        max-width: 41.5%;
-        margin-left: auto;
-        margin-right: auto;
+    flex: 50% 1 1;
+    max-width: 41.5%;
+    margin-left: auto;
+    margin-right: auto;
 
-        &__uptitle {
-            @include shnobel-400-20;
-            margin: 0;
-            padding-bottom: 1rem;
-            padding-left: .5rem;
-        }
+    &__uptitle {
+        @include shnobel-400-20;
+        margin: 0;
+        padding-bottom: 1rem;
+        padding-left: .5rem;
+    }
 
-        &__title {
-            @include belota-700-34;
-            margin: 0;
+    &__title {
+        @include belota-700-34;
+        margin: 0;
 
-        }
+    }
 }
 
 
@@ -293,7 +293,8 @@ body {
         margin-left: -.5rem;
     }
 
-    &__startTime, &__endTime {
+    &__startTime,
+    &__endTime {
         position: relative;
         margin-top: 1rem;
         padding-top: 1rem;
@@ -304,18 +305,19 @@ body {
     }
 
     &__startTime {
-        &:hover .calendar__startInput ~ .calendar__startCheckmark {
+        &:hover .calendar__startInput~.calendar__startCheckmark {
             background-color: #ccc;
         }
     }
 
     &__endTime {
-        &:hover .calendar__endInput ~ .calendar__endCheckmark {
+        &:hover .calendar__endInput~.calendar__endCheckmark {
             background-color: #ccc;
         }
     }
 
-    &__startInput, &__endInput {
+    &__startInput,
+    &__endInput {
         position: absolute;
         opacity: 0;
         cursor: pointer;
@@ -323,7 +325,8 @@ body {
         width: 0;
     }
 
-    &__startCheckmark, &__endCheckmark {
+    &__startCheckmark,
+    &__endCheckmark {
         position: absolute;
         top: 30%;
         right: 20px;
@@ -373,7 +376,8 @@ body {
         margin: .4rem;
     }
 
-    &__commentWrap, &__comment {
+    &__commentWrap,
+    &__comment {
         width: 100%;
         max-width: 95%;
     }
@@ -443,7 +447,7 @@ body {
 
         @include belota-400-15;
     }
-    
+
 }
 
 .statistic {
@@ -455,3 +459,73 @@ body {
 // .calendar__dates:nth-child(4) {
 //     border: 2px solid white;
 // }
+
+//стили для аккордеона
+.faq {
+    margin: 18rem 5rem;
+
+    &__container {
+        max-width: 76%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__titleContainer {
+        display: flex;
+        margin-bottom: 2em
+    }
+
+    &__titles {
+        @include flex-column-center;
+    }
+
+    &__icon {
+        margin-left: 3em;
+    }
+
+    &__uptitle {
+        @include shnobel-400-23;
+        margin: 0;
+        padding-bottom: 1rem;
+        padding-left: .5rem;
+    }
+
+    &__title {
+        @include belota-700-47;
+        margin: 0;
+    }
+
+    &__list {
+        .accordion__item {
+            @include flex-space-between-center;
+            background-color: $base-dark-blue;
+            border: 1px solid $white;
+            border-radius: 6px;
+            width: 80rem;
+            padding: 1rem;
+            padding-bottom: 3em;
+            margin-bottom: 2em;
+
+            .accordion__question-all {
+                text-align: left;
+                max-width: 80%;
+                @include belota-700-24;
+
+                .accordion__answer {
+                    @include belota-400-18;
+                }
+            }
+
+            .accordion__question-content {
+                @include belota-700-24;
+                @include flex-center-center;
+                background-color: $border-blue;
+                color: $white;
+                border-radius: 6px;
+                width: 14px;
+                height: 14px;
+                padding: 0.5rem;
+            }
+        }
+    }
+}
