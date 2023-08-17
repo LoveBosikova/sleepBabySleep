@@ -1,24 +1,28 @@
-function createFaqDiv(faq) {
+function createFaqDiv(el) {
     const divEl = document.createElement('div');
     divEl.classList.add('accordion__item');
 
-    const btnAcc = document.createElement('button');
-    btnAcc.classList.add('accordion__question');
-    btnAcc.textContent = faq.question;
+    const btnAcc = document.createElement('h3');
+    btnAcc.classList.add('accordion__question-title');
+    btnAcc.textContent = el.question;
 
     const answer = document.createElement('div');
     answer.classList.add('accordion__answer');
-    answer.textContent = faq.answer;
-    answer.style.display = faq.display;
+    answer.textContent = el.answer;
+    answer.style.display = 'none';
 
-    if (faq.display == 'none') {
+    const all = document.createElement('div');
+    all.classList.add('accordion__question-all');
 
-    } else {
+    const content = document.createElement('p');
+    content.classList.add('accordion__question-content')
+    content.textContent = '+';
 
-    }
+    all.append(btnAcc);
+    all.append(answer);
+    divEl.append(all);
+    divEl.append(content);
 
-    divEl.append(btnAcc);
-    divEl.append(answer);
     return divEl;
 }
 
