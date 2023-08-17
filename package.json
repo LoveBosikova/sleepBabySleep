@@ -21,7 +21,9 @@
   "homepage": "https://github.com/LoveBosikova/sleepBabySleep#readme",
   "dependencies": {
     "chart.js": "^4.3.3",
+    "chartjs-adapter-date-fns": "^3.0.0",
     "css-loader": "^6.8.1",
+    "date-fns": "^2.30.0",
     "html-webpack-plugin": "^5.5.3",
     "maven": "^5.0.0",
     "moment": "^2.29.4",
