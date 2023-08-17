@@ -113,10 +113,26 @@ const app = async () => {
         })
     }
 
-    const btnsAcc = [...document.getElementsByClassName('accordion__question')];
+    const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
+    const contents = [...document.getElementsByClassName('accordion__question-content')]
     btnsAcc.forEach((btn, i) => {
         btn.addEventListener('click', () => {
-            changeVisibility(state.stateUI.accordion[i], i)
+            if (state.stateUI.accordion[i].display == 'none') {
+                state.stateUI.accordion[i].display = 'block';
+            } else {
+                state.stateUI.accordion[i].display = 'none';
+            }
+            render(state);
+        })
+    })
+    contents.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            if (state.stateUI.accordion[i].display == 'none') {
+                state.stateUI.accordion[i].display = 'block';
+            } else {
+                state.stateUI.accordion[i].display = 'none';
+            }
+            render(state);
         })
     })
 }
