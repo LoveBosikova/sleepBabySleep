@@ -7,6 +7,7 @@ import render from './view.js';
 import createDays from './createDays.js'
 import { dayForward, dayBackward } from './changeDay.js'
 import renderTags from './renderTags.js';
+import regForm from './registration_form.js';
 
 // Примеры импортов кода и картинок
 
