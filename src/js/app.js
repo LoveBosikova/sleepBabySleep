@@ -9,10 +9,15 @@ import {
     dayForward,
     dayBackward
 } from './changeDay.js'
-import renderTags from './renderTags.js';
+import renderTags from './renderTags.js'; <<
 import regForm from './registration_form.js';
 import 'chartjs-adapter-date-fns';
-import { enUS, ru } from 'date-fns/locale';
+import {
+    enUS,
+    ru
+} from 'date-fns/locale';
+import changeQuotes from './changeQuotes.js';
+
 
 // Примеры импортов кода и картинок
 
@@ -131,62 +136,62 @@ const app = async () => {
     let context = canvas.getContext('2d');
     // Функции
     const createLineChart = (xData, yData) => {
-      let data = {
-        labels: xData,
-        datasets: [{
-          label: 'Дневной сон',
-          data: yData,
-          pointStyle: false,
-          fill: true,
-          borderWidth: 1,
-          backgroundColor: '#2CB57F',
-        }]
-      }
-      let config = {
-        type: 'bar',
-        data: data,
-        options: {
-            scales: {
-                y: {
-                    type: 'timeseries',
-                    max: 24, 
-                    adapters: { 
-                        date: {
-                            locale: ru, 
+        let data = {
+            labels: xData,
+            datasets: [{
+                label: 'Дневной сон',
+                data: yData,
+                pointStyle: false,
+                fill: true,
+                borderWidth: 1,
+                backgroundColor: '#2CB57F',
+            }]
+        }
+        let config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        type: 'timeseries',
+                        max: 24,
+                        adapters: {
+                            date: {
+                                locale: ru,
+                            },
                         },
+                        time: {
+                            unit: 'hour'
+                        }
                     },
-                    time: {
-                        unit: 'hour'
-                    }
-                },
-                y: {
-                    type: 'timeseries',
-                    adapters: { 
-                        date: {
-                            locale: ru, 
+                    y: {
+                        type: 'timeseries',
+                        adapters: {
+                            date: {
+                                locale: ru,
+                            },
                         },
-                    },
-                    time: {
-                        unit: 'minute'
+                        time: {
+                            unit: 'minute'
+                        }
                     }
                 }
             }
         }
-      }
-      let chart = new Chart(context, config);
+        let chart = new Chart(context, config);
     }
     // Получение данных с сервера
 
     const days = state.stateUI.calendarWeek.map(el => {
         return el[2].format("dd, D")
     });
-    
-    console.log(days);
-      let xData = days;
-      let yData = [184, 218, 11, 118, 11, 1, 55];
-      createLineChart(xData, yData);
 
-  
+    console.log(days);
+    let xData = days;
+    let yData = [184, 218, 11, 118, 11, 1, 55];
+    createLineChart(xData, yData);
+
+
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
 
@@ -210,6 +215,8 @@ const app = async () => {
             render(state);
         })
     })
+    setTimeout(() => changeQuotes(), 0);
+    setInterval(() => changeQuotes(), 30000);
 }
 
 export default app;
