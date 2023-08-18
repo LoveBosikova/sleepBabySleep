@@ -488,12 +488,11 @@ body {
     }
 
     &__list {
-        .accordion__item {
+        .accordion-item {
             @include flex-space-between-center;
             background-color: $base-dark-blue;
             border: 1px solid $white;
             border-radius: 6px;
-            width: 80rem;
             padding: 1rem;
             margin-bottom: 1em;
 
@@ -504,6 +503,7 @@ body {
 
                 .accordion__answer {
                     @include belota-400-18;
+                    display: none;
                 }
             }
 
