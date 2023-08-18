@@ -605,6 +605,13 @@ body {
         padding: 0;
         margin: 0;
         background-color: $light-blue-transparency-70;
+        transition: opacity 1s ease-in-out;
+        opacity: 0;
+    }
+
+    &__modal-open {
+        display: flex;
+        opacity: 1;
     }
 
     &__container {
