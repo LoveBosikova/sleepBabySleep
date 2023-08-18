@@ -452,6 +452,25 @@ body {
 // .calendar__dates:nth-child(4) {
 //     border: 2px solid white;
 // }
+
+//стили для цитат
+.quotes {
+    margin: 18rem 5rem;
+
+    &__container {
+        @include flex-space-between-center;
+        max-width: 76%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__ferber {
+        &-about {
+            max-width: 485px;
+        }
+    }
+}
+
 //стили для аккордеона
 .faq {
     margin: 18rem 5rem;
@@ -493,7 +512,6 @@ body {
             background-color: $base-dark-blue;
             border: 1px solid $white;
             border-radius: 6px;
-            width: 80rem;
             padding: 1rem;
             margin-bottom: 1em;
 
@@ -520,7 +538,6 @@ body {
         }
     }
 }
-
 
 .footer {
     background-image: url('../assets/footerClouds.png');
