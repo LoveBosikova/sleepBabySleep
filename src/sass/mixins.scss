@@ -106,6 +106,23 @@
     font-size: 24px;
 }
 
+@mixin jetBrains-400-18 {
+    font-family: 'JetBrains Mono', cursive;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23.76px;
+}
+
+@mixin jetBrains-300-25 {
+    font-family: 'JetBrains Mono', cursive;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 33px;
+    letter-spacing: 0em;
+}
+
 @mixin flex-center-center {
     display: flex;
     justify-content: center;
