@@ -146,3 +146,8 @@
     flex-direction: column;
     justify-content: center;
 }
+
+@mixin flex-start {
+    display: flex;
+    justify-content: start;
+}

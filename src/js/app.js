@@ -14,6 +14,7 @@ import regForm from './registration_form.js';
 import faq from './faq.js';
 import createFaq from './createFAQ.js';
 import changeVisibility from './changeVisibility.js';
+import changeQuotes from './changeQuotes.js';
 
 // Примеры импортов кода и картинок
 
@@ -136,6 +137,8 @@ const app = async () => {
             render(state);
         })
     })
+    setTimeout(() => changeQuotes(), 0);
+    setInterval(() => changeQuotes(), 30000);
 }
 
 export default app;

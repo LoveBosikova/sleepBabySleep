@@ -526,6 +526,7 @@ body {
         &-about {
             @include jetBrains-400-18;
             color: $grey;
+            max-width: 30rem;
         }
     }
 
@@ -535,12 +536,14 @@ body {
         .quotes-current {
             .quote {
                 @include belota-400-18;
+                margin-bottom: 2em;
+                margin-top: 2em;
             }
         }
     }
 
     &__titles {
-        @include flex-center-center;
+        @include flex-start;
 
         .quotes__title {
             margin-left: 1em;
