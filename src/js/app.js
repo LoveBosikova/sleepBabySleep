@@ -45,7 +45,11 @@ const app = async () => {
                 { value: 'perfectSleeping', text: 'Хорошо заснул', isChecked: false},
                 { value: 'weakingUpHisteria', text: 'Проснулся с истерикой', isChecked: false},
                 { value: 'perfectWeakingUp', text: 'Проснулся в настроении', isChecked: false}
-            ]
+            ], 
+            statistic: {
+                vieWType: 'commonDay',
+                period: 'week'
+            }
         }
     }
     
@@ -75,63 +79,88 @@ const app = async () => {
     // Получаем контекст для рисования
     // Получение контекста для рисования
     let canvas = window.document.querySelector('canvas');
-    let context = canvas.getContext('2d');
-    // Функции
-    const createLineChart = (xData, yData) => {
-      let data = {
-        labels: xData,
-        datasets: [{
-          label: 'Дневной сон',
-          data: yData,
-          pointStyle: false,
-          fill: true,
-          borderWidth: 1,
-          backgroundColor: '#2CB57F',
-        }]
-      }
-      let config = {
+    const DATA_COUNT = 7;
+
+    const labels = state.stateUI.calendarWeek.map(el => {
+        return el[2].format("dd, D")
+    });
+
+    const data = {
+    labels: labels,
+    datasets: [
+    {
+        label: 'Ночной сон - перед пробуждением',
+        data: [480, 500, 400, 420, 470, 410, 460],
+        backgroundColor: '#2F80ECA3',
+    },
+    {
+        label: 'Бодрстование1',
+        data: [300, 320, 231, 387, 300, 307, 280],
+        backgroundColor: '#10132F',
+    },
+    {
+        label: 'Первый  дневной сон',
+        data: [70, 60, 120, 45, 60, 77, 100],
+        backgroundColor: '#85b0e7',
+    },
+    {
+        label: 'Бодрстование2',
+        data: [250, 220, 231, 100, 200, 207, 180],
+        backgroundColor: '#10132F',
+    },
+    {
+        label: 'Второй дневной сон',
+        data: [100, 130, 40, 110, 90, 95, 60],
+        backgroundColor: '#85b0e7',
+    },
+    {
+        label: 'Бодрстование3',
+        data: [120, 120, 131, 70, 113, 127, 129],
+        backgroundColor: '#10132F',
+    },
+    {
+        label: 'Ночной сон - вечер',
+        data: [120, 90, 287, 293, 207, 229, 231],
+        backgroundColor: '#2F80ECA3',
+    },
+    ]
+};
+
+    new Chart(canvas, {
         type: 'bar',
         data: data,
         options: {
-            scales: {
-                y: {
-                    type: 'timeseries',
-                    max: 24, 
-                    adapters: { 
-                        date: {
-                            locale: ru, 
-                        },
-                    },
-                    time: {
-                        unit: 'hour'
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'График дня вашего малыша',
+                    padding: {
+                        top: 10,
+                        bottom: 30
                     }
                 },
-                y: {
-                    type: 'timeseries',
-                    adapters: { 
-                        date: {
-                            locale: ru, 
-                        },
-                    },
-                    time: {
-                        unit: 'minute'
-                    }
+                legend: {
+                    display: false,
+                },
+            },
+            responsive: true,
+            scales: {
+            y: {
+                beginAtZero: true,
+                stacked: true,
+                min: 0,
+                max: 1440,
+                ticks: {
+                    display: false 
                 }
+            }, 
+            x: {
+                beginAtZero: true,
+                stacked: true,
             }
         }
-      }
-      let chart = new Chart(context, config);
-    }
-    // Получение данных с сервера
-
-    const days = state.stateUI.calendarWeek.map(el => {
-        return el[2].format("dd, D")
+        }
     });
-    
-    console.log(days);
-      let xData = days;
-      let yData = [184, 218, 11, 118, 11, 1, 55];
-      createLineChart(xData, yData);
 }
 
 export default app;
