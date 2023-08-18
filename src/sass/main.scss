@@ -218,6 +218,10 @@ body {
 }
 
 .calendarSide {
+    flex: 50% 1 1;
+    max-width: 30.5%;
+    margin-left: auto;
+    margin-right: auto;
     // flex: 50% 1 1;
     flex-basis: 50%;
     max-width: 30.5%;
@@ -496,6 +500,79 @@ body {
     background-color: #2CB57F;
 }
 
+// .calendar__dates:nth-child(4) {
+//     border: 2px solid white;
+// }
+//стили для аккордеона
+.faq {
+    margin: 18rem 5rem;
+
+    &__container {
+        max-width: 76%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__titleContainer {
+        display: flex;
+        margin-bottom: 2em
+    }
+
+    &__titles {
+        @include flex-column-center;
+    }
+
+    &__icon {
+        margin-left: 3em;
+    }
+
+    &__uptitle {
+        @include shnobel-400-23;
+        margin: 0;
+        padding-bottom: 1rem;
+        padding-left: .5rem;
+    }
+
+    &__title {
+        @include belota-700-47;
+        margin: 0;
+    }
+
+    &__list {
+        .accordion-item {
+            @include flex-space-between-center;
+            background-color: $base-dark-blue;
+            border: 1px solid $white;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1em;
+
+            .accordion__question-all {
+                text-align: left;
+                max-width: 80%;
+                @include belota-700-24;
+
+                .accordion__answer {
+                    @include belota-400-18;
+                    display: none;
+                }
+            }
+
+            .accordion__question-content {
+                @include belota-700-24;
+                @include flex-center-center;
+                background-color: $border-blue;
+                color: $white;
+                border-radius: 6px;
+                width: 14px;
+                height: 14px;
+                padding: 0.5rem;
+            }
+        }
+    }
+}
+
+
 .footer {
     background-image: url('../assets/footerClouds.png');
     background-repeat: repeat-x;
@@ -717,7 +794,7 @@ body {
         }
     }
 
-    &__text-input::placeholder{
+    &__text-input::placeholder {
         color: $white;
         @include belota-400-15;
     }

@@ -98,6 +98,14 @@
     font-size: 11px;
 }
 
+@mixin jetBrains-300-24 {
+    font-family: 'JetBrains Mono', cursive;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 300;
+    font-size: 24px;
+}
+
 @mixin flex-center-center {
     display: flex;
     justify-content: center;
@@ -114,4 +122,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
