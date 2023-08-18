@@ -402,7 +402,9 @@
                         <button class="dreams__btn">Ночной сон</button>
                         <button class="dreams__btn">Общее время сна</button>
                     </div>
-                    <div class="statistic__diagram"></div>
+                    <canvas class="statistic__diagram" id="chartStatistic">
+
+                    </canvas>
                     <div class="statistic__dreams">
                         <button class="dreams__btn">Дневной сон</button>
                         <button class="dreams__btn">Ночной сон</button>
@@ -542,7 +544,6 @@
                 </form>
             </div>
         </div>
-
         <section class="quotes">
             <div class="quotes__container">
                 <div class="quotes__ferber">
@@ -575,7 +576,6 @@
                 </div>
             </div>
         </section>
-
         <section class="faq">
             <div class="faq__container">
                 <div class="faq__titleContainer">
@@ -658,10 +658,38 @@
                     </div>
                 </div>
                 <div class="faq__list" id="faqList">
-
+                    <div class="accordion-item">
+                        <div class="accordion__question-all">
+                            <h3 class="accordion__question-title" id="question1">Question1</h3>
+                            <p class="accordion__answer" id="answer1">Answer1</p>
+                        </div>
+                        <p class="accordion__question-content" id="content1">+</p>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion__question-all">
+                            <h3 class="accordion__question-title" id="question2">Question2</h3>
+                            <p class="accordion__answer" id="answer2">Answer2</p>
+                        </div>
+                        <p class="accordion__question-content" id="content2">+</p>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion__question-all">
+                            <h3 class="accordion__question-title" id="question3">Question3</h3>
+                            <p class="accordion__answer" id="answer3">Answer3</p>
+                        </div>
+                        <p class="accordion__question-content" id="content3">+</p>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion__question-all">
+                            <h3 class="accordion__question-title" id="question4">Question4</h3>
+                            <p class="accordion__answer" id="answer4">Answer4</p>
+                        </div>
+                        <p class="accordion__question-content" id="content4">+</p>
+                    </div>
                 </div>
             </div>
         </section>
+
     </main>
     <footer class="footer">
         <div class="footer__container">

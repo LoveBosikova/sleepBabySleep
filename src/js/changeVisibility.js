@@ -1,9 +1,11 @@
 function changeVisibility(state) {
+
+
     state.forEach((el, i) => {
         const questions = [...document.getElementsByClassName('accordion__question-title')];
         const content = [...document.getElementsByClassName('accordion__question-content')];
         const answers = [...document.getElementsByClassName('accordion__answer')];
-        const items = [...document.getElementsByClassName('accordion__item')]
+        const items = [...document.getElementsByClassName('accordion-item')];
 
         if (el.display == 'none') {
             content[i].textContent = '+';
