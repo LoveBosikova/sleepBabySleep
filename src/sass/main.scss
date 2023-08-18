@@ -512,10 +512,42 @@ body {
     }
 
     &__ferber {
+        width: 50%;
+
+        &-photo {
+            height: 467px;
+            width: 100%;
+            background-image: url('/src/assets/Ferber.png');
+            background-repeat: no-repeat;
+            //сво-во пропорционально меняющее картинку от размера блока
+
+        }
+
         &-about {
-            max-width: 485px;
+            @include jetBrains-400-18;
+            color: $grey;
         }
     }
+
+    &__quote {
+        width: 50%;
+
+        .quotes-current {
+            .quote {
+                @include belota-400-18;
+            }
+        }
+    }
+
+    &__titles {
+        @include flex-center-center;
+
+        .quotes__title {
+            margin-left: 1em;
+            @include jetBrains-300-25;
+        }
+    }
+
 }
 
 //стили для аккордеона
