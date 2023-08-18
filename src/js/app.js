@@ -10,7 +10,7 @@ import {
     dayBackward
 } from './changeDay.js'
 import renderTags from './renderTags.js';
-import changeVisibility from './changeVisibility.js';
+import regForm from './registration_form.js';
 
 // Примеры импортов кода и картинок
 
