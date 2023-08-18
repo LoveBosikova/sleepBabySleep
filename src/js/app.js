@@ -10,8 +10,6 @@ import {
     dayBackward
 } from './changeDay.js'
 import renderTags from './renderTags.js';
-import faq from './faq.js';
-import createFaq from './createFAQ.js';
 import changeVisibility from './changeVisibility.js';
 
 // Примеры импортов кода и картинок
@@ -21,14 +19,6 @@ const app = async () => {
     const fullformat = 'DD.MM.YYYY';
     const btnDayForward = document.getElementById('btn-dayForward');
     const btnDayBackward = document.getElementById('btn-dayBackward');
-
-    const faqAcc = Array.from(faq.map((item) => {
-        return {
-            question: item.question,
-            answer: item.answer,
-            display: 'none',
-        }
-    }));
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -80,7 +70,28 @@ const app = async () => {
                     isChecked: false
                 }
             ],
-            accordion: faqAcc,
+            accordion: [{
+                    id: 'question1',
+                    content: 'content1',
+                    display: 'none',
+                },
+                {
+                    id: 'question2',
+                    content: 'content2',
+                    display: 'none',
+                },
+                {
+                    id: 'question3',
+                    content: 'content3',
+                    display: 'none',
+                },
+                {
+                    id: 'question3',
+                    content: 'content3',
+                    display: 'none',
+                },
+
+            ],
         }
     }
 
@@ -95,7 +106,6 @@ const app = async () => {
     });
 
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
-    createFaq(state.stateUI.accordion);
     render(state);
 
 
@@ -115,6 +125,7 @@ const app = async () => {
 
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
+
     btnsAcc.forEach((btn, i) => {
         btn.addEventListener('click', () => {
             if (state.stateUI.accordion[i].display == 'none') {
@@ -124,7 +135,7 @@ const app = async () => {
             }
             render(state);
         })
-    })
+    });
     contents.forEach((btn, i) => {
         btn.addEventListener('click', () => {
             if (state.stateUI.accordion[i].display == 'none') {
@@ -135,6 +146,7 @@ const app = async () => {
             render(state);
         })
     })
+
 }
 
 export default app;
