@@ -11,6 +11,8 @@ import {
 } from './changeDay.js'
 import renderTags from './renderTags.js';
 import regForm from './registration_form.js';
+import 'chartjs-adapter-date-fns';
+import { enUS, ru } from 'date-fns/locale';
 
 // Примеры импортов кода и картинок
 
@@ -112,7 +114,6 @@ const app = async () => {
     const tags = document.querySelectorAll('.calendar__tagLabel');
 
     for (const tag of tags) {
-        console.log(tag);
         tag.addEventListener('click', (e) => {
             for (const item of state.stateUI.tags) {
                 if (item.value == e.target.previousElementSibling.value) {
@@ -123,6 +124,69 @@ const app = async () => {
         })
     }
 
+    // Начинаем работать с чартом
+    // Получаем контекст для рисования
+    // Получение контекста для рисования
+    let canvas = window.document.querySelector('canvas');
+    let context = canvas.getContext('2d');
+    // Функции
+    const createLineChart = (xData, yData) => {
+      let data = {
+        labels: xData,
+        datasets: [{
+          label: 'Дневной сон',
+          data: yData,
+          pointStyle: false,
+          fill: true,
+          borderWidth: 1,
+          backgroundColor: '#2CB57F',
+        }]
+      }
+      let config = {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    type: 'timeseries',
+                    max: 24, 
+                    adapters: { 
+                        date: {
+                            locale: ru, 
+                        },
+                    },
+                    time: {
+                        unit: 'hour'
+                    }
+                },
+                y: {
+                    type: 'timeseries',
+                    adapters: { 
+                        date: {
+                            locale: ru, 
+                        },
+                    },
+                    time: {
+                        unit: 'minute'
+                    }
+                }
+            }
+        }
+      }
+      let chart = new Chart(context, config);
+    }
+    // Получение данных с сервера
+
+    const days = state.stateUI.calendarWeek.map(el => {
+        return el[2].format("dd, D")
+    });
+    
+    console.log(days);
+      let xData = days;
+      let yData = [184, 218, 11, 118, 11, 1, 55];
+      createLineChart(xData, yData);
+
+  
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
 
@@ -146,7 +210,6 @@ const app = async () => {
             render(state);
         })
     })
-
 }
 
 export default app;
