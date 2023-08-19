@@ -18,6 +18,7 @@ import {
 } from 'date-fns/locale';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
+import changeBurgerMenu from './changeBurgerMenu.js';
 
 
 
@@ -30,6 +31,8 @@ const app = async () => {
     const btnDayBackward = document.getElementById('btn-dayBackward');
     const btnQuoteForward = document.getElementById('quotesForward');
     const btnQuoteBackward = document.getElementById('qoutesBackward');
+    const btnBurger = document.getElementById('burger__btn');
+    const headerLogo = document.querySelector('.header__logo');
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -103,6 +106,8 @@ const app = async () => {
                 },
 
             ],
+            burger: 'close',
+
         }
     }
 
@@ -122,6 +127,11 @@ const app = async () => {
     });
     btnQuoteForward.addEventListener('click', () => {
         changeQoutesForward();
+    });
+
+    btnBurger.addEventListener('click', () => {
+        state.stateUI.burger == 'close' ? state.stateUI.burger = 'open' : state.stateUI.burger = 'close';
+        render(state);
     });
 
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
@@ -146,21 +156,13 @@ const app = async () => {
 
     btnsAcc.forEach((btn, i) => {
         btn.addEventListener('click', () => {
-            if (state.stateUI.accordion[i].display == 'none') {
-                state.stateUI.accordion[i].display = 'block';
-            } else {
-                state.stateUI.accordion[i].display = 'none';
-            }
+            state.stateUI.accordion[i].display == 'none' ? state.stateUI.accordion[i].display = 'block' : state.stateUI.accordion[i].display = 'none';
             render(state);
         })
     });
     contents.forEach((btn, i) => {
         btn.addEventListener('click', () => {
-            if (state.stateUI.accordion[i].display == 'none') {
-                state.stateUI.accordion[i].display = 'block';
-            } else {
-                state.stateUI.accordion[i].display = 'none';
-            }
+            state.stateUI.accordion[i].display == 'none' ? state.stateUI.accordion[i].display = 'block' : state.stateUI.accordion[i].display = 'none';
             render(state);
         })
     })
