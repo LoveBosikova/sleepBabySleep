@@ -594,7 +594,6 @@
                 </div>
 
                 <form action="#" method="post" class="registration-form" name="registrationForm" novalidate>
-
                     <div class="registration-form__field">
                         <input type="text" class="registration-form__text-input" placeholder="Имя малыша" name="babyName"
                         validators="required,name" />
@@ -676,7 +675,7 @@
                         <div class="registration-form__field-password">
                             <input type="password" name="passwordRegFormConfirm"
                             class="registration-form__text-input password" placeholder="Подтвердите пароль"
-                            validators="passwordConfirm" />
+                            validators="required,passwordConfirm" />
                             <div class="registration-form__error"></div>
                         </div>
                     </div>
