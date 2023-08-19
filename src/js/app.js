@@ -9,10 +9,15 @@ import {
     dayForward,
     dayBackward
 } from './changeDay.js'
-import renderTags from './renderTags.js';
+import renderTags from './renderTags.js'; <<
 import regForm from './registration_form.js';
 import 'chartjs-adapter-date-fns';
-import { enUS, ru } from 'date-fns/locale';
+import {
+    enUS,
+    ru
+} from 'date-fns/locale';
+import changeQuotes from './changeQuotes.js';
+
 
 // Примеры импортов кода и картинок
 
@@ -126,6 +131,7 @@ const app = async () => {
 
     // Начинаем работать с чартом
     let canvas = window.document.querySelector('canvas');
+  
     const DATA_COUNT = 7;
 
     const labels = state.stateUI.calendarWeek.map(el => {
@@ -199,15 +205,7 @@ const app = async () => {
                 max: 1440,
                 ticks: {
                     display: false 
-                }
-            }, 
-            x: {
-                beginAtZero: true,
-                stacked: true,
-            }
-        }
-        }
-    });
+
 
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
@@ -232,6 +230,8 @@ const app = async () => {
             render(state);
         })
     })
+    setTimeout(() => changeQuotes(), 0);
+    setInterval(() => changeQuotes(), 30000);
 }
 
 export default app;

@@ -218,10 +218,6 @@ body {
 }
 
 .calendarSide {
-    flex: 50% 1 1;
-    max-width: 30.5%;
-    margin-left: auto;
-    margin-right: auto;
     // flex: 50% 1 1;
     flex-basis: 50%;
     max-width: 30.5%;
@@ -503,6 +499,60 @@ body {
 // .calendar__dates:nth-child(4) {
 //     border: 2px solid white;
 // }
+
+//стили для цитат
+.quotes {
+    margin: 18rem 5rem;
+
+    &__container {
+        @include flex-space-between-center;
+        max-width: 76%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__ferber {
+        width: 50%;
+
+        &-photo {
+            height: 467px;
+            width: 100%;
+            background-image: url('/src/assets/Ferber.png');
+            background-repeat: no-repeat;
+            //сво-во пропорционально меняющее картинку от размера блока
+
+        }
+
+        &-about {
+            @include jetBrains-400-18;
+            color: $grey;
+            max-width: 30rem;
+        }
+    }
+
+    &__quote {
+        width: 50%;
+
+        .quotes-current {
+            .quote {
+                @include belota-400-18;
+                margin-bottom: 2em;
+                margin-top: 2em;
+            }
+        }
+    }
+
+    &__titles {
+        @include flex-start;
+
+        .quotes__title {
+            margin-left: 1em;
+            @include jetBrains-300-25;
+        }
+    }
+
+}
+
 //стили для аккордеона
 .faq {
     margin: 18rem 5rem;
@@ -571,7 +621,6 @@ body {
         }
     }
 }
-
 
 .footer {
     background-image: url('../assets/footerClouds.png');
@@ -681,7 +730,14 @@ body {
         height: 100vh;
         padding: 0;
         margin: 0;
-        background-color: $light-blue-70;
+        background-color: $light-blue-transparency-70;
+        transition: opacity 1s ease-in-out;
+        opacity: 0;
+    }
+
+    &__modal-open {
+        display: flex;
+        opacity: 1;
     }
 
     &__container {
@@ -708,7 +764,7 @@ body {
         }
 
         &::-webkit-scrollbar-track {
-            background-color: $border-blue-64;
+            background-color: $border-blue-transparency-64;
             border-top-right-radius: 0.625rem;
             border-bottom-right-radius: 0.625rem;
             //background: url(../assets/scrollback.svg);
