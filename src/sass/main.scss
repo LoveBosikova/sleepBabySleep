@@ -533,7 +533,19 @@ body {
     &__quote {
         width: 50%;
 
-        .quotes-current {
+        .quotes__current {
+            @include flex-space-around-center;
+
+            .btnQoutes {
+                #qoutesBackward {
+                    margin-right: 2em;
+                }
+
+                #quotesForward {
+                    margin-left: 2em;
+                }
+            }
+
             .quote {
                 @include belota-400-18;
                 margin-bottom: 2em;
