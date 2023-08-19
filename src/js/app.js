@@ -9,14 +9,16 @@ import {
     dayForward,
     dayBackward
 } from './changeDay.js'
-import renderTags from './renderTags.js'; <<
+import renderTags from './renderTags.js';
 import regForm from './registration_form.js';
 import 'chartjs-adapter-date-fns';
 import {
     enUS,
     ru
 } from 'date-fns/locale';
-import changeQuotes from './changeQuotes.js';
+import changeQoutesBackward from './changeQoutesBackward.js';
+import changeQoutesForward from './changeQuotesForward.js';
+
 
 
 // Примеры импортов кода и картинок
@@ -26,6 +28,8 @@ const app = async () => {
     const fullformat = 'DD.MM.YYYY';
     const btnDayForward = document.getElementById('btn-dayForward');
     const btnDayBackward = document.getElementById('btn-dayBackward');
+    const btnQuoteForward = document.getElementById('quotesForward');
+    const btnQuoteBackward = document.getElementById('qoutesBackward');
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -112,6 +116,14 @@ const app = async () => {
         dayBackward(state)
     });
 
+
+    btnQuoteBackward.addEventListener('click', () => {
+        changeQoutesBackward();
+    });
+    btnQuoteForward.addEventListener('click', () => {
+        changeQoutesForward();
+    });
+
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
 
@@ -128,84 +140,6 @@ const app = async () => {
             render(state);
         })
     }
-
-    // Начинаем работать с чартом
-    let canvas = window.document.querySelector('canvas');
-  
-    const DATA_COUNT = 7;
-
-    const labels = state.stateUI.calendarWeek.map(el => {
-        return el[2].format("dd, D")
-    });
-
-    const data = {
-    labels: labels,
-    datasets: [
-    {
-        label: 'Ночной сон - перед пробуждением',
-        data: [480, 500, 400, 420, 470, 410, 460],
-        backgroundColor: '#2F80ECA3',
-    },
-    {
-        label: 'Бодрстование1',
-        data: [300, 320, 231, 387, 300, 307, 280],
-        backgroundColor: '#10132F',
-    },
-    {
-        label: 'Первый  дневной сон',
-        data: [70, 60, 120, 45, 60, 77, 100],
-        backgroundColor: '#85b0e7',
-    },
-    {
-        label: 'Бодрстование2',
-        data: [250, 220, 231, 100, 200, 207, 180],
-        backgroundColor: '#10132F',
-    },
-    {
-        label: 'Второй дневной сон',
-        data: [100, 130, 40, 110, 90, 95, 60],
-        backgroundColor: '#85b0e7',
-    },
-    {
-        label: 'Бодрстование3',
-        data: [120, 120, 131, 70, 113, 127, 129],
-        backgroundColor: '#10132F',
-    },
-    {
-        label: 'Ночной сон - вечер',
-        data: [120, 90, 287, 293, 207, 229, 231],
-        backgroundColor: '#2F80ECA3',
-    },
-    ]
-};
-
-    new Chart(canvas, {
-        type: 'bar',
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'График дня вашего малыша',
-                    padding: {
-                        top: 10,
-                        bottom: 30
-                    }
-                },
-                legend: {
-                    display: false,
-                },
-            },
-            responsive: true,
-            scales: {
-            y: {
-                beginAtZero: true,
-                stacked: true,
-                min: 0,
-                max: 1440,
-                ticks: {
-                    display: false 
-
 
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
@@ -230,8 +164,90 @@ const app = async () => {
             render(state);
         })
     })
-    setTimeout(() => changeQuotes(), 0);
-    setInterval(() => changeQuotes(), 30000);
+
+    setTimeout(() => changeQoutesForward(), 0);
+    setInterval(() => changeQoutesForward(), 60000);
+
+    // Начинаем работать с чартом
+    let canvas = window.document.querySelector('canvas');
+
+    const DATA_COUNT = 7;
+
+    const labels = state.stateUI.calendarWeek.map(el => {
+        return el[2].format("dd, D")
+    });
+
+    const data = {
+        labels: labels,
+        datasets: [{
+                label: 'Ночной сон - перед пробуждением',
+                data: [480, 500, 400, 420, 470, 410, 460],
+                backgroundColor: '#2F80ECA3',
+            },
+            {
+                label: 'Бодрстование1',
+                data: [300, 320, 231, 387, 300, 307, 280],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Первый  дневной сон',
+                data: [70, 60, 120, 45, 60, 77, 100],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование2',
+                data: [250, 220, 231, 100, 200, 207, 180],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Второй дневной сон',
+                data: [100, 130, 40, 110, 90, 95, 60],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование3',
+                data: [120, 120, 131, 70, 113, 127, 129],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Ночной сон - вечер',
+                data: [120, 90, 287, 293, 207, 229, 231],
+                backgroundColor: '#2F80ECA3',
+            },
+        ]
+    };
+
+    new Chart(canvas, {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'График дня вашего малыша',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    }
+                },
+                legend: {
+                    display: false,
+                },
+            },
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    stacked: true,
+                    min: 0,
+                    max: 1440,
+                    ticks: {
+                        display: false
+                    }
+                }
+            }
+        }
+    })
 }
 
 export default app;

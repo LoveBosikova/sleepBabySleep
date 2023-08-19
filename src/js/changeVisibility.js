@@ -1,6 +1,4 @@
 function changeVisibility(state) {
-
-
     state.forEach((el, i) => {
         const questions = [...document.getElementsByClassName('accordion__question-title')];
         const content = [...document.getElementsByClassName('accordion__question-content')];
@@ -27,7 +25,6 @@ function changeVisibility(state) {
 
         answers[i].style.display = el.display;
     });
-
 }
 
 export default changeVisibility;
