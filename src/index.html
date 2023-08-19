@@ -594,10 +594,13 @@
                 </div>
 
                 <form action="#" method="post" class="registration-form" name="registrationForm" novalidate>
-                    <div class="registration-form__field-baby-name">
-                        <input type="text" class="registration-form__text-input" placeholder="Имя малыша" name="babyName" />
+
+                    <div class="registration-form__field">
+                        <input type="text" class="registration-form__text-input" placeholder="Имя малыша" name="babyName"
+                        validators="required,name" />
                         <div class="registration-form__error"></div>
                     </div>
+
                     <label class="registration-form__photo-label">
                         <input type="file" name="photoBaby" class="registration-form__photo" />
                         <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -614,7 +617,11 @@
                         <span class="registration-form__photo-comment">Добавить фото</span>
                     </label>
 
-                    <input type="text" class="registration-form__text-input" placeholder="Имя папы" name="dadName" />
+                    <div class="registration-form__field">
+                        <input type="text" class="registration-form__text-input" placeholder="Имя папы" name="dadName"
+                        validators="name" />
+                        <div class="registration-form__error"></div>
+                    </div>
 
                     <label class="registration-form__photo-label">
                         <input type="file" name="photoDad" class="registration-form__photo" />
@@ -632,8 +639,12 @@
                         <span>Добавить фото</span>
                     </label>
 
-                    <input type="text" class="registration-form__text-input" placeholder="Имя мамы" name="momName" />
-
+                    <div class="registration-form__field">
+                        <input type="text" class="registration-form__text-input" placeholder="Имя мамы" name="momName"
+                        validators="name" />
+                        <div class="registration-form__error"></div>
+                    </div>
+                    
                     <label class="registration-form__photo-label">
                         <input type="file" name="photoMom" class="registration-form__photo" />
                         <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -650,13 +661,24 @@
                         <span>Добавить фото</span>
                     </label>
 
-                    <input type="email" name="emailRegForm" class="registration-form__text-input" placeholder="Почта" />
+                    <div class="registration-form__field">
+                        <input type="email" name="emailRegForm" class="registration-form__text-input" placeholder="Почта"
+                        validators="required,email" />
+                        <div class="registration-form__error"></div>
+                    </div>
 
                     <div class="registration-form__passwords">
-                        <input type="password" name="passwordRegForm" class="registration-form__text-input password"
-                            placeholder="Пароль" />
-                        <input type="password" name="passwordRegFormConfirm"
-                            class="registration-form__text-input password" placeholder="Подтвердите пароль" />
+                        <div class="registration-form__field-password">
+                            <input type="password" name="passwordRegForm" class="registration-form__text-input password"
+                            placeholder="Пароль" validators="required,password" />
+                            <div class="registration-form__error"></div>
+                        </div>
+                        <div class="registration-form__field-password">
+                            <input type="password" name="passwordRegFormConfirm"
+                            class="registration-form__text-input password" placeholder="Подтвердите пароль"
+                            validators="passwordConfirm" />
+                            <div class="registration-form__error"></div>
+                        </div>
                     </div>
                     <button type="submit" class="registration-form__submit">Готово</button>
                 </form>
