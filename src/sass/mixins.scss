@@ -157,3 +157,14 @@
     justify-content: space-around;
     align-items: center;
 }
+
+@mixin flex-column-start {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+@mixin flex-align-items-center {
+    display: flex;
+    align-items: center;
+}
