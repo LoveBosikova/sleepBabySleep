@@ -2,14 +2,12 @@
 
 import moment from 'moment';
 import onChange from 'on-change';
-import Chart from 'chart.js/auto';
 import render from './view.js';
 import createDays from './createDays.js'
 import {
     dayForward,
     dayBackward
 } from './changeDay.js'
-import renderTags from './renderTags.js';
 import regForm from './registration_form.js';
 import 'chartjs-adapter-date-fns';
 import {
@@ -19,11 +17,8 @@ import {
 import changeQuotes from './changeQuotes.js';
 import perfectTimingByAge from './sleepingData.js';
 
-// Примеры импортов кода и картинок
-
 const app = async () => {
 
-    const fullformat = 'DD.MM.YYYY';
     const btnDayForward = document.getElementById('btn-dayForward');
     const btnDayBackward = document.getElementById('btn-dayBackward');
 
@@ -99,6 +94,56 @@ const app = async () => {
                 },
 
             ],
+            dataForWeek: {
+                labels: [
+                    [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
+                    [moment().day(-2).format('ddd'), moment().day(-2).format('DD'), moment().day(-2)],
+                    [moment().day(-1).format('ddd'), moment().day(-1).format('DD'), moment().day(-1)],
+                    [moment().day(0).format('ddd'), moment().day(0).format('DD'), moment().day(0)],
+                    [moment().day(1).format('ddd'), moment().day(1).format('DD'), moment().day(1)],
+                    [moment().day(2).format('ddd'), moment().day(2).format('DD'), moment().day(2)],
+                    [moment().day(3).format('ddd'), moment().day(3).format('DD'), moment().day(3)],
+                ].map(el => {
+                    return el[2].format("dd, D")
+                }),
+                datasets: [
+                {
+                    label: 'Ночной сон - перед пробуждением',
+                    data: [480, 500, 400, 420, 470, 410, 460],
+                    backgroundColor: '#2F80ECA3',
+                },
+                {
+                    label: 'Бодрстование1',
+                    data: [300, 320, 231, 387, 300, 307, 280],
+                    backgroundColor: '#10132F',
+                },
+                {
+                    label: 'Первый  дневной сон',
+                    data: [70, 60, 120, 45, 60, 77, 100],
+                    backgroundColor: '#85b0e7',
+                },
+                {
+                    label: 'Бодрстование2',
+                    data: [250, 220, 231, 100, 200, 207, 180],
+                    backgroundColor: '#10132F',
+                },
+                {
+                    label: 'Второй дневной сон',
+                    data: [100, 130, 40, 110, 90, 95, 60],
+                    backgroundColor: '#85b0e7',
+                },
+                {
+                    label: 'Бодрстование3',
+                    data: [120, 120, 131, 70, 113, 127, 129],
+                    backgroundColor: '#10132F',
+                },
+                {
+                    label: 'Ночной сон - вечер',
+                    data: [120, 90, 287, 293, 207, 229, 231],
+                    backgroundColor: '#2F80ECA3',
+                },
+                ]
+            },
         }
     }
 
@@ -115,9 +160,7 @@ const app = async () => {
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
 
-
     const tags = document.querySelectorAll('.calendar__tagLabel');
-
     for (const tag of tags) {
         tag.addEventListener('click', (e) => {
             for (const item of state.stateUI.tags) {
@@ -128,92 +171,6 @@ const app = async () => {
             render(state);
         })
     }
-
-    // Начинаем работать с чартом
-    let canvas = window.document.querySelector('canvas');
-  
-    const DATA_COUNT = 7;
-
-    const labels = state.stateUI.calendarWeek.map(el => {
-        return el[2].format("dd, D")
-    });
-
-    const data = {
-    labels: labels,
-    datasets: [
-    {
-        label: 'Ночной сон - перед пробуждением',
-        data: [480, 500, 400, 420, 470, 410, 460],
-        backgroundColor: '#2F80ECA3',
-    },
-    {
-        label: 'Бодрстование1',
-        data: [300, 320, 231, 387, 300, 307, 280],
-        backgroundColor: '#10132F',
-    },
-    {
-        label: 'Первый  дневной сон',
-        data: [70, 60, 120, 45, 60, 77, 100],
-        backgroundColor: '#85b0e7',
-    },
-    {
-        label: 'Бодрстование2',
-        data: [250, 220, 231, 100, 200, 207, 180],
-        backgroundColor: '#10132F',
-    },
-    {
-        label: 'Второй дневной сон',
-        data: [100, 130, 40, 110, 90, 95, 60],
-        backgroundColor: '#85b0e7',
-    },
-    {
-        label: 'Бодрстование3',
-        data: [120, 120, 131, 70, 113, 127, 129],
-        backgroundColor: '#10132F',
-    },
-    {
-        label: 'Ночной сон - вечер',
-        data: [120, 90, 287, 293, 207, 229, 231],
-        backgroundColor: '#2F80ECA3',
-    },
-    ]
-};
-
-    new Chart(canvas, {
-        type: 'bar',
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'График дня вашего малыша',
-                    padding: {
-                        top: 10,
-                        bottom: 30
-                    }
-                },
-                legend: {
-                    display: false,
-                },
-            },
-            responsive: true,
-            scales: {
-            y: {
-                beginAtZero: true,
-                stacked: true,
-                min: 0,
-                max: 1440,
-                ticks: {
-                    display: false 
-                }
-            }, 
-            x: {
-                beginAtZero: true,
-                stacked: true,
-            }
-        }
-        }
-    });
 
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
@@ -228,6 +185,7 @@ const app = async () => {
             render(state);
         })
     });
+
     contents.forEach((btn, i) => {
         btn.addEventListener('click', () => {
             if (state.stateUI.accordion[i].display == 'none') {
