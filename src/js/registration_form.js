@@ -11,6 +11,7 @@ window.addEventListener('load', () => {
         modalRegForm.style.display = 'flex';
         setTimeout(() => modalRegForm.classList.add('registration-form__modal-open'), 0);
         form.elements.babyName.focus();
+        regFormContainer.scrollTo(0,0);
     }
 
     function closeRegForm () {
@@ -36,6 +37,10 @@ window.addEventListener('load', () => {
             this.parentElement.querySelector('span').textContent = this.files[0].name;
         });
     });
+
+    function checkValidity(input) {
+        
+    }
 
     submitRegFormBtn.addEventListener('click', (event) => {
         event.preventDefault();
