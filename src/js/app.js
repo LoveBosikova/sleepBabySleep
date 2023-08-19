@@ -12,7 +12,12 @@ import {
 import renderTags from './renderTags.js';
 import regForm from './registration_form.js';
 import 'chartjs-adapter-date-fns';
-import { enUS, ru } from 'date-fns/locale';
+import {
+    enUS,
+    ru
+} from 'date-fns/locale';
+import changeQuotes from './changeQuotes.js';
+
 
 // Примеры импортов кода и картинок
 
@@ -232,6 +237,8 @@ const app = async () => {
             render(state);
         })
     })
+    setTimeout(() => changeQuotes(), 0);
+    setInterval(() => changeQuotes(), 30000);
 }
 
 export default app;
