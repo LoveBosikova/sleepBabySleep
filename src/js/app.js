@@ -17,7 +17,7 @@ import {
     ru
 } from 'date-fns/locale';
 import changeQuotes from './changeQuotes.js';
-
+import perfectTimingByAge from './sleepingData.js';
 
 // Примеры импортов кода и картинок
 
