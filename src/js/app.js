@@ -131,6 +131,7 @@ const app = async () => {
 
     // Начинаем работать с чартом
     let canvas = window.document.querySelector('canvas');
+  
     const DATA_COUNT = 7;
 
     const labels = state.stateUI.calendarWeek.map(el => {
