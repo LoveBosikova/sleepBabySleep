@@ -34,15 +34,35 @@ window.addEventListener('load', () => {
             if (!this.files.length) {
                 return;
             }
-            this.parentElement.querySelector('span').textContent = this.files[0].name;
+            this.parentElement.querySelector('.registration-form__photo-comment').textContent = this.files[0].name;
         });
     });
 
-    function checkValidity(input) {
-        
+    function validateName(input, required) {
+        const nameRegExp = /^[a-zA-Zа-яА-Я][a-zA-Z0-9а-яА-Я.' ]+$/;
+        const value = input.value.trim();
+        const spanError = document.querySelector('.registration-form__error');
+
+        if (required && !value) {
+            spanError.textContent = 'Введите имя';
+        } else if (value && !nameRegExp.test(value)) {
+            spanError.textContent = 'Используйте буквы, цифры, пробелы';
+        } else {
+            spanError.textContent = '';
+            spanError.style.display = 'none';
+            return true;
+        }
+        spanError.style.display = 'flex';
+        return false;
     }
 
     submitRegFormBtn.addEventListener('click', (event) => {
         event.preventDefault();
+
+        let valid = true;
+
+        ['babyName', 'dadName', 'momName'].forEach((inputName) => {
+            valid = validateName(form.elements[inputName], inputName === 'babyName') && valid;
+        });
     })
 });

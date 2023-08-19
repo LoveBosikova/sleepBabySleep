@@ -831,6 +831,13 @@ body {
         }
     }
 
+    &__error {
+        display: none;
+        color: $white;
+        @include belota-400-12;
+        margin: -10px 0 20px 5px;
+    }
+
     &__photo-label {
         display: flex;
         cursor: pointer;
@@ -839,7 +846,7 @@ body {
             display: none;
         }
 
-        span {
+        .registration-form__photo-comment {
             margin-top: 0.2rem;
         }
 

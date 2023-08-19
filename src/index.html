@@ -594,8 +594,10 @@
                 </div>
 
                 <form action="#" method="post" class="registration-form" name="registrationForm" novalidate>
-                    <input type="text" class="registration-form__text-input" placeholder="Имя малыша" name="babyName" />
-
+                    <div class="registration-form__field-baby-name">
+                        <input type="text" class="registration-form__text-input" placeholder="Имя малыша" name="babyName" />
+                        <div class="registration-form__error"></div>
+                    </div>
                     <label class="registration-form__photo-label">
                         <input type="file" name="photoBaby" class="registration-form__photo" />
                         <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -609,7 +611,7 @@
                                 d="M12.2268 6.30889C12.2245 6.16901 12.1093 6.05746 11.9694 6.05971C11.8295 6.06197 11.718 6.1772 11.7203 6.31705L11.8908 16.8842C11.8931 17.0241 12.0083 17.1357 12.1481 17.1334C12.288 17.1312 12.3996 17.0159 12.3973 16.8761L12.2268 6.30889Z"
                                 fill="white" />
                         </svg>
-                        <span>Добавить фото</span>
+                        <span class="registration-form__photo-comment">Добавить фото</span>
                     </label>
 
                     <input type="text" class="registration-form__text-input" placeholder="Имя папы" name="dadName" />
