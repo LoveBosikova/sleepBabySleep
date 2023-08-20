@@ -502,7 +502,7 @@ body {
 
 //стили для цитат
 .quotes {
-    margin: 18rem 5rem;
+    margin: 5rem 5rem;
 
     &__container {
         @include flex-space-between-center;
@@ -533,7 +533,19 @@ body {
     &__quote {
         width: 50%;
 
-        .quotes-current {
+        .quotes__current {
+            @include flex-space-around-center;
+
+            .btnQoutes {
+                #qoutesBackward {
+                    margin-right: 2em;
+                }
+
+                #quotesForward {
+                    margin-left: 2em;
+                }
+            }
+
             .quote {
                 @include belota-400-18;
                 margin-bottom: 2em;
@@ -555,7 +567,7 @@ body {
 
 //стили для аккордеона
 .faq {
-    margin: 18rem 5rem;
+    margin: 5rem 5rem;
 
     &__container {
         max-width: 76%;
@@ -819,6 +831,13 @@ body {
         }
     }
 
+    &__error {
+        display: none;
+        color: $white;
+        @include belota-400-12;
+        margin: -10px 0 20px 5px;
+    }
+
     &__photo-label {
         display: flex;
         cursor: pointer;
@@ -827,7 +846,7 @@ body {
             display: none;
         }
 
-        span {
+        .registration-form__photo-comment {
             margin-top: 0.2rem;
         }
 
@@ -858,6 +877,11 @@ body {
     &__passwords {
         display: flex;
         justify-content: space-between;
+
+        .registration-form__error {
+            width: 14rem;
+            padding: 0 1rem 0 0;
+        }
     }
 
     &__submit {
@@ -867,5 +891,102 @@ body {
         background-color: $border-blue;
         color: $white;
         border-radius: 0.5rem;
+    }
+}
+
+.burger__btn,
+.burger__menu {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .header__nav {
+        display: none;
+    }
+
+    .header {
+        position: relative;
+    }
+
+    .burger {
+
+        margin-left: 2em;
+
+        &__uptitle {
+            @include shnobel-400-23;
+            color: $white;
+        }
+
+        &__title {
+            @include belota-400-18;
+            color: $white;
+        }
+
+        &__btn {
+            display: block;
+            position: absolute;
+            right: 3em;
+        }
+
+        &__menu {
+            max-width: 20em;
+
+            .burger__logo {
+                @include flex-align-items-center;
+
+                svg {
+                    padding-right: 1em;
+                }
+            }
+
+            .burger__copyright {
+                @include belota-700-12;
+                color: $light-grey;
+                margin-top: 1em;
+            }
+
+            .burger__nav {
+                .burger__items {
+                    padding-left: 0;
+
+                    li {
+                        margin-bottom: 1em;
+                    }
+
+                    a {
+                        @include belota-400-18;
+                        color: $white;
+                        margin-bottom: 2em;
+                    }
+                }
+            }
+        }
+
+        &__donatBtn {
+            padding: .6rem 1.5rem;
+            background-color: $border-blue;
+            border-color: $border-blue;
+            border-radius: 8px;
+            @include belota-400-18;
+            cursor: pointer;
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        &__login {
+            background-color: transparent;
+            border: 2px solid $border-blue;
+            border-radius: 8px;
+            padding: .6rem 1.5rem;
+            cursor: pointer;
+        }
+
+        &__btn-sign-in {
+            @include flex-align-items-center;
+
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
     }
 }
