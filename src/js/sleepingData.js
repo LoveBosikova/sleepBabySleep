@@ -20,7 +20,89 @@ export default {
             min: 3,
             max: 7,
         },
-        perfectDay: [{
+        perfectDay: {
+            labels: "День))",
+            datasets: [{
+                    label: 'Ночной сон - перед пробуждением',
+                    data: [480],
+                    backgroundColor: '#2F80ECA3',
+                },
+                {
+                    label: 'Бодрстование1',
+                    data: [120],
+                    backgroundColor: '#10132F',
+                },
+                {
+                    label: 'Первый  дневной сон',
+                    data: [40],
+                    backgroundColor: '#85b0e7',
+                },
+                {
+                    label: 'Бодрстование2',
+                    data: [140],
+                    backgroundColor: '#10132F',
+                },
+                {
+                    label: 'Второй дневной сон',
+                    data: [120],
+                    backgroundColor: '#85b0e7',
+                },
+                {
+                    label: 'Бодрстование3',
+                    data: [120],
+                    backgroundColor: '#10132F',
+                },
+                {
+                    label: 'Третий дневной сон',
+                    data: [90],
+                    backgroundColor: '#85b0e7',
+                },
+                {
+                    label: 'Бодрстование4',
+                    data: [90],
+                    backgroundColor: '#10132F',
+                },
+                {
+                    label: 'Четвёртый дневной сон',
+                    data: [60],
+                    backgroundColor: '#85b0e7',
+                },
+                {
+                    label: 'Бодрстование5',
+                    data: [120],
+                    backgroundColor: '#10132F',
+                },
+                {
+                    label: 'Ночной сон - вечер',
+                    data: [100],
+                    backgroundColor: '#2F80ECA3',
+                }]
+        }
+    },
+    month3: {
+        // Общее время сна за день
+        dailySleepingDurationInMin: {
+            min: 720,
+            max: 840
+        },
+        dailySleepingDurationInHours: {
+            min: 12,
+            max: 14,
+        },
+        // Время ночного сна
+        nightSleepDurationInMin: 510,
+        nightSleepDurationInHours: 8.5,
+        // Общее время дневных снов
+        dailyDayNapsDurationInMin: 270,
+        dailyDayNapsDurationInHours: 4.5,
+        // Количество дневных снов
+        daysNapCount: {
+            min: 3,
+            max: 4,
+        },
+        perfectDay: {
+            labels: "День))",
+            datasets: [{
                 label: 'Ночной сон - перед пробуждением',
                 data: [480],
                 backgroundColor: '#2F80ECA3',
@@ -42,12 +124,12 @@ export default {
             },
             {
                 label: 'Второй дневной сон',
-                data: [120],
+                data: [100],
                 backgroundColor: '#85b0e7',
             },
             {
                 label: 'Бодрстование3',
-                data: [120],
+                data: [140],
                 backgroundColor: '#10132F',
             },
             {
@@ -75,83 +157,8 @@ export default {
                 data: [100],
                 backgroundColor: '#2F80ECA3',
             }]
-    },
-    month3: {
-        // Общее время сна за день
-        dailySleepingDurationInMin: {
-            min: 720,
-            max: 840
-        },
-        dailySleepingDurationInHours: {
-            min: 12,
-            max: 14,
-        },
-        // Время ночного сна
-        nightSleepDurationInMin: 510,
-        nightSleepDurationInHours: 8.5,
-        // Общее время дневных снов
-        dailyDayNapsDurationInMin: 270,
-        dailyDayNapsDurationInHours: 4.5,
-        // Количество дневных снов
-        daysNapCount: {
-            min: 3,
-            max: 4,
-        },
-        perfectDay: [{
-            label: 'Ночной сон - перед пробуждением',
-            data: [480],
-            backgroundColor: '#2F80ECA3',
-        },
-        {
-            label: 'Бодрстование1',
-            data: [120],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Первый  дневной сон',
-            data: [40],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование2',
-            data: [140],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Второй дневной сон',
-            data: [100],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование3',
-            data: [140],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Третий дневной сон',
-            data: [90],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование4',
-            data: [90],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Четвёртый дневной сон',
-            data: [60],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование5',
-            data: [120],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Ночной сон - вечер',
-            data: [100],
-            backgroundColor: '#2F80ECA3',
-        }]
+        }
+        
     },
     month6: {
         // Общее время сна за день
@@ -174,51 +181,54 @@ export default {
             min: 2,
             max: 3,
         },
-        perfectDay: [{
-            label: 'Ночной сон - перед пробуждением',
-            data: [480],
-            backgroundColor: '#2F80ECA3',
-        },
-        {
-            label: 'Бодрстование1',
-            data: [120],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Первый дневной сон',
-            data: [40],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование2',
-            data: [150],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Второй дневной сон',
-            data: [90],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование3',
-            data: [140],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Третий дневной сон',
-            data: [90],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование4',
-            data: [90],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Ночной сон - вечер',
-            data: [100],
-            backgroundColor: '#2F80ECA3',
-        }]
+        perfectDay: {
+            labels: "День))",
+            datasets: [{
+                label: 'Ночной сон - перед пробуждением',
+                data: [480],
+                backgroundColor: '#2F80ECA3',
+            },
+            {
+                label: 'Бодрстование1',
+                data: [120],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Первый дневной сон',
+                data: [40],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование2',
+                data: [150],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Второй дневной сон',
+                data: [90],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование3',
+                data: [140],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Третий дневной сон',
+                data: [90],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование4',
+                data: [90],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Ночной сон - вечер',
+                data: [100],
+                backgroundColor: '#2F80ECA3',
+            }]
+        }
     },
     month9: {
         // Общее время сна за день
@@ -241,41 +251,45 @@ export default {
             min: 2,
             max: 2,
         },
-        perfectDay: [{
-            label: 'Ночной сон - перед пробуждением',
-            data: [510],
-            backgroundColor: '#2F80ECA3',
-        },
-        {
-            label: 'Бодрстование1',
-            data: [210],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Первый дневной сон',
-            data: [80],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование2',
-            data: [100],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Второй дневной сон',
-            data: [80],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование3',
-            data: [220],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Ночной сон - вечер',
-            data: [240],
-            backgroundColor: '#2F80ECA3',
-        }]
+        perfectDay: {
+            labels: "День))",
+            datasets:
+            [{
+                label: 'Ночной сон - перед пробуждением',
+                data: [510],
+                backgroundColor: '#2F80ECA3',
+            },
+            {
+                label: 'Бодрстование1',
+                data: [210],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Первый дневной сон',
+                data: [80],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование2',
+                data: [100],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Второй дневной сон',
+                data: [80],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование3',
+                data: [220],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Ночной сон - вечер',
+                data: [240],
+                backgroundColor: '#2F80ECA3',
+            }]
+        }
     },
     month12: {
         // Общее время сна за день
@@ -298,41 +312,44 @@ export default {
             min: 1,
             max: 2,
         },
-        perfectDay: [{
-            label: 'Ночной сон - перед пробуждением',
-            data: [510],
-            backgroundColor: '#2F80ECA3',
-        },
-        {
-            label: 'Бодрстование1',
-            data: [210],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Первый дневной сон',
-            data: [50],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование2',
-            data: [130],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Второй дневной сон',
-            data: [80],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование3',
-            data: [220],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Ночной сон - вечер',
-            data: [240],
-            backgroundColor: '#2F80ECA3',
-        }]
+        perfectDay: {
+            labels: "День))",
+            datasets: [{
+                label: 'Ночной сон - перед пробуждением',
+                data: [510],
+                backgroundColor: '#2F80ECA3',
+            },
+            {
+                label: 'Бодрстование1',
+                data: [210],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Первый дневной сон',
+                data: [50],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование2',
+                data: [130],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Второй дневной сон',
+                data: [80],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование3',
+                data: [220],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Ночной сон - вечер',
+                data: [240],
+                backgroundColor: '#2F80ECA3',
+            }]
+        }
     },
     years2: {
         // Общее время сна за день
@@ -355,31 +372,34 @@ export default {
             min: 1,
             max: 1,
         },
-        perfectDay: [{
-            label: 'Ночной сон - перед пробуждением',
-            data: [510],
-            backgroundColor: '#2F80ECA3',
-        },
-        {
-            label: 'Бодрстование1',
-            data: [275],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Первый дневной сон',
-            data: [130],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование2',
-            data: [280],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Ночной сон - вечер',
-            data: [250],
-            backgroundColor: '#2F80ECA3',
-        }]
+        perfectDay: {
+            labels: "День))",
+            datasets: [{
+                label: 'Ночной сон - перед пробуждением',
+                data: [510],
+                backgroundColor: '#2F80ECA3',
+            },
+            {
+                label: 'Бодрстование1',
+                data: [275],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Первый дневной сон',
+                data: [130],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование2',
+                data: [280],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Ночной сон - вечер',
+                data: [250],
+                backgroundColor: '#2F80ECA3',
+            }]
+        }
     },
     years3: {
         // Общее время сна за день
@@ -402,30 +422,33 @@ export default {
             min: 0,
             max: 1,
         },
-        perfectDay: [{
-            label: 'Ночной сон - перед пробуждением',
-            data: [510],
-            backgroundColor: '#2F80ECA3',
-        },
-        {
-            label: 'Бодрстование1',
-            data: [275],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Первый дневной сон',
-            data: [60],
-            backgroundColor: '#85b0e7',
-        },
-        {
-            label: 'Бодрстование2',
-            data: [350],
-            backgroundColor: '#10132F',
-        },
-        {
-            label: 'Ночной сон - вечер',
-            data: [250],
-            backgroundColor: '#2F80ECA3',
-        }]
+        perfectDay: {
+            labels: "День))",
+            datasets: [{
+                label: 'Ночной сон - перед пробуждением',
+                data: [510],
+                backgroundColor: '#2F80ECA3',
+            },
+            {
+                label: 'Бодрстование1',
+                data: [275],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Первый дневной сон',
+                data: [60],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование2',
+                data: [350],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Ночной сон - вечер',
+                data: [250],
+                backgroundColor: '#2F80ECA3',
+            }]
+        }
     },
 }

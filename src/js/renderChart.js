@@ -1,4 +1,5 @@
 import moment from 'moment';
+import sleepingData from './sleepingData';
 
 function renderChart (stateUI) {
     const chartUI = stateUI.chart
@@ -17,6 +18,13 @@ function renderChart (stateUI) {
     } else if (chartUI.chartDataType === 'onlyNightSleepings') {
         // Подключаем в дату данные только по ночным снам
         canvaChart.options.plugins.title.text = 'Статистика по ночному сну малыша';
+    } else if (chartUI.chartDataType === 'perfectSleepings') {
+        // Подключаем в дату данные по идеальному режиму в зависимости от текущего возраста ребенка
+        canvaChart.options.plugins.title.text = 'Примерный режим для по возрасту вашего малыша';
+
+        console.log(sleepingData.month1.perfectDay);
+        // Добавить логику по возрасту
+        canvaChart.data = sleepingData.month1.perfectDay;
     }
 
     // Далее логика отображения в зависимости от выбранного периода - день, неделя, тд

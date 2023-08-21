@@ -16,7 +16,7 @@ import {
     enUS,
     ru
 } from 'date-fns/locale';
-import changeQuotes from './changeQuotes.js';
+//import changeQuotes from './changeQuotes.js';
 import perfectTimingByAge from './sleepingData.js';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
@@ -241,6 +241,7 @@ const app = async () => {
     const chartBtnDayNaps = document.getElementById('dayNapsBtn');
     const chartBtnNightSleeping = document.getElementById('nightSleepingBtn');
     const chartBtnAllSleepings = document.getElementById('allSleepingsBtn');
+    const chartBtnAgeStatistic = document.getElementById('ageStatistic');
 
     chartBtnDayNaps.addEventListener('click', () => {
         state.stateUI.chart.chartDataType = 'onlyDayNappings';
@@ -256,6 +257,12 @@ const app = async () => {
         state.stateUI.chart.chartDataType = 'allSleepingsTypes';
         render(state);
     })
+
+    chartBtnAgeStatistic.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'perfectSleepings';
+        render(state);
+    })
+
 
 
     const oneDayStatisticBtn = document.getElementById('oneDayStatistic');
@@ -283,21 +290,6 @@ const app = async () => {
 
     btnsAcc.forEach((btn, i) => {
         btn.addEventListener('click', () => {
-            if (state.stateUI.accordion[i].display == 'none') {
-                state.stateUI.accordion[i].display = 'block';
-            } else {
-                state.stateUI.accordion[i].display = 'none';
-            }
-            render(state);
-        })
-    });
-
-    contents.forEach((btn, i) => {
-        btn.addEventListener('click', () => {
-            if (state.stateUI.accordion[i].display == 'none') {
-                state.stateUI.accordion[i].display = 'block';
-            } else {
-                state.stateUI.accordion[i].display = 'none';
             state.stateUI.accordion[i].display == 'none' ? state.stateUI.accordion[i].display = 'block' : state.stateUI.accordion[i].display = 'none';
             render(state);
         })
@@ -308,8 +300,9 @@ const app = async () => {
             render(state);
         })
     })
-    setTimeout(() => changeQuotes(), 0);
-    setInterval(() => changeQuotes(), 30000);
+
+    setTimeout(() => changeQoutesForward(), 0);
+    setInterval(() => changeQoutesForward(), 60000);
 
 }
 
