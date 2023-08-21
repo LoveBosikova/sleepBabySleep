@@ -9,6 +9,7 @@ import {
     dayForward,
     dayBackward
 } from './changeDay.js'
+import renderTags from './renderTags.js';
 import regForm from './registration_form.js';
 import 'chartjs-adapter-date-fns';
 import {
@@ -17,11 +18,18 @@ import {
 } from 'date-fns/locale';
 import changeQuotes from './changeQuotes.js';
 import perfectTimingByAge from './sleepingData.js';
+import changeQoutesBackward from './changeQoutesBackward.js';
+import changeQoutesForward from './changeQuotesForward.js';
+import changeBurgerMenu from './changeBurgerMenu.js';
 
 const app = async () => {
 
     const btnDayForward = document.getElementById('btn-dayForward');
     const btnDayBackward = document.getElementById('btn-dayBackward');
+    const btnQuoteForward = document.getElementById('quotesForward');
+    const btnQuoteBackward = document.getElementById('qoutesBackward');
+    const btnBurger = document.getElementById('burger__btn');
+    const headerLogo = document.querySelector('.header__logo');
 
     const canvas = window.document.querySelector('canvas');
     const chart = new Chart(canvas, {
@@ -186,6 +194,7 @@ const app = async () => {
                 },
                 ]
             },
+            burger: 'close',
         }
     }
     
@@ -199,6 +208,22 @@ const app = async () => {
     btnDayBackward.addEventListener('click', () => {
         dayBackward(state)
     });
+
+
+    btnQuoteBackward.addEventListener('click', () => {
+        changeQoutesBackward();
+    });
+    btnQuoteForward.addEventListener('click', () => {
+        changeQoutesForward();
+    });
+
+    btnBurger.addEventListener('click', () => {
+        state.stateUI.burger == 'close' ? state.stateUI.burger = 'open' : state.stateUI.burger = 'close';
+        render(state);
+    });
+
+    // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
+    render(state);
 
     const tags = document.querySelectorAll('.calendar__tagLabel');
     for (const tag of tags) {
@@ -273,7 +298,13 @@ const app = async () => {
                 state.stateUI.accordion[i].display = 'block';
             } else {
                 state.stateUI.accordion[i].display = 'none';
-            }
+            state.stateUI.accordion[i].display == 'none' ? state.stateUI.accordion[i].display = 'block' : state.stateUI.accordion[i].display = 'none';
+            render(state);
+        })
+    });
+    contents.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            state.stateUI.accordion[i].display == 'none' ? state.stateUI.accordion[i].display = 'block' : state.stateUI.accordion[i].display = 'none';
             render(state);
         })
     })
