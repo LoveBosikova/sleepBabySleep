@@ -2,9 +2,10 @@ import moment from 'moment';
 import sleepingData from './sleepingData';
 
 function renderChart (stateUI) {
-    const chartUI = stateUI.chart
+    const chartUI = stateUI.chart;
     const canvaChart = chartUI.chartInit;
-    console.log(canvaChart);
+
+    const cluePerfectSleeping = document.querySelector('.statistic__clue');
 
     // Создать функцию создания даты? 
     // Меняем отображение снов в зависимости от состояния кнопки
@@ -21,8 +22,7 @@ function renderChart (stateUI) {
     } else if (chartUI.chartDataType === 'perfectSleepings') {
         // Подключаем в дату данные по идеальному режиму в зависимости от текущего возраста ребенка
         canvaChart.options.plugins.title.text = 'Примерный режим для по возрасту вашего малыша';
-
-        console.log(sleepingData.month1.perfectDay);
+        chartUI.chartViewPeriod = 'perfectDay';
         // Добавить логику по возрасту
         canvaChart.data = sleepingData.month1.perfectDay;
     }
@@ -67,7 +67,26 @@ function renderChart (stateUI) {
                     backgroundColor: '#2F80ECA3',
                 }]
             }
+    } else if (chartUI.chartViewPeriod === 'currentWeek') {
+        canvaChart.data = stateUI.dataForWeek;
+    } else if (chartUI.chartViewPeriod === 'currentMonth') {
+        canvaChart.data = stateUI.dataForWeek;
     }
+
+    console.log(chartUI.clue);
+
+    if (chartUI.chartDataType !== 'perfectSleepings' || chartUI.chartViewPeriod !== 'perfectDay') {
+        chartUI.clue = 'hidden';
+    }
+
+    if(chartUI.clue === 'visible') {
+        cluePerfectSleeping.style.visibility = 'visible';
+    } else {
+        cluePerfectSleeping.style.visibility = 'hidden';
+    }
+
+    //cluePerfectSleeping.style.visibility = chartUI.clue === 'visible' ? 'visible' : 'hidden';
+    // cluePerfectSleeping.style.visibility = chartUI.clue === 'visible' ? 'visible' : 'hidden';
 
     canvaChart.update();
 }

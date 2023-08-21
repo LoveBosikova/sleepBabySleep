@@ -21,6 +21,7 @@ import perfectTimingByAge from './sleepingData.js';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
 import changeBurgerMenu from './changeBurgerMenu.js';
+import renderChart from './renderChart.js';
 
 const app = async () => {
 
@@ -143,6 +144,7 @@ const app = async () => {
                 chartInit: chart,
                 chartDataType: 'allSleepingsTypes',
                 chartViewPeriod: 'currentWeek',
+                clue: "hidden",
             },
             dataForWeek: {
                 labels: [
@@ -200,6 +202,7 @@ const app = async () => {
     
     // Рендеринг при инициализации приложения
     render(state);
+    renderChart(state.stateUI);
 
     // Календарь
     btnDayForward.addEventListener('click', () => {
@@ -243,27 +246,27 @@ const app = async () => {
     const chartBtnAllSleepings = document.getElementById('allSleepingsBtn');
     const chartBtnAgeStatistic = document.getElementById('ageStatistic');
 
-    chartBtnDayNaps.addEventListener('click', () => {
+    chartBtnDayNaps.addEventListener('click', (e) => {
         state.stateUI.chart.chartDataType = 'onlyDayNappings';
-        render(state);
+        renderChart(state.stateUI);
     });
 
     chartBtnNightSleeping.addEventListener('click', () => {
         state.stateUI.chart.chartDataType = 'onlyNightSleepings';
-        render(state);
+        renderChart(state.stateUI);
     });
 
     chartBtnAllSleepings.addEventListener('click', () => {
         state.stateUI.chart.chartDataType = 'allSleepingsTypes';
-        render(state);
+        renderChart(state.stateUI);
     })
 
     chartBtnAgeStatistic.addEventListener('click', () => {
         state.stateUI.chart.chartDataType = 'perfectSleepings';
-        render(state);
+        state.stateUI.chart.chartViewPeriod = 'perfectDay';
+        state.stateUI.chart.clue = 'visible';
+        renderChart(state.stateUI);
     })
-
-
 
     const oneDayStatisticBtn = document.getElementById('oneDayStatistic');
     const weekStatisticBtn = document.getElementById('weekStatistic');
@@ -271,17 +274,24 @@ const app = async () => {
 
     oneDayStatisticBtn.addEventListener('click', () => {
         state.stateUI.chart.chartViewPeriod = 'currentDay';
-        render(state);
+        renderChart(state.stateUI);
     });
 
     weekStatisticBtn.addEventListener('click', () => {
         state.stateUI.chart.chartViewPeriod = 'currentWeek';
-        render(state);
+        renderChart(state.stateUI);
     });
 
     monthStatisticBtn.addEventListener('click', () => {
         state.stateUI.chart.chartViewPeriod = 'currentMonth';
-        render(state);
+        renderChart(state.stateUI);
+    });
+
+    
+    const closeClueStatisticBtn = document.querySelector('.statistic__closeBtn');
+    closeClueStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
     });
 
     // Гармошка
