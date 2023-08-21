@@ -1,6 +1,7 @@
 // Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт
 
 import moment from 'moment';
+import Chart from 'chart.js/auto';
 import onChange from 'on-change';
 import render from './view.js';
 import createDays from './createDays.js'
@@ -21,6 +22,42 @@ const app = async () => {
 
     const btnDayForward = document.getElementById('btn-dayForward');
     const btnDayBackward = document.getElementById('btn-dayBackward');
+
+    const canvas = window.document.querySelector('canvas');
+    const chart = new Chart(canvas, {
+        type: 'bar',
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'График дня вашего малыша',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    }
+                },
+                legend: {
+                    display: false,
+                },
+            },
+            responsive: true,
+            scales: {
+            y: {
+                beginAtZero: true,
+                stacked: true,
+                min: 0,
+                max: 1440,
+                ticks: {
+                    display: false 
+                }
+            }, 
+            x: {
+                beginAtZero: true,
+                stacked: true,
+            }
+        }
+        }
+    });
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -94,6 +131,11 @@ const app = async () => {
                 },
 
             ],
+            chart: {
+                chartInit: chart,
+                chartDataType: 'allSleepingsTypes',
+                chartViewPeriod: 'currentWeek',
+            },
             dataForWeek: {
                 labels: [
                     [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
@@ -146,19 +188,17 @@ const app = async () => {
             },
         }
     }
+    
+    // Рендеринг при инициализации приложения
+    render(state);
 
-    // Обработчики событий ничего не меняют во внешнем виде приложения, они меняют состояние. 
-    // А уже функция рендеринга обрабатывает состояние и меняет внешний вид
-
+    // Календарь
     btnDayForward.addEventListener('click', () => {
         dayForward(state)
     });
     btnDayBackward.addEventListener('click', () => {
         dayBackward(state)
     });
-
-    // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
-    render(state);
 
     const tags = document.querySelectorAll('.calendar__tagLabel');
     for (const tag of tags) {
@@ -170,8 +210,49 @@ const app = async () => {
             };
             render(state);
         })
-    }
+    };
 
+    // Отображение статистики в чарте
+    const chartBtnDayNaps = document.getElementById('dayNapsBtn');
+    const chartBtnNightSleeping = document.getElementById('nightSleepingBtn');
+    const chartBtnAllSleepings = document.getElementById('allSleepingsBtn');
+
+    chartBtnDayNaps.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'onlyDayNappings';
+        render(state);
+    });
+
+    chartBtnNightSleeping.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'onlyNightSleepings';
+        render(state);
+    });
+
+    chartBtnAllSleepings.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'allSleepingsTypes';
+        render(state);
+    })
+
+
+    const oneDayStatisticBtn = document.getElementById('oneDayStatistic');
+    const weekStatisticBtn = document.getElementById('weekStatistic');
+    const monthStatisticBtn = document.getElementById('monthStatistic');
+
+    oneDayStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentDay';
+        render(state);
+    });
+
+    weekStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        render(state);
+    });
+
+    monthStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentMonth';
+        render(state);
+    });
+
+    // Гармошка
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
 
@@ -198,6 +279,7 @@ const app = async () => {
     })
     setTimeout(() => changeQuotes(), 0);
     setInterval(() => changeQuotes(), 30000);
+
 }
 
 export default app;
