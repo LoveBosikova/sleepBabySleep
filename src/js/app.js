@@ -140,63 +140,15 @@ const app = async () => {
                 },
 
             ],
+            burger: 'close',
             chart: {
                 chartInit: chart,
+                // Возможные варианты chartDataType: 'allSleepingsTypes', 'onlyDayNappings', 'onlyNightSleepings', 'perfectSleepings', 'overSleepings','overAwakings'
                 chartDataType: 'allSleepingsTypes',
+                // Возможные варианты chartDataType: 'currentDay', 'currentWeek', 'currentMonth', 'perfectDay'
                 chartViewPeriod: 'currentWeek',
                 clue: "hidden",
             },
-            dataForWeek: {
-                labels: [
-                    [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
-                    [moment().day(-2).format('ddd'), moment().day(-2).format('DD'), moment().day(-2)],
-                    [moment().day(-1).format('ddd'), moment().day(-1).format('DD'), moment().day(-1)],
-                    [moment().day(0).format('ddd'), moment().day(0).format('DD'), moment().day(0)],
-                    [moment().day(1).format('ddd'), moment().day(1).format('DD'), moment().day(1)],
-                    [moment().day(2).format('ddd'), moment().day(2).format('DD'), moment().day(2)],
-                    [moment().day(3).format('ddd'), moment().day(3).format('DD'), moment().day(3)],
-                ].map(el => {
-                    return el[2].format("dd, D")
-                }),
-                datasets: [
-                {
-                    label: 'Ночной сон - перед пробуждением',
-                    data: [480, 500, 400, 420, 470, 410, 460],
-                    backgroundColor: '#2F80ECA3',
-                },
-                {
-                    label: 'Бодрстование1',
-                    data: [300, 320, 231, 387, 300, 307, 280],
-                    backgroundColor: '#10132F',
-                },
-                {
-                    label: 'Первый  дневной сон',
-                    data: [70, 60, 120, 45, 60, 77, 100],
-                    backgroundColor: '#85b0e7',
-                },
-                {
-                    label: 'Бодрстование2',
-                    data: [250, 220, 231, 100, 200, 207, 180],
-                    backgroundColor: '#10132F',
-                },
-                {
-                    label: 'Второй дневной сон',
-                    data: [100, 130, 40, 110, 90, 95, 60],
-                    backgroundColor: '#85b0e7',
-                },
-                {
-                    label: 'Бодрстование3',
-                    data: [120, 120, 131, 70, 113, 127, 129],
-                    backgroundColor: '#10132F',
-                },
-                {
-                    label: 'Ночной сон - вечер',
-                    data: [120, 90, 287, 293, 207, 229, 231],
-                    backgroundColor: '#2F80ECA3',
-                },
-                ]
-            },
-            burger: 'close',
         }
     }
     
@@ -241,58 +193,93 @@ const app = async () => {
     };
 
     // Отображение статистики в чарте
-    const chartBtnDayNaps = document.getElementById('dayNapsBtn');
-    const chartBtnNightSleeping = document.getElementById('nightSleepingBtn');
-    const chartBtnAllSleepings = document.getElementById('allSleepingsBtn');
-    const chartBtnAgeStatistic = document.getElementById('ageStatistic');
-
-    chartBtnDayNaps.addEventListener('click', (e) => {
-        state.stateUI.chart.chartDataType = 'onlyDayNappings';
-        renderChart(state.stateUI);
-    });
-
-    chartBtnNightSleeping.addEventListener('click', () => {
-        state.stateUI.chart.chartDataType = 'onlyNightSleepings';
-        renderChart(state.stateUI);
-    });
-
+    const chartBtnAllSleepings = document.getElementById('allSleepingsTypes');
     chartBtnAllSleepings.addEventListener('click', () => {
         state.stateUI.chart.chartDataType = 'allSleepingsTypes';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI)
+    })
+
+    const chartBtnDayNaps = document.getElementById('onlyDayNappings');
+    chartBtnDayNaps.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'onlyDayNappings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
         renderChart(state.stateUI);
     })
 
+    const chartBtnNightSleeping = document.getElementById('onlyNightSleepings');
+    chartBtnNightSleeping.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'onlyNightSleepings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnOverSleepingStatistic = document.getElementById('overSleepings');
+    chartBtnOverSleepingStatistic.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'overSleepings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnOverAwakingStatistic = document.getElementById('overAwakings');
+    chartBtnOverAwakingStatistic.addEventListener('click', () => {
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        state.stateUI.chart.chartDataType = 'overAwakings';
+        renderChart(state.stateUI);
+    })
+
+    const oneDayStatisticBtn = document.getElementById('currentDay');
+    oneDayStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentDay';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const weekStatisticBtn = document.getElementById('currentWeek');
+    weekStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const monthStatisticBtn = document.getElementById('currentMonth');
+    monthStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentMonth';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnAgeStatistic = document.getElementById('perfectDay');
     chartBtnAgeStatistic.addEventListener('click', () => {
         state.stateUI.chart.chartDataType = 'perfectSleepings';
         state.stateUI.chart.chartViewPeriod = 'perfectDay';
         state.stateUI.chart.clue = 'visible';
         renderChart(state.stateUI);
     })
-
-    const oneDayStatisticBtn = document.getElementById('oneDayStatistic');
-    const weekStatisticBtn = document.getElementById('weekStatistic');
-    const monthStatisticBtn = document.getElementById('monthStatistic');
-
-    oneDayStatisticBtn.addEventListener('click', () => {
-        state.stateUI.chart.chartViewPeriod = 'currentDay';
-        renderChart(state.stateUI);
-    });
-
-    weekStatisticBtn.addEventListener('click', () => {
-        state.stateUI.chart.chartViewPeriod = 'currentWeek';
-        renderChart(state.stateUI);
-    });
-
-    monthStatisticBtn.addEventListener('click', () => {
-        state.stateUI.chart.chartViewPeriod = 'currentMonth';
-        renderChart(state.stateUI);
-    });
-
     
     const closeClueStatisticBtn = document.querySelector('.statistic__closeBtn');
+    console.log(closeClueStatisticBtn);
     closeClueStatisticBtn.addEventListener('click', () => {
         state.stateUI.chart.clue = 'hidden';
+        console.log(state.stateUI.chart.clue);
         renderChart(state.stateUI);
-    });
+    })
+
 
     // Гармошка
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];

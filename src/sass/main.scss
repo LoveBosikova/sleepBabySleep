@@ -470,8 +470,9 @@ body {
 
     &__dreams {
         display: flex;
-        justify-content: space-between;
-        gap: 1.563;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 1rem;
     }
 
     &__diagram {
@@ -520,7 +521,7 @@ body {
     border-radius: 8px;
 }
 
-.dreams__btn:focus {
+.activeBtn{
     background-color: #2CB57F;
 }
 
