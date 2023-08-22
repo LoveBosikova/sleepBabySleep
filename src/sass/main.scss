@@ -466,6 +466,7 @@ body {
         display: flex;
         gap: 2.094rem;
         margin-bottom: 3rem;
+        align-items: center;
     }
 
     &__dreams {
@@ -510,7 +511,6 @@ body {
 .notification__desc {
     max-width: 25.55rem;
     @include belota-400-18;
-    padding-top: 1rem;
 }
 
 .dreams__btn {
