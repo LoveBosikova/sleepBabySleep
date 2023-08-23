@@ -44,6 +44,7 @@ const app = async () => {
             },
         },
         stateUI: {
+            introBlocks: 'visible',
             calendarWeek: [
                 [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
                 [moment().day(-2).format('ddd'), moment().day(-2).format('DD'), moment().day(-2)],
@@ -169,7 +170,14 @@ const app = async () => {
 
     setTimeout(() => changeQoutesForward(), 0);
     setInterval(() => changeQoutesForward(), 60000);
-
+    // Работаем с видимостью блоков интро
+    const hideInrtoBtn = document.getElementById('hideIntroBtn');
+    
+    hideInrtoBtn.addEventListener('click', () => {
+        state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
+        console.log(state.stateUI.introBlocks);
+        render(state);
+    })
     // Начинаем работать с чартом
     let canvas = window.document.querySelector('canvas');
 

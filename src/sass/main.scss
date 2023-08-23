@@ -97,6 +97,8 @@ body {
 }
 
 .tracker {
+    transition: all 1s ease-out;
+
     &__desc1 {
         @include shnobel-400-23;
         margin-top: 0;
@@ -135,7 +137,10 @@ body {
 
 .normalize {
     //Убрала отступы
-    // margin: 5rem 2rem;
+    margin-bottom: 8rem;
+
+    position: relative;
+    transition: all 1s ease-out;
 
     &__container {
         padding: .5rem;
@@ -189,14 +194,45 @@ body {
         background-color: $dark-grey;
         border: 2px solid $border-blue;
         border-radius: 6px;
-
-        &--last {
-            position: relative;
+        transition: all 100ms ease-out;
+        
+        &:hover {
+                -webkit-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                transform: scale(1.1);
         }
     }
 
     &__card {
         flex: 30% 1 1;
+    }
+
+    &__hideBtn{
+        position: absolute;
+        bottom: -8rem;
+        right: 11rem;
+        border-radius: 8px;
+        border: 1px solid $border-blue;
+        background-color: transparent;
+        padding: .4rem 1rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        @include belota-400-15;
+    }
+
+    &__btnText{
+        padding: 0.4rem;
+        margin: 0;
+        @include belota-400-15;
+    }
+
+    &__arrow {
+        //transform: rotate(180deg);
+        transition: 0.5ms ease-in-out;
+        margin-right: 0.4rem;
     }
 }
 
@@ -207,7 +243,7 @@ body {
 }
 
 .mainSection {
-    margin: 18rem 5rem;
+    margin: 10rem 5rem;
 
     &__container {
         @include flex-space-between-center;
@@ -240,7 +276,6 @@ body {
 
 
 .calendar {
-
 
     &__datesWrap {
         margin-top: 3rem;
