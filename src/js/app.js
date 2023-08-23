@@ -135,6 +135,12 @@ const app = async () => {
         render(state);
     });
 
+    if(window.localStorage.getItem('introBlocks') === 'visible') {
+        state.stateUI.introBlocks = 'visible';
+    } else if(window.localStorage.getItem('introBlocks') === 'hidden') {
+        state.stateUI.introBlocks = 'hidden';
+    };
+
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
 
@@ -175,7 +181,7 @@ const app = async () => {
     
     hideInrtoBtn.addEventListener('click', () => {
         state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
-        console.log(state.stateUI.introBlocks);
+        console.log(window.localStorage);
         render(state);
     })
     // Начинаем работать с чартом
