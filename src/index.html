@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Roboto:wght@300;400;500;700;900&display=swap"
         rel="stylesheet">
+    <link rel="shortcut icon" href="" type="image/svg" id="favicon">
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 
@@ -595,13 +596,14 @@
 
                 <form action="#" method="post" class="registration-form" name="registrationForm" novalidate>
                     <div class="registration-form__field">
-                        <input type="text" class="registration-form__text-input" placeholder="Имя малыша" name="babyName"
-                        validators="required,name" />
+                        <input type="text" class="registration-form__text-input" placeholder="Имя малыша"
+                            name="babyName" validators="required,name" />
                         <div class="registration-form__error"></div>
                     </div>
 
                     <label class="registration-form__photo-label">
-                        <input type="file" name="photoBaby" class="registration-form__photo" accept="image/jpeg,image/jpg,image/png,image/heic,image/heif" />
+                        <input type="file" name="photoBaby" class="registration-form__photo"
+                            accept="image/jpeg,image/jpg,image/png,image/heic,image/heif" />
                         <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="23" viewBox="0 0 24 23" fill="none">
                             <circle cx="12.0584" cy="11.5945" r="11" transform="rotate(-0.588053 12.0584 11.5945)"
@@ -618,12 +620,13 @@
 
                     <div class="registration-form__field">
                         <input type="text" class="registration-form__text-input" placeholder="Имя папы" name="dadName"
-                        validators="name" />
+                            validators="name" />
                         <div class="registration-form__error"></div>
                     </div>
 
                     <label class="registration-form__photo-label">
-                        <input type="file" name="photoDad" class="registration-form__photo" accept="image/jpeg,image/jpg,image/png,image/heic,image/heif"/>
+                        <input type="file" name="photoDad" class="registration-form__photo"
+                            accept="image/jpeg,image/jpg,image/png,image/heic,image/heif" />
                         <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="23" viewBox="0 0 24 23" fill="none">
                             <circle cx="12.0584" cy="11.5945" r="11" transform="rotate(-0.588053 12.0584 11.5945)"
@@ -640,12 +643,13 @@
 
                     <div class="registration-form__field">
                         <input type="text" class="registration-form__text-input" placeholder="Имя мамы" name="momName"
-                        validators="name" />
+                            validators="name" />
                         <div class="registration-form__error"></div>
                     </div>
-                    
+
                     <label class="registration-form__photo-label">
-                        <input type="file" name="photoMom" class="registration-form__photo" accept="image/jpeg,image/jpg,image/png,image/heic,image/heif" />
+                        <input type="file" name="photoMom" class="registration-form__photo"
+                            accept="image/jpeg,image/jpg,image/png,image/heic,image/heif" />
                         <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="23" viewBox="0 0 24 23" fill="none">
                             <circle cx="12.0584" cy="11.5945" r="11" transform="rotate(-0.588053 12.0584 11.5945)"
@@ -661,21 +665,21 @@
                     </label>
 
                     <div class="registration-form__field">
-                        <input type="email" name="emailRegForm" class="registration-form__text-input" placeholder="Почта"
-                        validators="required,email" />
+                        <input type="email" name="emailRegForm" class="registration-form__text-input"
+                            placeholder="Почта" validators="required,email" />
                         <div class="registration-form__error"></div>
                     </div>
 
                     <div class="registration-form__passwords">
                         <div class="registration-form__field-password">
                             <input type="password" name="passwordRegForm" class="registration-form__text-input password"
-                            placeholder="Пароль" validators="required,password" autocomplete="on"/>
+                                placeholder="Пароль" validators="required,password" autocomplete="on" />
                             <div class="registration-form__error"></div>
                         </div>
                         <div class="registration-form__field-password">
                             <input type="password" name="passwordRegFormConfirm"
-                            class="registration-form__text-input password" placeholder="Подтвердите пароль"
-                            validators="required,passwordConfirm" autocomplete="on"/>
+                                class="registration-form__text-input password" placeholder="Подтвердите пароль"
+                                validators="required,passwordConfirm" autocomplete="on" />
                             <div class="registration-form__error"></div>
                         </div>
                     </div>

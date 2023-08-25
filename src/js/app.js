@@ -19,8 +19,7 @@ import {
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
 import changeBurgerMenu from './changeBurgerMenu.js';
-
-
+import favicon from '../assets/favicon.svg'
 
 // Примеры импортов кода и картинок
 
@@ -33,6 +32,10 @@ const app = async () => {
     const btnQuoteBackward = document.getElementById('qoutesBackward');
     const btnBurger = document.getElementById('burger__btn');
     const headerLogo = document.querySelector('.header__logo');
+
+    const icon = document.getElementById('favicon');
+    icon.href = `${favicon}`;
+
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
