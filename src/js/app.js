@@ -1,8 +1,8 @@
 // Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт
 
 import moment from 'moment';
-import onChange from 'on-change';
 import Chart from 'chart.js/auto';
+import onChange from 'on-change';
 import render from './view.js';
 import createDays from './createDays.js'
 import {
@@ -16,23 +16,57 @@ import {
     enUS,
     ru
 } from 'date-fns/locale';
+//import changeQuotes from './changeQuotes.js';
+import perfectTimingByAge from './sleepingData.js';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
 import changeBurgerMenu from './changeBurgerMenu.js';
-
-
-
-// Примеры импортов кода и картинок
+import renderChart from './renderChart.js';
 
 const app = async () => {
 
-    const fullformat = 'DD.MM.YYYY';
     const btnDayForward = document.getElementById('btn-dayForward');
     const btnDayBackward = document.getElementById('btn-dayBackward');
     const btnQuoteForward = document.getElementById('quotesForward');
     const btnQuoteBackward = document.getElementById('qoutesBackward');
     const btnBurger = document.getElementById('burger__btn');
     const headerLogo = document.querySelector('.header__logo');
+
+    const canvas = window.document.querySelector('canvas');
+    const chart = new Chart(canvas, {
+        type: 'bar',
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'График дня вашего малыша',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    }
+                },
+                legend: {
+                    display: false,
+                },
+            },
+            responsive: true,
+            scales: {
+            y: {
+                beginAtZero: true,
+                stacked: true,
+                min: 0,
+                max: 1440,
+                ticks: {
+                    display: false 
+                }
+            }, 
+            x: {
+                beginAtZero: true,
+                stacked: true,
+            }
+        }
+        }
+    });
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -108,13 +142,22 @@ const app = async () => {
 
             ],
             burger: 'close',
-
+            chart: {
+                chartInit: chart,
+                // Возможные варианты chartDataType: 'allSleepingsTypes', 'onlyDayNappings', 'onlyNightSleepings', 'perfectSleepings', 'overSleepings','overAwakings'
+                chartDataType: 'allSleepingsTypes',
+                // Возможные варианты chartDataType: 'currentDay', 'currentWeek', 'currentMonth', 'perfectDay'
+                chartViewPeriod: 'currentWeek',
+                clue: "hidden",
+            },
         }
     }
+    
+    // Рендеринг при инициализации приложения
+    render(state);
+    renderChart(state.stateUI);
 
-    // Обработчики событий ничего не меняют во внешнем виде приложения, они меняют состояние. 
-    // А уже функция рендеринга обрабатывает состояние и меняет внешний вид
-
+    // Календарь
     btnDayForward.addEventListener('click', () => {
         dayForward(state)
     });
@@ -144,9 +187,7 @@ const app = async () => {
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
 
-
     const tags = document.querySelectorAll('.calendar__tagLabel');
-
     for (const tag of tags) {
         tag.addEventListener('click', (e) => {
             for (const item of state.stateUI.tags) {
@@ -156,8 +197,98 @@ const app = async () => {
             };
             render(state);
         })
-    }
+    };
 
+    // Отображение статистики в чарте
+    const chartBtnAllSleepings = document.getElementById('allSleepingsTypes');
+    chartBtnAllSleepings.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'allSleepingsTypes';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI)
+    })
+
+    const chartBtnDayNaps = document.getElementById('onlyDayNappings');
+    chartBtnDayNaps.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'onlyDayNappings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnNightSleeping = document.getElementById('onlyNightSleepings');
+    chartBtnNightSleeping.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'onlyNightSleepings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnOverSleepingStatistic = document.getElementById('overSleepings');
+    chartBtnOverSleepingStatistic.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'overSleepings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnOverAwakingStatistic = document.getElementById('overAwakings');
+    chartBtnOverAwakingStatistic.addEventListener('click', () => {
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        state.stateUI.chart.chartDataType = 'overAwakings';
+        renderChart(state.stateUI);
+    })
+
+    const oneDayStatisticBtn = document.getElementById('currentDay');
+    oneDayStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentDay';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const weekStatisticBtn = document.getElementById('currentWeek');
+    weekStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const monthStatisticBtn = document.getElementById('currentMonth');
+    monthStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentMonth';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnAgeStatistic = document.getElementById('perfectDay');
+    chartBtnAgeStatistic.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'perfectSleepings';
+        state.stateUI.chart.chartViewPeriod = 'perfectDay';
+        state.stateUI.chart.clue = 'visible';
+        renderChart(state.stateUI);
+    })
+    
+    const closeClueStatisticBtn = document.querySelector('.statistic__closeBtn');
+    console.log(closeClueStatisticBtn);
+    closeClueStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.clue = 'hidden';
+        console.log(state.stateUI.chart.clue);
+        renderChart(state.stateUI);
+    })
+
+
+    // Гармошка
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
 
@@ -176,6 +307,7 @@ const app = async () => {
 
     setTimeout(() => changeQoutesForward(), 0);
     setInterval(() => changeQoutesForward(), 60000);
+
     // Работаем с видимостью блоков интро
     const hideInrtoBtn = document.getElementById('hideIntroBtn');
     
@@ -264,6 +396,7 @@ const app = async () => {
             }
         }
     })
+
 }
 
 export default app;
