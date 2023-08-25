@@ -16,9 +16,11 @@ import {
     enUS,
     ru
 } from 'date-fns/locale';
+import perfectTimingByAge from './sleepingData.js';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
 import changeBurgerMenu from './changeBurgerMenu.js';
+import renderChart from './renderChart.js';
 import favicon from '../assets/favicon.svg'
 
 // Примеры импортов кода и картинок
@@ -36,7 +38,41 @@ const app = async () => {
     const icon = document.getElementById('favicon');
     icon.href = `${favicon}`;
 
-
+    const canvas = window.document.querySelector('canvas');
+    const chart = new Chart(canvas, {
+        type: 'bar',
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'График дня вашего малыша',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    }
+                },
+                legend: {
+                    display: false,
+                },
+            },
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    stacked: true,
+                    min: 0,
+                    max: 1440,
+                    ticks: {
+                        display: false
+                    }
+                },
+                x: {
+                    beginAtZero: true,
+                    stacked: true,
+                }
+            }
+        }
+    });
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
         registrationForm: {
@@ -47,6 +83,7 @@ const app = async () => {
             },
         },
         stateUI: {
+            introBlocks: 'visible',
             calendarWeek: [
                 [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
                 [moment().day(-2).format('ddd'), moment().day(-2).format('DD'), moment().day(-2)],
@@ -110,13 +147,23 @@ const app = async () => {
 
             ],
             burger: 'close',
+            chart: {
+                chartInit: chart,
+                // Возможные варианты chartDataType: 'allSleepingsTypes', 'onlyDayNappings', 'onlyNightSleepings', 'perfectSleepings', 'overSleepings','overAwakings'
+                chartDataType: 'allSleepingsTypes',
+                // Возможные варианты chartDataType: 'currentDay', 'currentWeek', 'currentMonth', 'perfectDay'
+                chartViewPeriod: 'currentWeek',
+                clue: "hidden",
+            },
 
         }
     }
 
-    // Обработчики событий ничего не меняют во внешнем виде приложения, они меняют состояние. 
-    // А уже функция рендеринга обрабатывает состояние и меняет внешний вид
+    // Рендеринг при инициализации приложения
+    render(state);
+    renderChart(state.stateUI);
 
+    // Календарь
     btnDayForward.addEventListener('click', () => {
         dayForward(state)
     });
@@ -137,6 +184,12 @@ const app = async () => {
         render(state);
     });
 
+    if (window.localStorage.getItem('introBlocks') === 'visible') {
+        state.stateUI.introBlocks = 'visible';
+    } else if (window.localStorage.getItem('introBlocks') === 'hidden') {
+        state.stateUI.introBlocks = 'hidden';
+    };
+
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
 
@@ -152,7 +205,97 @@ const app = async () => {
             };
             render(state);
         })
-    }
+    };
+    // Отображение статистики в чарте
+    const chartBtnAllSleepings = document.getElementById('allSleepingsTypes');
+    chartBtnAllSleepings.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'allSleepingsTypes';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI)
+    })
+
+    const chartBtnDayNaps = document.getElementById('onlyDayNappings');
+    chartBtnDayNaps.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'onlyDayNappings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnNightSleeping = document.getElementById('onlyNightSleepings');
+    chartBtnNightSleeping.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'onlyNightSleepings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnOverSleepingStatistic = document.getElementById('overSleepings');
+    chartBtnOverSleepingStatistic.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'overSleepings';
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnOverAwakingStatistic = document.getElementById('overAwakings');
+    chartBtnOverAwakingStatistic.addEventListener('click', () => {
+        if (state.stateUI.chart.chartViewPeriod === 'perfectDay') {
+            state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        };
+        state.stateUI.chart.clue = 'hidden';
+        state.stateUI.chart.chartDataType = 'overAwakings';
+        renderChart(state.stateUI);
+    })
+
+    const oneDayStatisticBtn = document.getElementById('currentDay');
+    oneDayStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentDay';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const weekStatisticBtn = document.getElementById('currentWeek');
+    weekStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentWeek';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const monthStatisticBtn = document.getElementById('currentMonth');
+    monthStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.chartViewPeriod = 'currentMonth';
+        state.stateUI.chart.clue = 'hidden';
+        renderChart(state.stateUI);
+    })
+
+    const chartBtnAgeStatistic = document.getElementById('perfectDay');
+    chartBtnAgeStatistic.addEventListener('click', () => {
+        state.stateUI.chart.chartDataType = 'perfectSleepings';
+        state.stateUI.chart.chartViewPeriod = 'perfectDay';
+        state.stateUI.chart.clue = 'visible';
+        renderChart(state.stateUI);
+    })
+
+    const closeClueStatisticBtn = document.querySelector('.statistic__closeBtn');
+    console.log(closeClueStatisticBtn);
+    closeClueStatisticBtn.addEventListener('click', () => {
+        state.stateUI.chart.clue = 'hidden';
+        console.log(state.stateUI.chart.clue);
+        renderChart(state.stateUI);
+    })
+
+
+    // Гармошка
 
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
@@ -173,6 +316,14 @@ const app = async () => {
     setTimeout(() => changeQoutesForward(), 0);
     setInterval(() => changeQoutesForward(), 60000);
 
+    // Работаем с видимостью блоков интро
+    const hideInrtoBtn = document.getElementById('hideIntroBtn');
+
+    hideInrtoBtn.addEventListener('click', () => {
+        state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
+        console.log(window.localStorage);
+        render(state);
+    })
     // Начинаем работать с чартом
     let canvas = window.document.querySelector('canvas');
 
@@ -253,6 +404,7 @@ const app = async () => {
             }
         }
     })
+
 }
 
 export default app;
