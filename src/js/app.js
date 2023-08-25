@@ -19,11 +19,15 @@ import {
 import perfectTimingByAge from './sleepingData.js';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
-import changeBurgerMenu from './changeBurgerMenu.js';
+import changeBurgerMenu from './changeBurgerMenu.js'; <<
+<< << << < Temporary merge branch 1
 import renderChart from './renderChart.js';
 import favicon from '../assets/favicon.svg'
 
 // Примеры импортов кода и картинок
+>>>
+>>>
+>>> Temporary merge branch 2
 
 const app = async () => {
 
@@ -35,9 +39,9 @@ const app = async () => {
     const btnBurger = document.getElementById('burger__btn');
     const headerLogo = document.querySelector('.header__logo');
 
-    const icon = document.getElementById('favicon');
-    icon.href = `${favicon}`;
-
+    <<
+    <<
+    << << < Temporary merge branch 1
     const canvas = window.document.querySelector('canvas');
     const chart = new Chart(canvas, {
         type: 'bar',
@@ -72,7 +76,16 @@ const app = async () => {
                 }
             }
         }
-    });
+    }); ===
+    ===
+    ===
+    const icon = document.getElementById('favicon');
+    icon.href = `${favicon}`;
+
+    >>>
+    >>>
+    >>> Temporary merge branch 2
+
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
         registrationForm: {
