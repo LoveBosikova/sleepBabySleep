@@ -78,6 +78,7 @@ const app = async () => {
             },
         },
         stateUI: {
+            introBlocks: 'visible',
             calendarWeek: [
                 [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
                 [moment().day(-2).format('ddd'), moment().day(-2).format('DD'), moment().day(-2)],
@@ -176,6 +177,12 @@ const app = async () => {
         state.stateUI.burger == 'close' ? state.stateUI.burger = 'open' : state.stateUI.burger = 'close';
         render(state);
     });
+
+    if(window.localStorage.getItem('introBlocks') === 'visible') {
+        state.stateUI.introBlocks = 'visible';
+    } else if(window.localStorage.getItem('introBlocks') === 'hidden') {
+        state.stateUI.introBlocks = 'hidden';
+    };
 
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
@@ -300,6 +307,95 @@ const app = async () => {
 
     setTimeout(() => changeQoutesForward(), 0);
     setInterval(() => changeQoutesForward(), 60000);
+
+    // Работаем с видимостью блоков интро
+    const hideInrtoBtn = document.getElementById('hideIntroBtn');
+    
+    hideInrtoBtn.addEventListener('click', () => {
+        state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
+        console.log(window.localStorage);
+        render(state);
+    })
+    // Начинаем работать с чартом
+    let canvas = window.document.querySelector('canvas');
+
+    const DATA_COUNT = 7;
+
+    const labels = state.stateUI.calendarWeek.map(el => {
+        return el[2].format("dd, D")
+    });
+
+    const data = {
+        labels: labels,
+        datasets: [{
+                label: 'Ночной сон - перед пробуждением',
+                data: [480, 500, 400, 420, 470, 410, 460],
+                backgroundColor: '#2F80ECA3',
+            },
+            {
+                label: 'Бодрстование1',
+                data: [300, 320, 231, 387, 300, 307, 280],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Первый  дневной сон',
+                data: [70, 60, 120, 45, 60, 77, 100],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование2',
+                data: [250, 220, 231, 100, 200, 207, 180],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Второй дневной сон',
+                data: [100, 130, 40, 110, 90, 95, 60],
+                backgroundColor: '#85b0e7',
+            },
+            {
+                label: 'Бодрстование3',
+                data: [120, 120, 131, 70, 113, 127, 129],
+                backgroundColor: '#10132F',
+            },
+            {
+                label: 'Ночной сон - вечер',
+                data: [120, 90, 287, 293, 207, 229, 231],
+                backgroundColor: '#2F80ECA3',
+            },
+        ]
+    };
+
+    new Chart(canvas, {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'График дня вашего малыша',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    }
+                },
+                legend: {
+                    display: false,
+                },
+            },
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    stacked: true,
+                    min: 0,
+                    max: 1440,
+                    ticks: {
+                        display: false
+                    }
+                }
+            }
+        }
+    })
 
 }
 
