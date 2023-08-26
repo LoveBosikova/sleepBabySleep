@@ -19,15 +19,11 @@ import {
 import perfectTimingByAge from './sleepingData.js';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
-import changeBurgerMenu from './changeBurgerMenu.js'; <<
-<< << << < Temporary merge branch 1
+import changeBurgerMenu from './changeBurgerMenu.js'; 
 import renderChart from './renderChart.js';
 import favicon from '../assets/favicon.svg'
 
 // Примеры импортов кода и картинок
->>>
->>>
->>> Temporary merge branch 2
 
 const app = async () => {
 
@@ -39,9 +35,6 @@ const app = async () => {
     const btnBurger = document.getElementById('burger__btn');
     const headerLogo = document.querySelector('.header__logo');
 
-    <<
-    <<
-    << << < Temporary merge branch 1
     const canvas = window.document.querySelector('canvas');
     const chart = new Chart(canvas, {
         type: 'bar',
@@ -76,15 +69,10 @@ const app = async () => {
                 }
             }
         }
-    }); ===
-    ===
-    ===
+    });
+
     const icon = document.getElementById('favicon');
     icon.href = `${favicon}`;
-
-    >>>
-    >>>
-    >>> Temporary merge branch 2
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -338,9 +326,6 @@ const app = async () => {
         render(state);
     })
     // Начинаем работать с чартом
-    let canvas = window.document.querySelector('canvas');
-
-    const DATA_COUNT = 7;
 
     const labels = state.stateUI.calendarWeek.map(el => {
         return el[2].format("dd, D")
