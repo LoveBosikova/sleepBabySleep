@@ -58,6 +58,7 @@ body {
     &__logo {
         @include flex-space-between-center;
         gap: 1rem;
+        margin-left: 1em;
     }
 
     &__buttons {
@@ -888,93 +889,174 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .header__nav {
-        display: none;
-    }
 
     .header {
-        position: relative;
-    }
+        position: sticky;
+        top: 1em;
+        @include belota-400-15;
 
-    .burger {
-
-        margin-left: 2em;
-
-        &__uptitle {
-            @include shnobel-400-23;
-            color: $white;
+        &__nav {
+            display: none;
         }
 
-        &__title {
-            @include belota-400-18;
-            color: $white;
-        }
+        .burger {
 
-        &__btn {
-            display: block;
-            position: absolute;
-            right: 3em;
-        }
+            &__uptitle {
+                @include shnobel-400-23;
+                color: $white;
+            }
 
-        &__menu {
-            max-width: 20em;
+            &__title {
+                @include belota-400-18;
+                color: $white;
+            }
 
-            .burger__logo {
+            &__btn {
+                display: block;
+                position: absolute;
+                top: 0.1em;
+                right: 0.5vw;
+            }
+
+            &__menu {
+                margin-left: 2em;
+                max-width: 40vw;
+
+                .burger__logo {
+                    @include flex-align-items-center;
+
+                    svg {
+                        padding-right: 1em;
+                    }
+                }
+
+                .burger__copyright {
+                    @include belota-700-12;
+                    color: $light-grey;
+                    margin-top: 1em;
+                }
+
+                .burger__nav {
+                    .burger__items {
+                        padding-left: 0;
+
+                        li {
+                            margin-bottom: 1em;
+                        }
+
+                        a {
+                            @include belota-400-18;
+                            color: $white;
+                            margin-bottom: 2em;
+                        }
+                    }
+                }
+            }
+
+            &__donatBtn {
+                padding: .6rem 1.5rem;
+                background-color: $border-blue;
+                border-color: $border-blue;
+                border-radius: 8px;
+                @include belota-400-18;
+                cursor: pointer;
+                margin-top: 2em;
+                margin-bottom: 2em;
+            }
+
+            &__login {
+                background-color: transparent;
+                border: 2px solid $border-blue;
+                border-radius: 8px;
+                padding: .6rem 1.5rem;
+                cursor: pointer;
+            }
+
+            &__btn-sign-in {
                 @include flex-align-items-center;
 
-                svg {
-                    padding-right: 1em;
-                }
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
             }
 
-            .burger__copyright {
-                @include belota-700-12;
-                color: $light-grey;
-                margin-top: 1em;
+            &__clouds {
+                background-image: url('/src/assets/burgerClouds.png');
+                background-size: contain;
+                margin-top: 2em;
+                height: 10em;
+                width: 100vw;
             }
 
-            .burger__nav {
-                .burger__items {
-                    padding-left: 0;
-
-                    li {
-                        margin-bottom: 1em;
-                    }
-
-                    a {
-                        @include belota-400-18;
-                        color: $white;
-                        margin-bottom: 2em;
-                    }
-                }
+            &__baby-bath {
+                background-image: url('/src/assets/babybath.png');
+                background-size: cover;
+                height: 40vw;
+                width: 40vw;
+                position: absolute;
+                right: 4em;
+                bottom: 5vh;
+                z-index: -1;
             }
-        }
-
-        &__donatBtn {
-            padding: .6rem 1.5rem;
-            background-color: $border-blue;
-            border-color: $border-blue;
-            border-radius: 8px;
-            @include belota-400-18;
-            cursor: pointer;
-            margin-top: 2em;
-            margin-bottom: 2em;
-        }
-
-        &__login {
-            background-color: transparent;
-            border: 2px solid $border-blue;
-            border-radius: 8px;
-            padding: .6rem 1.5rem;
-            cursor: pointer;
-        }
-
-        &__btn-sign-in {
-            @include flex-align-items-center;
-
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
         }
     }
 }
+
+@media screen and (max-width: 680px) {
+    .header {
+        justify-content: start;
+
+        &__log-in {
+            margin-right: 0;
+        }
+
+        &__sign-in {
+            padding: 0.1rem 0.5rem;
+        }
+
+        .burger {
+            &__clouds {
+                height: 8em;
+                margin-top: 10em;
+            }
+
+            &__baby-bath {
+                bottom: 3vh;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .header {
+
+        &__log-in,
+        &__sign-in {
+            display: none;
+        }
+
+        .burger {
+            &__clouds {
+                height: 5em;
+            }
+
+            &__menu {
+                max-width: 90vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        .burger {
+            &__clouds {
+                height: 3em;
+            }
+
+        }
+    }
+
+}
+
+@media screen and (max-width: 360px) {}
