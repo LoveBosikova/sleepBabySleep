@@ -219,8 +219,11 @@
                 </div>
                 <div class="burger__socials"></div>
             </div>
+<<<<<<< HEAD
             <div class="burger__baby-bath" id="burger__baby-bath"></div>
             <div class="burger__clouds" id="burger__clouds"></div>
+=======
+>>>>>>> 46d03c624aff8c1951d227d13c0e89110ed22f78
         </div>
 
     </header>
@@ -596,10 +599,43 @@
                 </div>
 
                 <form action="#" method="post" class="registration-form" name="registrationForm" novalidate>
+<<<<<<< HEAD
                     <input type="text" class="registration-form__text-input" placeholder="Имя малыша" name="babyName" />
 
                     <label class="registration-form__photo-label">
                         <input type="file" name="photoBaby" class="registration-form__photo" />
+=======
+                    <div class="registration-form__field">
+                        <input type="text" class="registration-form__text-input" placeholder="Имя малыша" name="babyName"
+                        validators="required,name" />
+                        <div class="registration-form__error"></div>
+                    </div>
+
+                    <label class="registration-form__photo-label">
+                        <input type="file" name="photoBaby" class="registration-form__photo" accept="image/jpeg,image/jpg,image/png,image/heic,image/heif" />
+                        <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="23" viewBox="0 0 24 23" fill="none">
+                            <circle cx="12.0584" cy="11.5945" r="11" transform="rotate(-0.588053 12.0584 11.5945)"
+                                fill="#26283D" />
+                            <path
+                                d="M6.7738 11.3483C6.63391 11.3484 6.52061 11.4619 6.52074 11.6018C6.52087 11.7417 6.63438 11.855 6.77425 11.8549L17.3428 11.8452C17.4827 11.845 17.596 11.7315 17.5959 11.5916C17.5957 11.4518 17.4822 11.3385 17.3424 11.3386L6.7738 11.3483Z"
+                                fill="white" />
+                            <path
+                                d="M12.2268 6.30889C12.2245 6.16901 12.1093 6.05746 11.9694 6.05971C11.8295 6.06197 11.718 6.1772 11.7203 6.31705L11.8908 16.8842C11.8931 17.0241 12.0083 17.1357 12.1481 17.1334C12.288 17.1312 12.3996 17.0159 12.3973 16.8761L12.2268 6.30889Z"
+                                fill="white" />
+                        </svg>
+                        <span class="registration-form__photo-comment">Добавить фото</span>
+                    </label>
+
+                    <div class="registration-form__field">
+                        <input type="text" class="registration-form__text-input" placeholder="Имя папы" name="dadName"
+                        validators="name" />
+                        <div class="registration-form__error"></div>
+                    </div>
+
+                    <label class="registration-form__photo-label">
+                        <input type="file" name="photoDad" class="registration-form__photo" accept="image/jpeg,image/jpg,image/png,image/heic,image/heif"/>
+>>>>>>> 46d03c624aff8c1951d227d13c0e89110ed22f78
                         <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="23" viewBox="0 0 24 23" fill="none">
                             <circle cx="12.0584" cy="11.5945" r="11" transform="rotate(-0.588053 12.0584 11.5945)"
@@ -614,10 +650,21 @@
                         <span>Добавить фото</span>
                     </label>
 
+<<<<<<< HEAD
                     <input type="text" class="registration-form__text-input" placeholder="Имя папы" name="dadName" />
 
                     <label class="registration-form__photo-label">
                         <input type="file" name="photoDad" class="registration-form__photo" />
+=======
+                    <div class="registration-form__field">
+                        <input type="text" class="registration-form__text-input" placeholder="Имя мамы" name="momName"
+                        validators="name" />
+                        <div class="registration-form__error"></div>
+                    </div>
+                    
+                    <label class="registration-form__photo-label">
+                        <input type="file" name="photoMom" class="registration-form__photo" accept="image/jpeg,image/jpg,image/png,image/heic,image/heif" />
+>>>>>>> 46d03c624aff8c1951d227d13c0e89110ed22f78
                         <svg class="registration-form__photo-add" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="23" viewBox="0 0 24 23" fill="none">
                             <circle cx="12.0584" cy="11.5945" r="11" transform="rotate(-0.588053 12.0584 11.5945)"
@@ -632,6 +679,7 @@
                         <span>Добавить фото</span>
                     </label>
 
+<<<<<<< HEAD
                     <input type="text" class="registration-form__text-input" placeholder="Имя мамы" name="momName" />
 
                     <label class="registration-form__photo-label">
@@ -657,6 +705,26 @@
                             placeholder="Пароль" />
                         <input type="password" name="passwordRegFormConfirm"
                             class="registration-form__text-input password" placeholder="Подтвердите пароль" />
+=======
+                    <div class="registration-form__field">
+                        <input type="email" name="emailRegForm" class="registration-form__text-input" placeholder="Почта"
+                        validators="required,email" />
+                        <div class="registration-form__error"></div>
+                    </div>
+
+                    <div class="registration-form__passwords">
+                        <div class="registration-form__field-password">
+                            <input type="password" name="passwordRegForm" class="registration-form__text-input password"
+                            placeholder="Пароль" validators="required,password" />
+                            <div class="registration-form__error"></div>
+                        </div>
+                        <div class="registration-form__field-password">
+                            <input type="password" name="passwordRegFormConfirm"
+                            class="registration-form__text-input password" placeholder="Подтвердите пароль"
+                            validators="required,passwordConfirm" />
+                            <div class="registration-form__error"></div>
+                        </div>
+>>>>>>> 46d03c624aff8c1951d227d13c0e89110ed22f78
                     </div>
                     <button type="submit" class="registration-form__submit">Готово</button>
                 </form>

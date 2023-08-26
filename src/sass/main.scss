@@ -33,6 +33,11 @@ body {
         border: none;
         padding: 0;
     }
+
+    button {
+        background-color: transparent;
+        border: none;
+    }
 }
 
 .blinking {
@@ -45,6 +50,58 @@ body {
             border-color: linear-gradient(90deg, rgba(16, 19, 47, 1) 0%, rgba(47, 128, 236, 1) 50%, rgba(25, 27, 45, 1) 100%);
             ;
         }
+    }
+}
+
+.hide-animation {
+    animation: hideIntros 1s 1 forwards ease-in-out;
+};
+
+@keyframes hideIntros {
+    0% {
+        margin-top: 0;
+    }
+	100% {
+        margin-top: -140vh;
+    }
+}
+
+.show-animation {
+    animation: showIntros .9s 1 forwards ease-in-out;
+};
+
+@keyframes showIntros {
+    0% {
+        margin-top: -140vh;
+    }
+	100% {
+        margin-top: -0;
+    }
+}
+
+.arrow-down {
+    animation: arrowSpinDown .9s 1 forwards ease-in-out;
+};
+
+@keyframes arrowSpinDown {
+    0% {
+        transform: rotate(0deg);
+    }
+	100% {
+        transform: rotate(180deg);
+    }
+}
+
+.arrow-up {
+    animation: arrowSpinUp 1s 1 forwards ease-in-out;
+};
+
+@keyframes arrowSpinUp {
+    0% {
+        transform: rotate(180deg);
+    }
+	100% {
+        transform: rotate(360deg);
     }
 }
 
@@ -98,6 +155,8 @@ body {
 }
 
 .tracker {
+    transition: all 1s ease-out;
+
     &__desc1 {
         @include shnobel-400-23;
         margin-top: 0;
@@ -136,7 +195,10 @@ body {
 
 .normalize {
     //Убрала отступы
-    // margin: 5rem 2rem;
+    margin-bottom: 8rem;
+
+    position: relative;
+    transition: all 1s ease-out;
 
     &__container {
         padding: .5rem;
@@ -190,14 +252,46 @@ body {
         background-color: $dark-grey;
         border: 2px solid $border-blue;
         border-radius: 6px;
-
-        &--last {
-            position: relative;
+        transition: all 100ms ease-out;
+        
+        &:hover {
+                -webkit-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                transform: scale(1.1);
         }
     }
 
     &__card {
         flex: 30% 1 1;
+    }
+
+    &__hideBtn{
+        position: absolute;
+        bottom: -8rem;
+        right: 11rem;
+        border-radius: 8px;
+        border: 1px solid $border-blue;
+        background-color: transparent;
+        padding: .4rem 1rem;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        @include belota-400-15;
+    }
+
+    &__btnText{
+        padding: 0.4rem;
+        margin: 0;
+        @include belota-400-15;
+    }
+
+    &__arrow {
+        //transform: rotate(180deg);
+        transition: 0.5ms ease-in-out;
+        margin-right: 0.4rem;
     }
 }
 
@@ -208,7 +302,7 @@ body {
 }
 
 .mainSection {
-    margin: 18rem 5rem;
+    margin: 10rem 5rem;
 
     &__container {
         @include flex-space-between-center;
@@ -241,7 +335,6 @@ body {
 
 
 .calendar {
-
 
     &__datesWrap {
         margin-top: 3rem;
@@ -456,17 +549,20 @@ body {
     width: 40vw;
     max-width: 38rem;
     height: 100%;
+    position: relative;
 
     &__notification {
         display: flex;
         gap: 2.094rem;
         margin-bottom: 3rem;
+        align-items: center;
     }
 
     &__dreams {
         display: flex;
-        justify-content: space-between;
-        gap: 1.563;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 1rem;
     }
 
     &__diagram {
@@ -477,12 +573,33 @@ body {
         margin-top: 3.438rem;
         margin-bottom: 3.438rem;
     }
+
+    &__clue {
+        position: absolute;
+        visibility: hidden;
+        right: 2rem;
+        top: 50%;
+        width: 70%;
+        height: 28%;
+        background-color: $base-dark-blue;
+        border: 1px solid #FFF;
+        border-radius: 8px;
+        z-index: 2;
+        box-shadow: 0px 5px 16px 0px rgba(8, 15, 52, 0.06);
+    }
+
+    &__closeBtn {
+        display: block;
+        margin-top: 0.2rem;
+        margin-left: auto;
+    }
 }
+
+.clue-active {visibility: visible;}
 
 .notification__desc {
     max-width: 25.55rem;
     @include belota-400-18;
-    padding-top: 1rem;
 }
 
 .dreams__btn {
@@ -493,7 +610,7 @@ body {
     border-radius: 8px;
 }
 
-.dreams__btn:focus {
+.activeBtn{
     background-color: #2CB57F;
 }
 
@@ -832,6 +949,13 @@ body {
         }
     }
 
+    &__error {
+        display: none;
+        color: $white;
+        @include belota-400-12;
+        margin: -10px 0 20px 5px;
+    }
+
     &__photo-label {
         display: flex;
         cursor: pointer;
@@ -840,7 +964,7 @@ body {
             display: none;
         }
 
-        span {
+        .registration-form__photo-comment {
             margin-top: 0.2rem;
         }
 
@@ -871,6 +995,11 @@ body {
     &__passwords {
         display: flex;
         justify-content: space-between;
+
+        .registration-form__error {
+            width: 14rem;
+            padding: 0 1rem 0 0;
+        }
     }
 
     &__submit {
