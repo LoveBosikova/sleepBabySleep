@@ -57,6 +57,11 @@ The SleepBabySleep  is a simplified solution to enter the intervals of sleep and
   </a>
 </h3>
 <h3>
+  <a href="https://github.com/Maznitsina">
+    <img alt="Ann" src="https://img.shields.io/badge/-Daria-black?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</h3>
+<h3>
   <a href="https://github.com/Daria0908">
     <img alt="Daria" src="https://img.shields.io/badge/-Daria-black?style=for-the-badge&logo=github&logoColor=white" />
   </a>
