@@ -53,6 +53,58 @@ body {
     }
 }
 
+.hide-animation {
+    animation: hideIntros 1s 1 forwards ease-in-out;
+};
+
+@keyframes hideIntros {
+    0% {
+        margin-top: 0;
+    }
+	100% {
+        margin-top: -140vh;
+    }
+}
+
+.show-animation {
+    animation: showIntros .9s 1 forwards ease-in-out;
+};
+
+@keyframes showIntros {
+    0% {
+        margin-top: -140vh;
+    }
+	100% {
+        margin-top: -0;
+    }
+}
+
+.arrow-down {
+    animation: arrowSpinDown .9s 1 forwards ease-in-out;
+};
+
+@keyframes arrowSpinDown {
+    0% {
+        transform: rotate(0deg);
+    }
+	100% {
+        transform: rotate(180deg);
+    }
+}
+
+.arrow-up {
+    animation: arrowSpinUp 1s 1 forwards ease-in-out;
+};
+
+@keyframes arrowSpinUp {
+    0% {
+        transform: rotate(180deg);
+    }
+	100% {
+        transform: rotate(360deg);
+    }
+}
+
 //Header
 
 .header {

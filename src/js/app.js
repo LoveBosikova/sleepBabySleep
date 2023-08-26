@@ -75,6 +75,8 @@ const app = async () => {
     icon.href = `${favicon}`;
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
+
+
     const state = {
         registrationForm: {
             valid: false,
@@ -84,7 +86,7 @@ const app = async () => {
             },
         },
         stateUI: {
-            introBlocks: 'visible',
+            introBlocks: window.localStorage.getItem('introBlocks') === null ? 'visible' : window.localStorage.getItem('introBlocks'),
             calendarWeek: [
                 [moment().day(-3).format('ddd'), moment().day(-3).format('DD'), moment().day(-3)],
                 [moment().day(-2).format('ddd'), moment().day(-2).format('DD'), moment().day(-2)],
@@ -370,38 +372,6 @@ const app = async () => {
             },
         ]
     };
-
-    new Chart(canvas, {
-        type: 'bar',
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'График дня вашего малыша',
-                    padding: {
-                        top: 10,
-                        bottom: 30
-                    }
-                },
-                legend: {
-                    display: false,
-                },
-            },
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    stacked: true,
-                    min: 0,
-                    max: 1440,
-                    ticks: {
-                        display: false
-                    }
-                }
-            }
-        }
-    })
 
 }
 
