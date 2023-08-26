@@ -1,8 +1,8 @@
 // Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт
 
 import moment from 'moment';
-import Chart from 'chart.js/auto';
 import onChange from 'on-change';
+import Chart from 'chart.js/auto';
 import render from './view.js';
 import createDays from './createDays.js'
 import {
@@ -16,15 +16,22 @@ import {
     enUS,
     ru
 } from 'date-fns/locale';
-//import changeQuotes from './changeQuotes.js';
 import perfectTimingByAge from './sleepingData.js';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
-import changeBurgerMenu from './changeBurgerMenu.js';
+import changeBurgerMenu from './changeBurgerMenu.js'; <<
+<< << << < Temporary merge branch 1
 import renderChart from './renderChart.js';
+import favicon from '../assets/favicon.svg'
+
+// Примеры импортов кода и картинок
+>>>
+>>>
+>>> Temporary merge branch 2
 
 const app = async () => {
 
+    const fullformat = 'DD.MM.YYYY';
     const btnDayForward = document.getElementById('btn-dayForward');
     const btnDayBackward = document.getElementById('btn-dayBackward');
     const btnQuoteForward = document.getElementById('quotesForward');
@@ -32,6 +39,9 @@ const app = async () => {
     const btnBurger = document.getElementById('burger__btn');
     const headerLogo = document.querySelector('.header__logo');
 
+    <<
+    <<
+    << << < Temporary merge branch 1
     const canvas = window.document.querySelector('canvas');
     const chart = new Chart(canvas, {
         type: 'bar',
@@ -51,22 +61,30 @@ const app = async () => {
             },
             responsive: true,
             scales: {
-            y: {
-                beginAtZero: true,
-                stacked: true,
-                min: 0,
-                max: 1440,
-                ticks: {
-                    display: false 
+                y: {
+                    beginAtZero: true,
+                    stacked: true,
+                    min: 0,
+                    max: 1440,
+                    ticks: {
+                        display: false
+                    }
+                },
+                x: {
+                    beginAtZero: true,
+                    stacked: true,
                 }
-            }, 
-            x: {
-                beginAtZero: true,
-                stacked: true,
             }
         }
-        }
-    });
+    }); ===
+    ===
+    ===
+    const icon = document.getElementById('favicon');
+    icon.href = `${favicon}`;
+
+    >>>
+    >>>
+    >>> Temporary merge branch 2
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
@@ -150,9 +168,10 @@ const app = async () => {
                 chartViewPeriod: 'currentWeek',
                 clue: "hidden",
             },
+
         }
     }
-    
+
     // Рендеринг при инициализации приложения
     render(state);
     renderChart(state.stateUI);
@@ -178,16 +197,18 @@ const app = async () => {
         render(state);
     });
 
-    if(window.localStorage.getItem('introBlocks') === 'visible') {
+    if (window.localStorage.getItem('introBlocks') === 'visible') {
         state.stateUI.introBlocks = 'visible';
-    } else if(window.localStorage.getItem('introBlocks') === 'hidden') {
+    } else if (window.localStorage.getItem('introBlocks') === 'hidden') {
         state.stateUI.introBlocks = 'hidden';
     };
 
     // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
     render(state);
 
+
     const tags = document.querySelectorAll('.calendar__tagLabel');
+
     for (const tag of tags) {
         tag.addEventListener('click', (e) => {
             for (const item of state.stateUI.tags) {
@@ -198,7 +219,6 @@ const app = async () => {
             render(state);
         })
     };
-
     // Отображение статистики в чарте
     const chartBtnAllSleepings = document.getElementById('allSleepingsTypes');
     chartBtnAllSleepings.addEventListener('click', () => {
@@ -278,7 +298,7 @@ const app = async () => {
         state.stateUI.chart.clue = 'visible';
         renderChart(state.stateUI);
     })
-    
+
     const closeClueStatisticBtn = document.querySelector('.statistic__closeBtn');
     console.log(closeClueStatisticBtn);
     closeClueStatisticBtn.addEventListener('click', () => {
@@ -289,6 +309,7 @@ const app = async () => {
 
 
     // Гармошка
+
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
 
@@ -310,7 +331,7 @@ const app = async () => {
 
     // Работаем с видимостью блоков интро
     const hideInrtoBtn = document.getElementById('hideIntroBtn');
-    
+
     hideInrtoBtn.addEventListener('click', () => {
         state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
         console.log(window.localStorage);
