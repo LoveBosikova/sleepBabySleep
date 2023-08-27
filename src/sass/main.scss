@@ -288,10 +288,19 @@ body {
     }
 
     &__arrow {
-        //transform: rotate(180deg);
         transition: 0.5ms ease-in-out;
         margin-right: 0.4rem;
     }
+}
+
+.anim-svg {
+    transform: translate(0px, 60%);
+    transition: 1.5s;
+    opacity: 0;
+}
+.--active {
+    transform: translate(0px, 0px);
+    opacity: 1; 
 }
 
 .arrowDown {

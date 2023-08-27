@@ -1,7 +1,6 @@
 // Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт
 
 import moment from 'moment';
-import onChange from 'on-change';
 import Chart from 'chart.js/auto';
 import render from './view.js';
 import createDays from './createDays.js'
@@ -75,7 +74,6 @@ const app = async () => {
     icon.href = `${favicon}`;
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
-
 
     const state = {
         registrationForm: {
@@ -372,6 +370,70 @@ const app = async () => {
             },
         ]
     };
+
+    function offset(el) {
+        var rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+    }
+
+    // Работаем с анимациями
+
+    const paths = [...document.querySelectorAll('.anim-svg')];
+
+    const callback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log('hooray!')
+            console.log(entry.target);
+            entry.target.classList.add('--active')
+          } else {
+            entry.target.classList.remove('--active')
+          }
+        })
+      }
+
+      const options = {
+        // root: по умолчанию window, но можно задать любой элемент-контейнер
+        //rootMargin: '0px 0px 75px 0px',
+        threshold: 0,
+      }
+
+      const observer = new IntersectionObserver(callback, options);
+
+      paths.forEach((path) => observer.observe(path))
+
+
+    // const animpaths1 = [...document.querySelectorAll('.normalize__animpath1')];
+
+    // if (animpaths1.length > 0) {
+    //     window.addEventListener('scroll', animOnScroll1);
+
+    //     function animOnScroll1 () {
+    //         for (const animItem of animpaths1) {
+    //             console.log(animItem);
+    //             const animItemHeight = animItem.offsetHeight;
+    //             const animItemOffset = offset(animItem).top;
+    //             const animStart = 4;
+
+    //             let animItemPoint = window.innerHeight - animItemHeight / animStart;
+    //             if(animItemHeight > window.innerHeight) {
+    //                 animItemPoint = window.innerHeight - window.innerHeight / animStart;
+    //             }
+
+    //                 animItem.classList.add('--active');
+    //                 console.log(animItem);
+    //             // else {
+    //             //     animItem.classList.remove('--active');
+    //             // }
+
+    //         }
+
+    //     }
+    //     animOnScroll1();
+    // }
+
 
 }
 
