@@ -66,7 +66,7 @@ body {
         margin-top: 0;
     }
 	100% {
-        margin-top: -140vh;
+        margin-top: -163.25vh;
     }
 }
 
@@ -76,7 +76,7 @@ body {
 
 @keyframes showIntros {
     0% {
-        margin-top: -140vh;
+        margin-top: -163.25vh;
     }
 	100% {
         margin-top: -0;
@@ -294,7 +294,7 @@ body {
     &__hideBtn{
         position: absolute;
         bottom: 0;
-        right: 11rem;
+        right: 3rem;
         border-radius: 8px;
         border: 1px solid $border-blue;
         background-color: transparent;
