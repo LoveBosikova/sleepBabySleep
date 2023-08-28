@@ -293,7 +293,7 @@ body {
 
     &__hideBtn{
         position: absolute;
-        bottom: -8rem;
+        bottom: 0;
         right: 11rem;
         border-radius: 8px;
         border: 1px solid $border-blue;
@@ -661,32 +661,13 @@ body {
 
 //стили для цитат
 .quotes {
-    margin: 3rem 5rem;
+    margin: 10rem 5rem;
 
     &__container {
-        @include flex-space-between-center;
+        @include flex-center-center;
         max-width: 76%;
         margin-left: auto;
         margin-right: auto;
-    }
-
-    &__ferber {
-        width: 50%;
-
-        &-photo {
-            height: 467px;
-            width: 100%;
-            background-image: url('/src/assets/Ferber.png');
-            background-repeat: no-repeat;
-            //сво-во пропорционально меняющее картинку от размера блока
-
-        }
-
-        &-about {
-            @include jetBrains-400-18;
-            color: $grey;
-            max-width: 30rem;
-        }
     }
 
     &__quote {
@@ -803,9 +784,8 @@ body {
     background-image: url('../assets/footerClouds.png');
     background-repeat: repeat-x;
     background-position: bottom;
-    background-position-y: 3rem;
     margin-bottom: -2rem;
-    height: 27vh;
+    height: 40vh;
 
     &__container {
         max-width: 1920px;
@@ -849,12 +829,13 @@ body {
     }
 
     &__donatBtn {
-        padding: .6rem 1.5rem;
+        padding: 1.2rem 3rem;
         background-color: $border-blue;
         border-color: $border-blue;
         border-radius: 8px;
         @include belota-400-18;
         cursor: pointer;
+        margin-top: 1.5rem;
     }
 
     &__rightSection {
