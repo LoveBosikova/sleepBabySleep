@@ -117,6 +117,7 @@ body {
     max-width: 98.75rem;
 
     &__logo {
+        display: flex !important;
         @include flex-space-between-center;
         gap: 1rem;
         margin-left: 10rem;
