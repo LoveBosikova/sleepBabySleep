@@ -378,7 +378,7 @@ const app = async () => {
         donatModal.classList.add('donate--up');
     }
 
-    setInterval(showDonatModal, 300000);
+    setInterval(showDonatModal, 3000);
 
     const btnCloseDonate = document.getElementById('btnCloseDonate');
     btnCloseDonate.addEventListener('click', hideDonatModal);

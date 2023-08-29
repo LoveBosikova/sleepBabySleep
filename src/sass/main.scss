@@ -1240,6 +1240,7 @@ body {
         @include flex-center-center;
         z-index: 5;
         background-color: $light-blue-transparency-70;
+        position: fixed;
     }
 
     &__title {
