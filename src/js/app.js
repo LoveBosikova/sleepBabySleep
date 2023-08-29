@@ -365,7 +365,7 @@ const app = async () => {
         ]
     };
 
-    // Работаем с анимациями
+    // Работаем с анимациями parallax
     const paths = [...document.querySelectorAll('.anim-svg')];
 
     const callback = (entries, observer) => {
@@ -377,7 +377,6 @@ const app = async () => {
         }
         })
     }
-
     const options = {
         threshold: 0,
     }

@@ -14,8 +14,8 @@ export default (stateUI) => {
         btnText.textContent = 'Скрыть интро';
         clouds.classList.remove('clouds--up');
         clouds.classList.add('clouds--down');
-        mainSection.classList.remove('mainSection--down');
-        mainSection.classList.add('mainSection--up');
+        mainSection.classList.remove('mainSection--up');
+        mainSection.classList.add('mainSection--down');
         btnText.style.color = 'black';
 
     } else if (stateUI.introBlocks === 'hidden') {
@@ -28,8 +28,8 @@ export default (stateUI) => {
         btnText.textContent = 'Показать интро';
         clouds.classList.remove('clouds--down');
         clouds.classList.add('clouds--up');
-        mainSection.classList.remove('mainSection--up');
-        mainSection.classList.add('mainSection--down');
+        mainSection.classList.remove('mainSection--down');
+        mainSection.classList.add('mainSection--up');
         btnText.style.color = 'white';
     }
 }
