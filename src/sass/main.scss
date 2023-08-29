@@ -41,14 +41,12 @@ body {
 
     button:hover{
         background-color: $dark-grey;
-        border: 1px solid $border-blue;
-        border-radius: 8px;
+        border-color:  $border-blue;
     }
 
     button:active{
         background-color: $dark-grey;
-        border: 1px solid $green;
-        border-radius: 8px;
+        border-color: $green;
     }
 }
 
@@ -131,6 +129,7 @@ body {
     margin: 3rem auto 0 auto;
     @include flex-space-between-center;
     max-width: 98.75rem;
+    z-index: 2;
 
     &__logo {
         display: flex !important;
@@ -179,6 +178,7 @@ body {
     transition: all 1s ease-out;
     margin-bottom: 17.1rem;
     position: relative;
+    z-index: 1;
 
     &__desc1 {
         @include shnobel-400-23;
@@ -217,8 +217,8 @@ body {
 }
 
 .normalize {
-    //Убрала отступы
     margin-bottom: 8rem;
+    z-index: 1;
 
     position: relative;
     transition: all 1s ease-out;
@@ -346,7 +346,7 @@ body {
     left: 0;
     top: 69vh;
     width: 100vw;
-    height: 150vh;
+    height: 110vh;
     background-image: url('../assets/bgClouds.png');
     background-repeat: no-repeat;
 }
@@ -958,6 +958,10 @@ body {
 
 .registration-form {
 
+    &__titleText{
+        max-width: 60%;
+    }
+
     &__modal {
         align-items: center;
         justify-content: center;
@@ -1044,6 +1048,8 @@ body {
             @include belota-400-18;
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             line-height: normal;
             margin: 10px 0;
 

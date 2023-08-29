@@ -85,10 +85,10 @@
         </div>
         <nav class="header__nav">
             <ul class="nav__items">
-                <li><a href="#">Качество сна</a></li>
-                <li><a href="#">Периоды</a></li>
-                <li><a href="#">Статистика</a></li>
-                <li><a href="#">Частые вопросы</a></li>
+                <li><a href="#normalize">Качество сна</a></li>
+                <li><a href="#calendarSide">Добавить сон</a></li>
+                <li><a href="#statistic">Статистика</a></li>
+                <li><a href="#faq">Частые вопросы</a></li>
             </ul>
         </nav>
         <div class="header__buttons">
@@ -193,10 +193,10 @@
                 <div class="burger__copyright">© Cпи малыш, спи - 2023</div>
                 <nav class="burger__nav">
                     <ul class="burger__items">
-                        <li><a href="#">Качество сна</a></li>
-                        <li><a href="#">Периоды</a></li>
-                        <li><a href="#">Статистика</a></li>
-                        <li><a href="#">Частые вопросы</a></li>
+                        <li><a href="#normalize">Качество сна</a></li>
+                        <li><a href="#calendarSide">Добавить сон</a></li>
+                        <li><a href="#statistic">Статистика</a></li>
+                        <li><a href="#faq">Частые вопросы</a></li>
                     </ul>
                 </nav>
                 <div class="burger__donation">
@@ -236,11 +236,8 @@
                 </div>
             </div>
         </section>
-        <section class="normalize">
+        <section class="normalize" id="normalize">
             <div class="normalize__container">
-                <!-- <div class="normalize__clouds">
-                    <img src="assets/clouds.png" alt="Облака">
-                </div> -->
                 <div class="normalize__header">
                     <div class="normalize__titleWrap">
                         <p class="normalize__uptitle">КАЖДЫЙ ЗАДАЁТСЯ ВОПРОСОМ</p>
@@ -340,7 +337,7 @@
 
         <section class="mainSection">
             <div class="mainSection__container">
-                <div class="calendarSide">
+                <div class="calendarSide" id="calendarSide">
                     <div class="calendarSide__titleContainer">
                         <p class="calendarSide__uptitle">для начала просто</p>
                         <h2 class="calendarSide__title">ДОБАВЬТЕ СОН РЕБЕНКА</h2>
@@ -349,8 +346,6 @@
                         <div class="calendar__datesWrap">
                             <div class="calendar__dates" id="datesWrap">
                             </div>
-
-
                             <div class="calendar__pagination calendar__pagination--left" id="btn-dayBackward">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33"
                                     fill="none">
@@ -453,7 +448,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="statistic">
+                <div class="statistic" id="statistic">
                     <div class="statistic__notification">
                         <div class="notification__img">
                             <svg class="anim-svg" width="141" height="123" viewBox="0 0 141 123" fill="none"
@@ -578,9 +573,8 @@
                 <div class="registration-form__title-container">
                     <p class="registration-form__up-comment">Простая регистрация 2 минуты :)</p>
                     <p class="registration-form__title">РЕГИСТРАЦИЯ</p>
-                    <p class="registration-form__low-comment">
-                        <span>Регистрация позволит Вам пользоваться <br />трекером сна на любом устройстве и видеть
-                            <br />полную статистику </span>
+                    <div class="registration-form__low-comment">
+                        <p class="registration-form__titleText">Регистрация позволит вам пользоваться трекером сна на любом устройстве и видеть полную статистику </p>
                         <svg class="anim-svg" class="registration-form__img-back-baby anim-svg" xmlns="http://www.w3.org/2000/svg" width="96"
                             height="83" viewBox="0 0 96 83" fill="none">
                             <rect x="0.742676" y="0.272949" width="95" height="82.5578" rx="10" fill="#2CB57F" />
@@ -615,7 +609,7 @@
                                 d="M64.5886 44.0538C65.1337 43.5087 65.1069 42.5982 64.5289 42.0201C63.9508 41.442 63.0403 41.4153 62.4952 41.9603C61.9502 42.5054 61.9769 43.4159 62.555 43.994C63.1331 44.5721 64.0436 44.5988 64.5886 44.0538Z"
                                 fill="#FFABAB" />
                         </svg>
-                    </p>
+                    </div>
                 </div>
 
                 <form action="#" method="post" class="registration-form" name="registrationForm" novalidate>
@@ -756,7 +750,7 @@
                 </div>
             </div>
         </section>
-        <section class="faq">
+        <section class="faq" id="faq">
             <div class="faq__container">
                 <div class="faq__titleContainer">
                     <div class="faq__titles">
