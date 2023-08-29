@@ -284,7 +284,6 @@ const app = async () => {
     })
 
     const closeClueStatisticBtn = document.querySelector('.statistic__closeBtn');
-    console.log(closeClueStatisticBtn);
     closeClueStatisticBtn.addEventListener('click', () => {
         state.stateUI.chart.clue = 'hidden';
         console.log(state.stateUI.chart.clue);
@@ -318,7 +317,6 @@ const app = async () => {
 
     hideInrtoBtn.addEventListener('click', () => {
         state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
-        console.log(window.localStorage);
         render(state);
     })
     // Начинаем работать с чартом
@@ -373,8 +371,6 @@ const app = async () => {
     const callback = (entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-            console.log('hooray!')
-            console.log(entry.target);
             entry.target.classList.add('--active')
         } else {
             entry.target.classList.remove('--active')
@@ -383,8 +379,6 @@ const app = async () => {
     }
 
     const options = {
-        // root: по умолчанию window, но можно задать любой элемент-контейнер
-        //rootMargin: '0px 0px 75px 0px',
         threshold: 0,
     }
 

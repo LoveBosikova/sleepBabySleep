@@ -13,10 +13,6 @@ body {
     @include belota-400-18();
     padding: 0;
     margin: 0;
-
-    background-image: url('../assets/bgClouds.png');
-    background-repeat: no-repeat;
-    background-position-y: 22%;
 }
 
 * {
@@ -42,6 +38,18 @@ body {
         background-color: transparent;
         border: none;
     }
+
+    button:hover{
+        background-color: $dark-grey;
+        border: 1px solid $border-blue;
+        border-radius: 8px;
+    }
+
+    button:active{
+        background-color: $dark-grey;
+        border: 1px solid $green;
+        border-radius: 8px;
+    }
 }
 
 .blinking {
@@ -50,8 +58,16 @@ body {
     animation-iteration-count: 100;
 
     @keyframes blinking {
+        0% {
+            border-color: linear-gradient(90deg, rgba(47, 128, 236, 1) 0%, rgba(25, 27, 45, 1) 100% 50%, rgba(47, 128, 236, 1) 100%);
+            ;
+        }
         50% {
             border-color: linear-gradient(90deg, rgba(16, 19, 47, 1) 0%, rgba(47, 128, 236, 1) 50%, rgba(25, 27, 45, 1) 100%);
+            ;
+        }
+        100% {
+            border-color: linear-gradient(90deg, rgba(47, 128, 236, 1) 0%, rgba(25, 27, 45, 1) 100% 50%, rgba(47, 128, 236, 1) 100%);
             ;
         }
     }
@@ -109,7 +125,7 @@ body {
     }
 }
 
-//Header     margin-left: 10rem; 
+//Header   
 
 .header {
     margin: 3rem auto 0 auto;
@@ -162,6 +178,7 @@ body {
 .tracker {
     transition: all 1s ease-out;
     margin-bottom: 17.1rem;
+    position: relative;
 
     &__desc1 {
         @include shnobel-400-23;
@@ -314,11 +331,49 @@ body {
         margin: 0;
         @include belota-400-15;
         color: $main-black;
+        transition: all 1s ease-in-out;
     }
 
     &__arrow {
         transition: 0.5ms ease-in-out;
         margin-right: 0.4rem;
+    }
+}
+
+.clouds {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 69vh;
+    width: 100vw;
+    height: 150vh;
+    background-image: url('../assets/bgClouds.png');
+    background-repeat: no-repeat;
+}
+
+.clouds--up {
+    animation: cloudUp 1s 1 forwards ease-in-out;
+};
+
+@keyframes cloudUp {
+    0% {
+        top: 69vh;
+    }
+	100% {
+        top: 40vh;
+    }
+}
+
+.clouds--down {
+    animation: cloudDown 1s 1 forwards ease-in-out;
+};
+
+@keyframes cloudDown {
+    0% {
+        top: 40vh;
+    }
+	100% {
+        top: 69vh;
     }
 }
 
@@ -347,6 +402,32 @@ body {
         max-width: 81%;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+.mainSection--up {
+    animation: mainUp 1s 1 forwards ease-in-out;
+};
+
+@keyframes mainUp {
+    0% {
+        margin: 10rem 5rem 7rem;
+    }
+	100% {
+        margin: -8rem 5rem 7rem;
+    }
+}
+
+.mainSection--down {
+    animation: mainUp 1s 1 forwards ease-in-out;
+};
+
+@keyframes mainDown {
+    0% {
+        margin: -8rem 5rem 7rem;
+    }
+	100% {
+        margin: 10rem 5rem 7rem;
     }
 }
 
