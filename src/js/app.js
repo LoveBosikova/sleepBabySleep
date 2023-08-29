@@ -319,8 +319,8 @@ const app = async () => {
         state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
         render(state);
     })
-    // Начинаем работать с чартом
 
+    // Работаем с чартом
     const labels = state.stateUI.calendarWeek.map(el => {
         return el[2].format("dd, D")
     });
@@ -364,6 +364,24 @@ const app = async () => {
             },
         ]
     };
+
+    // Работа с отображением модального окна - показываем каждые три минуты
+    const donatModal = document.querySelector('.donate__wrap');
+    console.log(donatModal);
+    function showDonatModal () {
+        donatModal.classList.remove('donate--up');
+        donatModal.classList.add('donate--down');
+    }
+
+    function hideDonatModal () {
+        donatModal.classList.remove('donate--down');
+        donatModal.classList.add('donate--up');
+    }
+
+    setInterval(showDonatModal, 300000);
+
+    const btnCloseDonate = document.getElementById('btnCloseDonate');
+    btnCloseDonate.addEventListener('click', hideDonatModal);
 
     // Работаем с анимациями parallax
     const paths = [...document.querySelectorAll('.anim-svg')];

@@ -737,10 +737,6 @@ body {
     background-color: #2CB57F;
 }
 
-// .calendar__dates:nth-child(4) {
-//     border: 2px solid white;
-// }
-
 //стили для цитат
 .quotes {
     margin: 10rem 5rem;
@@ -1223,4 +1219,166 @@ body {
             cursor: pointer;
         }
     }
+}
+
+//modals
+
+.donate {
+    max-width: 20.31rem;
+    text-align: center;
+    border: 0.5px white solid;
+    border-radius: 1rem;
+    background-color: $base-dark-blue;
+    z-index: 6;
+    position: relative;
+
+    &__wrap {
+        position: absolute;
+        top: -100vh;
+        width: 100%;
+        height: 100vh;
+        @include flex-center-center;
+        z-index: 5;
+        background-color: $light-blue-transparency-70;
+    }
+
+    &__title {
+        font-family: 'Bellota Text', cursive;
+        font-size: 1.56rem;
+        font-weight: 700;
+    }
+
+    &__please {
+        font-family: 'Shnobel', sans-serif;
+        font-size: 0.93rem;
+        margin-top: 3.93rem;
+    }
+
+    &__desc {
+        font-family: 'Bellota Text', cursive;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-left: 1.125rem;
+        margin-right: 1.125rem;
+    }
+
+    &__cross {
+        color: #fff;
+    }
+
+    &__close {
+        background-color: #2F80EC;
+        border-radius: 1rem;
+        border: none;
+        position: absolute;
+        right: 16px;
+        top: 23px;
+        padding: 4px 9px;
+    }
+
+    &__btn {
+        border-radius: 0.5rem;
+        background-color: #2F80EC;
+        color: #fff;
+        padding: 0.9rem 2rem;
+        margin-top: 0.6rem;
+        margin-bottom: 3.5rem;
+    }
+}
+
+.donate--up {
+    animation: donateUp 1s 1 forwards ease-in-out;
+};
+
+@keyframes donateUp {
+    0% {
+        top: 0;
+    }
+	100% {
+        top: -100vh;
+    }
+}
+
+.donate--down {
+    animation: donateDown 1s 1 forwards ease-in-out;
+};
+
+@keyframes donateDown {
+    0% {
+        top: -100vh;
+    }
+	100% {
+        top: 0;
+    }
+}
+
+
+.hint {
+    max-width: 39rem;
+    border: 0.5px white solid;
+    border-radius: 1rem;
+    padding: 2.5rem;
+
+    &__clue {
+        margin-top: 1.5rem;
+        font-family: 'Shnobel', cursive;
+        font-size: 0.93rem;
+        font-weight: 400;
+    }
+
+    &__title {
+        font-family: 'Bellota Text', cursive;
+        font-size: 2.125rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    &__desc {
+        max-width: 23.5rem;
+        font-family: 'Bellota Text', cursive;
+        font-size: 1.125rem;
+        font-weight: 400;
+        margin-top: 1.2rem;
+    }
+
+    &__first-question {
+        font-family: 'Bellota Text', cursive;
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    &__first-answer {
+        font-family: 'Bellota Text', cursive;
+        font-size: 1.25rem;
+        font-weight: 400;
+        max-width: 22.125rem;
+    }
+}
+
+.qa-border {
+    max-width: 34.25rem;
+    padding-right: 11.25rem;
+    border: 0.5px white solid;
+    border-radius: 1rem;
+    padding-left: 0.8rem;
+    padding-top: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.qa-plus {
+    background-color: #2F80EC;
+    color: #fff;
+}
+
+.qa-more {
+    color: #FFF;
+    background-color: #2F80EC;
+    border-radius: 0.5rem;
+    font-family: 'Bellota Text', cursive;
+    font-size: 1.125rem;
+    font-weight: 400;
+    padding: 1rem 1.66rem;
 }
