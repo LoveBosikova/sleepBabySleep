@@ -655,24 +655,25 @@ body {
 
     &__quote {
         width: 50%;
+        margin-left: 1em;
 
         .quotes__current {
             @include flex-space-around-center;
 
-            .btnQoutes {
-                #qoutesBackward {
-                    margin-right: 2em;
-                }
 
-                #quotesForward {
-                    margin-left: 2em;
-                }
+            #qoutesBackward {
+                margin-right: 1em;
+            }
+
+            #quotesForward {
+                margin-left: 1em;
             }
 
             .quote {
                 @include belota-400-18;
                 margin-bottom: 2em;
                 margin-top: 2em;
+                opacity: 1;
             }
         }
     }
@@ -740,8 +741,6 @@ body {
                 .accordion__answer {
                     @include belota-400-18;
                     display: none;
-                    transition: all 2s ease;
-                    transform: translateY(100%);
                 }
             }
         }
@@ -766,8 +765,42 @@ body {
     }
 
     100% {
-        padding-bottom: 3em;
+        padding-bottom: 2em;
         background-color: $border-blue;
+    }
+}
+
+@keyframes itemClose {
+    0% {
+        padding-bottom: 2em;
+        background-color: $border-blue;
+    }
+
+    100% {
+        padding-bottom: 1em;
+        background-color: $base-dark-blue;
+
+    }
+}
+
+
+@keyframes changeOpasity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes changeOpasityBack {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
