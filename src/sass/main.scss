@@ -1231,6 +1231,7 @@ body {
     background-color: $base-dark-blue;
     z-index: 6;
     position: relative;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(1, 1, 2, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
     &__wrap {
         top: -100vh;
@@ -1240,6 +1241,7 @@ body {
         z-index: 5;
         background-color: $light-blue-transparency-70;
         position: fixed;
+        backdrop-filter: blur(10px);
     }
 
     &__title {
@@ -1323,6 +1325,7 @@ body {
     z-index: 6;
     position: relative;
     background-color: $base-dark-blue;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(1, 1, 2, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
     &__wrap {
         top: -100vh;
@@ -1332,7 +1335,9 @@ body {
         z-index: 5;
         background-color: $light-blue-transparency-70;
         position: fixed;
+        backdrop-filter: blur(10px);
     }
+
 
     &__close {
         background-color: #2F80EC;
@@ -1379,6 +1384,15 @@ body {
         font-weight: 400;
         max-width: 22.125rem;
     }
+
+    &__btn {
+        border-radius: 0.5rem;
+        background-color: #2F80EC;
+        color: #fff;
+        padding: 0.9rem 2rem;
+        margin-top: 0.6rem;
+        margin-bottom: 3.5rem;
+    }
 }
 
 .qa-border {
@@ -1404,4 +1418,92 @@ body {
     font-size: 1.125rem;
     font-weight: 400;
     padding: 1rem 1.66rem;
+}
+
+.autorization {
+    max-width: 35rem;
+    border: 0.5px white solid;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    z-index: 6;
+    position: relative;
+    background-color: $base-dark-blue;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(1, 1, 2, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+    &__wrap {
+        top: -100vh;
+        width: 100%;
+        height: 100vh;
+        @include flex-center-center;
+        z-index: 5;
+        background-color: $light-blue-transparency-70;
+        position: fixed;
+        backdrop-filter: blur(10px);
+    }
+
+    &__uptitle {
+        @include shnobel-400-23;
+        margin: .5rem 0;
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        @include belota-700-34;
+    }
+
+    &__close {
+        background-color: #2F80EC;
+        border-radius: 1rem;
+        border: none;
+        position: absolute;
+        right: 16px;
+        top: 23px;
+        padding: 4px 9px;
+    }
+
+    &__description {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        max-width: 60%;
+        padding-left: 24px;
+    }
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__email, &__password {
+        margin: .5rem 0;
+        padding: 1rem 2rem;
+        border: 1px solid $white;
+        border-radius: 0.375rem;
+        height: 1.7rem;
+        background-color: $base-dark-blue;
+
+    }
+
+    &__text-input::placeholder {
+        color: $white;
+        @include belota-400-15;
+    }
+
+    &__forgivePassword:hover {
+        text-decoration: underline;
+    }
+
+    &__enterBtn {
+        display: block;
+        border-radius: 0.5rem;
+        background-color: #2F80EC;
+        color: #fff;
+        padding: 0.9rem 2rem;
+        margin-top: 1.6rem;
+    }
 }

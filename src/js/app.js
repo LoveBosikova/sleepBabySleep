@@ -148,6 +148,7 @@ const app = async () => {
             modals: {
                 donate: 'hidden',
                 hint: 'hidden',
+                autorization: 'hidden',
             }
 
         }
@@ -311,7 +312,6 @@ const app = async () => {
     })
 
     // Работа с отображением модального окна donat - показываем каждые три минуты
-
     function makeDonatVisible () {
         state.stateUI.modals.donate = 'visible';
         render(state);
@@ -321,13 +321,12 @@ const app = async () => {
         state.stateUI.modals.donate = 'hidden';
         render(state);
     }
-    setInterval(makeDonatVisible, 30000);
+    setInterval(makeDonatVisible, 300000);
 
     const btnCloseDonate = document.getElementById('btnCloseDonate');
     btnCloseDonate.addEventListener('click', makeDonatHidden);
 
     // Работа с отображением модального окна подсказки
-
     function makeHintVisible () {
         state.stateUI.modals.hint = 'visible';
         render(state);
@@ -344,7 +343,30 @@ const app = async () => {
     const closeHintBtn = document.querySelector('.hint__close');
     closeHintBtn.addEventListener('click', makeHintHidden);
 
+    const okayHintBtn = document.querySelector('.hint__btn');
+    okayHintBtn.addEventListener('click', makeHintHidden);
 
+    // Работа с отображением модального окна авторизации
+    function makeAutorizationVisible () {
+        state.stateUI.modals.autorization = 'visible';
+        render(state);
+    }
+
+    function makeAutorizationHidden () {
+        state.stateUI.modals.autorization = 'hidden';
+        render(state);
+    };
+
+    const loginBtn = document.querySelector('.log-in__btn');
+    loginBtn.addEventListener('click', makeAutorizationVisible);
+
+    const closeAutorizationBtn = document.querySelector('.autorization__close');
+    closeAutorizationBtn.addEventListener('click', makeAutorizationHidden);
+
+    const autorizeSubmitBtn = document.querySelector('.autorization__enterBtn');
+
+    // !Добавить логику корректно заполненных полей!!
+    autorizeSubmitBtn.addEventListener('click', makeAutorizationHidden);
 
     // Работаем с анимациями parallax
     const paths = [...document.querySelectorAll('.anim-svg')];
