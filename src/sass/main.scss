@@ -55,52 +55,56 @@ body {
 
 .hide-animation {
     animation: hideIntros 1s 1 forwards ease-in-out;
-};
+}
 
 @keyframes hideIntros {
     0% {
         margin-top: 0;
     }
-	100% {
+
+    100% {
         margin-top: -140vh;
     }
 }
 
 .show-animation {
     animation: showIntros .9s 1 forwards ease-in-out;
-};
+}
 
 @keyframes showIntros {
     0% {
         margin-top: -140vh;
     }
-	100% {
+
+    100% {
         margin-top: -0;
     }
 }
 
 .arrow-down {
     animation: arrowSpinDown .9s 1 forwards ease-in-out;
-};
+}
 
 @keyframes arrowSpinDown {
     0% {
         transform: rotate(0deg);
     }
-	100% {
+
+    100% {
         transform: rotate(180deg);
     }
 }
 
 .arrow-up {
     animation: arrowSpinUp 1s 1 forwards ease-in-out;
-};
+}
 
 @keyframes arrowSpinUp {
     0% {
         transform: rotate(180deg);
     }
-	100% {
+
+    100% {
         transform: rotate(360deg);
     }
 }
@@ -253,11 +257,11 @@ body {
         border: 2px solid $border-blue;
         border-radius: 6px;
         transition: all 100ms ease-out;
-        
+
         &:hover {
-                -webkit-transform: scale(1.1);
-                -ms-transform: scale(1.1);
-                transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
         }
     }
 
@@ -265,7 +269,7 @@ body {
         flex: 30% 1 1;
     }
 
-    &__hideBtn{
+    &__hideBtn {
         position: absolute;
         bottom: -8rem;
         right: 11rem;
@@ -282,7 +286,7 @@ body {
         @include belota-400-15;
     }
 
-    &__btnText{
+    &__btnText {
         padding: 0.4rem;
         margin: 0;
         @include belota-400-15;
@@ -332,7 +336,6 @@ body {
 
     }
 }
-
 
 .calendar {
 
@@ -595,7 +598,9 @@ body {
     }
 }
 
-.clue-active {visibility: visible;}
+.clue-active {
+    visibility: visible;
+}
 
 .notification__desc {
     max-width: 25.55rem;
@@ -610,7 +615,7 @@ body {
     border-radius: 8px;
 }
 
-.activeBtn{
+.activeBtn {
     background-color: #2CB57F;
 }
 
@@ -735,20 +740,34 @@ body {
                 .accordion__answer {
                     @include belota-400-18;
                     display: none;
+                    transition: all 2s ease;
+                    transform: translateY(100%);
                 }
             }
-
-            .accordion__question-content {
-                @include belota-700-24;
-                @include flex-center-center;
-                background-color: $border-blue;
-                color: $white;
-                border-radius: 6px;
-                width: 14px;
-                height: 14px;
-                padding: 0.5rem;
-            }
         }
+
+        .accordion__question-content {
+            @include belota-700-24;
+            @include flex-center-center;
+            background-color: $border-blue;
+            color: $white;
+            border-radius: 6px;
+            width: 14px;
+            height: 14px;
+            padding: 0.5rem;
+        }
+    }
+}
+
+@keyframes itemOpen {
+    0% {
+        padding-bottom: 1em;
+        background-color: $base-dark-blue;
+    }
+
+    100% {
+        padding-bottom: 3em;
+        background-color: $border-blue;
     }
 }
 
