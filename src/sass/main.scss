@@ -1233,7 +1233,6 @@ body {
     position: relative;
 
     &__wrap {
-        position: absolute;
         top: -100vh;
         width: 100%;
         height: 100vh;
@@ -1289,11 +1288,11 @@ body {
     }
 }
 
-.donate--up {
-    animation: donateUp 1s 1 forwards ease-in-out;
+.modal--up {
+    animation: modalUp 1s 1 forwards ease-in-out;
 };
 
-@keyframes donateUp {
+@keyframes modalUp {
     0% {
         top: 0;
     }
@@ -1302,11 +1301,11 @@ body {
     }
 }
 
-.donate--down {
-    animation: donateDown 1s 1 forwards ease-in-out;
+.modal--down {
+    animation: modalDown 1s 1 forwards ease-in-out;
 };
 
-@keyframes donateDown {
+@keyframes modalDown {
     0% {
         top: -100vh;
     }
@@ -1321,6 +1320,29 @@ body {
     border: 0.5px white solid;
     border-radius: 1rem;
     padding: 2.5rem;
+    z-index: 6;
+    position: relative;
+    background-color: $base-dark-blue;
+
+    &__wrap {
+        top: -100vh;
+        width: 100%;
+        height: 100vh;
+        @include flex-center-center;
+        z-index: 5;
+        background-color: $light-blue-transparency-70;
+        position: fixed;
+    }
+
+    &__close {
+        background-color: #2F80EC;
+        border-radius: 1rem;
+        border: none;
+        position: absolute;
+        right: 16px;
+        top: 23px;
+        padding: 4px 9px;
+    }
 
     &__clue {
         margin-top: 1.5rem;

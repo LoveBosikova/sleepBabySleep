@@ -70,15 +70,8 @@ const app = async () => {
     icon.href = `${favicon}`;
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
-
     const state = {
-        registrationForm: {
-            valid: false,
-            errors: [],
-            fields: {
-                name: '',
-            },
-        },
+        
         stateUI: {
             introBlocks: window.localStorage.getItem('introBlocks') === null ? 'visible' : window.localStorage.getItem('introBlocks'),
             calendarWeek: [
@@ -152,6 +145,10 @@ const app = async () => {
                 chartViewPeriod: 'currentWeek',
                 clue: "hidden",
             },
+            modals: {
+                donate: 'hidden',
+                hint: 'hidden',
+            }
 
         }
     }
@@ -167,7 +164,6 @@ const app = async () => {
     btnDayBackward.addEventListener('click', () => {
         dayBackward(state)
     });
-
 
     btnQuoteBackward.addEventListener('click', () => {
         changeQoutesBackward();
@@ -186,10 +182,6 @@ const app = async () => {
     } else if (window.localStorage.getItem('introBlocks') === 'hidden') {
         state.stateUI.introBlocks = 'hidden';
     };
-
-    // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
-    render(state);
-
 
     const tags = document.querySelectorAll('.calendar__tagLabel');
 
@@ -292,7 +284,6 @@ const app = async () => {
 
 
     // Гармошка
-
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
 
@@ -314,74 +305,46 @@ const app = async () => {
 
     // Работаем с видимостью блоков интро
     const hideInrtoBtn = document.getElementById('hideIntroBtn');
-
     hideInrtoBtn.addEventListener('click', () => {
         state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
         render(state);
     })
 
-    // Работаем с чартом
-    const labels = state.stateUI.calendarWeek.map(el => {
-        return el[2].format("dd, D")
-    });
+    // Работа с отображением модального окна donat - показываем каждые три минуты
 
-    const data = {
-        labels: labels,
-        datasets: [{
-                label: 'Ночной сон - перед пробуждением',
-                data: [480, 500, 400, 420, 470, 410, 460],
-                backgroundColor: '#2F80ECA3',
-            },
-            {
-                label: 'Бодрстование1',
-                data: [300, 320, 231, 387, 300, 307, 280],
-                backgroundColor: '#10132F',
-            },
-            {
-                label: 'Первый  дневной сон',
-                data: [70, 60, 120, 45, 60, 77, 100],
-                backgroundColor: '#85b0e7',
-            },
-            {
-                label: 'Бодрстование2',
-                data: [250, 220, 231, 100, 200, 207, 180],
-                backgroundColor: '#10132F',
-            },
-            {
-                label: 'Второй дневной сон',
-                data: [100, 130, 40, 110, 90, 95, 60],
-                backgroundColor: '#85b0e7',
-            },
-            {
-                label: 'Бодрстование3',
-                data: [120, 120, 131, 70, 113, 127, 129],
-                backgroundColor: '#10132F',
-            },
-            {
-                label: 'Ночной сон - вечер',
-                data: [120, 90, 287, 293, 207, 229, 231],
-                backgroundColor: '#2F80ECA3',
-            },
-        ]
-    };
-
-    // Работа с отображением модального окна - показываем каждые три минуты
-    const donatModal = document.querySelector('.donate__wrap');
-    console.log(donatModal);
-    function showDonatModal () {
-        donatModal.classList.remove('donate--up');
-        donatModal.classList.add('donate--down');
+    function makeDonatVisible () {
+        state.stateUI.modals.donate = 'visible';
+        render(state);
     }
 
-    function hideDonatModal () {
-        donatModal.classList.remove('donate--down');
-        donatModal.classList.add('donate--up');
+    function makeDonatHidden () {
+        state.stateUI.modals.donate = 'hidden';
+        render(state);
     }
-
-    setInterval(showDonatModal, 3000);
+    setInterval(makeDonatVisible, 30000);
 
     const btnCloseDonate = document.getElementById('btnCloseDonate');
-    btnCloseDonate.addEventListener('click', hideDonatModal);
+    btnCloseDonate.addEventListener('click', makeDonatHidden);
+
+    // Работа с отображением модального окна подсказки
+
+    function makeHintVisible () {
+        state.stateUI.modals.hint = 'visible';
+        render(state);
+    }
+
+    function makeHintHidden () {
+        state.stateUI.modals.hint = 'hidden';
+        render(state);
+    }
+
+    const dataSaveBtn = document.getElementById('data-save');
+    dataSaveBtn.addEventListener('click', makeHintVisible);
+
+    const closeHintBtn = document.querySelector('.hint__close');
+    closeHintBtn.addEventListener('click', makeHintHidden);
+
+
 
     // Работаем с анимациями parallax
     const paths = [...document.querySelectorAll('.anim-svg')];
