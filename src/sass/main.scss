@@ -123,6 +123,23 @@ body {
     }
 }
 
+.starUp {
+    right: 3rem;
+    top: -15rem;
+    position: absolute;
+    animation: starShow 1s 1 forwards cubic-bezier(.66,.11,.68, 1.77);
+    animation-delay: 1s;
+}
+
+@keyframes starShow {
+    0% {
+        top: -10rem;
+    }
+	100% {
+        top: -2rem;
+    }
+}
+
 //Header   
 
 .header {
