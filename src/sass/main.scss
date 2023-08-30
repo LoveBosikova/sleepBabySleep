@@ -973,6 +973,7 @@ body {
         background-color: $light-blue-transparency-70;
         transition: opacity 1s ease-in-out;
         opacity: 0;
+        backdrop-filter: blur(10px);
     }
 
     &__modal-open {
