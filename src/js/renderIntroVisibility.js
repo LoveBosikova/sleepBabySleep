@@ -16,7 +16,6 @@ export default (stateUI) => {
         clouds.classList.add('clouds--down');
         mainSection.classList.remove('mainSection--up');
         mainSection.classList.add('mainSection--down');
-        btnText.style.color = 'black';
 
     } else if (stateUI.introBlocks === 'hidden') {
         window.localStorage.setItem('introBlocks', 'hidden');
@@ -30,6 +29,5 @@ export default (stateUI) => {
         clouds.classList.add('clouds--up');
         mainSection.classList.remove('mainSection--down');
         mainSection.classList.add('mainSection--up');
-        btnText.style.color = 'white';
     }
 }

@@ -330,8 +330,10 @@ body {
         position: absolute;
         bottom: 0;
         right: 3rem;
+
         border-radius: 8px;
         border: 1px solid $border-blue;
+        color: $white;
         background-color: $base-dark-blue;
         padding: .4rem 1rem;
         cursor: pointer;
@@ -347,7 +349,6 @@ body {
         padding: 0.4rem;
         margin: 0;
         @include belota-400-15;
-        color: $main-black;
         transition: all 1s ease-in-out;
     }
 
