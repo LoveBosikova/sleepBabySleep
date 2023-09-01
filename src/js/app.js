@@ -400,6 +400,9 @@ const app = async () => {
                 behavior: 'smooth',
                 block: 'start',
             })
+
+            state.stateUI.burger == 'close' ? state.stateUI.burger = 'open' : state.stateUI.burger = 'close';
+            render(state);
         })
     }
 }
