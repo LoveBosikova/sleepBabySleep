@@ -1,4 +1,4 @@
-function changeVisibility(state) {
+function renderQuestions(state) {
     state.forEach((el, i) => {
         const questions = [...document.getElementsByClassName('accordion__question-title')];
         const content = [...document.getElementsByClassName('accordion__question-content')];
@@ -37,4 +37,4 @@ function changeVisibility(state) {
     });
 }
 
-export default changeVisibility;
+export default renderQuestions;

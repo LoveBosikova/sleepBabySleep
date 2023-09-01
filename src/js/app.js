@@ -1,7 +1,6 @@
 // Наши главные файлы - в сасс можно работать с js, плюс подключены момент и чарт
 
 import moment from 'moment';
-import onChange from 'on-change';
 import Chart from 'chart.js/auto';
 import render from './view.js';
 import createDays from './createDays.js'
@@ -43,10 +42,6 @@ const app = async () => {
                 title: {
                     display: true,
                     text: 'График дня вашего малыша',
-                    padding: {
-                        top: 10,
-                        bottom: 30
-                    }
                 },
                 legend: {
                     display: false,
@@ -75,16 +70,8 @@ const app = async () => {
     icon.href = `${favicon}`;
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
-
-
     const state = {
-        registrationForm: {
-            valid: false,
-            errors: [],
-            fields: {
-                name: '',
-            },
-        },
+        
         stateUI: {
             introBlocks: window.localStorage.getItem('introBlocks') === null ? 'visible' : window.localStorage.getItem('introBlocks'),
             calendarWeek: [
@@ -158,6 +145,11 @@ const app = async () => {
                 chartViewPeriod: 'currentWeek',
                 clue: "hidden",
             },
+            modals: {
+                donate: 'hidden',
+                hint: 'hidden',
+                autorization: 'hidden',
+            }
 
         }
     }
@@ -173,7 +165,6 @@ const app = async () => {
     btnDayBackward.addEventListener('click', () => {
         dayBackward(state)
     });
-
 
     btnQuoteBackward.addEventListener('click', () => {
         changeQoutesBackward();
@@ -192,10 +183,6 @@ const app = async () => {
     } else if (window.localStorage.getItem('introBlocks') === 'hidden') {
         state.stateUI.introBlocks = 'hidden';
     };
-
-    // Когда страница будет грузится, состояние отобразится начальное (плюс то, которое зависит от локальных хранилищ данных)
-    render(state);
-
 
     const tags = document.querySelectorAll('.calendar__tagLabel');
 
@@ -290,7 +277,6 @@ const app = async () => {
     })
 
     const closeClueStatisticBtn = document.querySelector('.statistic__closeBtn');
-    console.log(closeClueStatisticBtn);
     closeClueStatisticBtn.addEventListener('click', () => {
         state.stateUI.chart.clue = 'hidden';
         console.log(state.stateUI.chart.clue);
@@ -299,7 +285,6 @@ const app = async () => {
 
 
     // Гармошка
-
     const btnsAcc = [...document.getElementsByClassName('accordion__question-title')];
     const contents = [...document.getElementsByClassName('accordion__question-content')]
 
@@ -321,57 +306,86 @@ const app = async () => {
 
     // Работаем с видимостью блоков интро
     const hideInrtoBtn = document.getElementById('hideIntroBtn');
-
     hideInrtoBtn.addEventListener('click', () => {
         state.stateUI.introBlocks = state.stateUI.introBlocks === 'visible' ? 'hidden' : 'visible';
-        console.log(window.localStorage);
         render(state);
     })
-    // Начинаем работать с чартом
 
-    const labels = state.stateUI.calendarWeek.map(el => {
-        return el[2].format("dd, D")
-    });
+    // Работа с отображением модального окна donat - показываем каждые три минуты
+    function makeDonatVisible () {
+        state.stateUI.modals.donate = 'visible';
+        render(state);
+    }
 
-    const data = {
-        labels: labels,
-        datasets: [{
-                label: 'Ночной сон - перед пробуждением',
-                data: [480, 500, 400, 420, 470, 410, 460],
-                backgroundColor: '#2F80ECA3',
-            },
-            {
-                label: 'Бодрстование1',
-                data: [300, 320, 231, 387, 300, 307, 280],
-                backgroundColor: '#10132F',
-            },
-            {
-                label: 'Первый  дневной сон',
-                data: [70, 60, 120, 45, 60, 77, 100],
-                backgroundColor: '#85b0e7',
-            },
-            {
-                label: 'Бодрстование2',
-                data: [250, 220, 231, 100, 200, 207, 180],
-                backgroundColor: '#10132F',
-            },
-            {
-                label: 'Второй дневной сон',
-                data: [100, 130, 40, 110, 90, 95, 60],
-                backgroundColor: '#85b0e7',
-            },
-            {
-                label: 'Бодрстование3',
-                data: [120, 120, 131, 70, 113, 127, 129],
-                backgroundColor: '#10132F',
-            },
-            {
-                label: 'Ночной сон - вечер',
-                data: [120, 90, 287, 293, 207, 229, 231],
-                backgroundColor: '#2F80ECA3',
-            },
-        ]
+    function makeDonatHidden () {
+        state.stateUI.modals.donate = 'hidden';
+        render(state);
+    }
+    setInterval(makeDonatVisible, 300000);
+
+    const btnCloseDonate = document.getElementById('btnCloseDonate');
+    btnCloseDonate.addEventListener('click', makeDonatHidden);
+
+    // Работа с отображением модального окна подсказки
+    function makeHintVisible () {
+        state.stateUI.modals.hint = 'visible';
+        render(state);
+    }
+
+    function makeHintHidden () {
+        state.stateUI.modals.hint = 'hidden';
+        render(state);
+    }
+
+    const dataSaveBtn = document.getElementById('data-save');
+    dataSaveBtn.addEventListener('click', makeHintVisible);
+
+    const closeHintBtn = document.querySelector('.hint__close');
+    closeHintBtn.addEventListener('click', makeHintHidden);
+
+    const okayHintBtn = document.querySelector('.hint__btn');
+    okayHintBtn.addEventListener('click', makeHintHidden);
+
+    // Работа с отображением модального окна авторизации
+    function makeAutorizationVisible () {
+        state.stateUI.modals.autorization = 'visible';
+        render(state);
+    }
+
+    function makeAutorizationHidden () {
+        state.stateUI.modals.autorization = 'hidden';
+        render(state);
     };
+
+    const loginBtn = document.querySelector('.log-in__btn');
+    loginBtn.addEventListener('click', makeAutorizationVisible);
+
+    const closeAutorizationBtn = document.querySelector('.autorization__close');
+    closeAutorizationBtn.addEventListener('click', makeAutorizationHidden);
+
+    const autorizeSubmitBtn = document.querySelector('.autorization__enterBtn');
+
+    // !Добавить логику корректно заполненных полей!!
+    autorizeSubmitBtn.addEventListener('click', makeAutorizationHidden);
+
+    // Работаем с анимациями parallax
+    const paths = [...document.querySelectorAll('.anim-svg')];
+
+    const callback = (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('--active')
+        } else {
+            entry.target.classList.remove('--active')
+        }
+        })
+    }
+    const options = {
+        threshold: 0,
+    }
+
+    const observer = new IntersectionObserver(callback, options);
+    paths.forEach((path) => observer.observe(path))
 
 }
 
