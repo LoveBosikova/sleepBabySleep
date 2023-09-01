@@ -39,12 +39,12 @@ body {
         border: none;
     }
 
-    button:hover{
+    button:hover {
         background-color: $dark-grey;
-        border-color:  $border-blue;
+        border-color: $border-blue;
     }
 
-    button:active{
+    button:active {
         background-color: $dark-grey;
         border-color: $green;
     }
@@ -60,10 +60,12 @@ body {
             border-color: linear-gradient(90deg, rgba(47, 128, 236, 1) 0%, rgba(25, 27, 45, 1) 100% 50%, rgba(47, 128, 236, 1) 100%);
             ;
         }
+
         50% {
             border-color: linear-gradient(90deg, rgba(16, 19, 47, 1) 0%, rgba(47, 128, 236, 1) 50%, rgba(25, 27, 45, 1) 100%);
             ;
         }
+
         100% {
             border-color: linear-gradient(90deg, rgba(47, 128, 236, 1) 0%, rgba(25, 27, 45, 1) 100% 50%, rgba(47, 128, 236, 1) 100%);
             ;
@@ -73,52 +75,56 @@ body {
 
 .hide-animation {
     animation: hideIntros 1s 1 forwards ease-in-out;
-};
+}
 
 @keyframes hideIntros {
     0% {
         margin-top: 0;
     }
-	100% {
+
+    100% {
         margin-top: -163.25vh;
     }
 }
 
 .show-animation {
     animation: showIntros .9s 1 forwards ease-in-out;
-};
+}
 
 @keyframes showIntros {
     0% {
         margin-top: -163.25vh;
     }
-	100% {
+
+    100% {
         margin-top: -0;
     }
 }
 
 .arrow-down {
     animation: arrowSpinDown .9s 1 forwards ease-in-out;
-};
+}
 
 @keyframes arrowSpinDown {
     0% {
         transform: rotate(0deg);
     }
-	100% {
+
+    100% {
         transform: rotate(180deg);
     }
 }
 
 .arrow-up {
     animation: arrowSpinUp 1s 1 forwards ease-in-out;
-};
+}
 
 @keyframes arrowSpinUp {
     0% {
         transform: rotate(180deg);
     }
-	100% {
+
+    100% {
         transform: rotate(360deg);
     }
 }
@@ -127,7 +133,7 @@ body {
     right: 3rem;
     top: -15rem;
     position: absolute;
-    animation: starShow 1s 1 forwards cubic-bezier(.66,.11,.68, 1.77);
+    animation: starShow 1s 1 forwards cubic-bezier(.66, .11, .68, 1.77);
     animation-delay: 1s;
 }
 
@@ -135,7 +141,8 @@ body {
     0% {
         top: -10rem;
     }
-	100% {
+
+    100% {
         top: -2rem;
     }
 }
@@ -156,7 +163,7 @@ body {
     }
 
     &__buttons {
-        display: flex !important; 
+        display: flex !important;
     }
 
     &__log-in {
@@ -314,11 +321,11 @@ body {
         &--blue {
             background-color: $border-blue;
         }
-        
+
         &:hover {
-                -webkit-transform: scale(1.1);
-                -ms-transform: scale(1.1);
-                transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
         }
     }
 
@@ -326,7 +333,7 @@ body {
         flex: 30% 1 1;
     }
 
-    &__hideBtn{
+    &__hideBtn {
         position: absolute;
         bottom: 0;
         right: 3rem;
@@ -345,7 +352,7 @@ body {
         @include belota-400-15;
     }
 
-    &__btnText{
+    &__btnText {
         padding: 0.4rem;
         margin: 0;
         @include belota-400-15;
@@ -371,26 +378,32 @@ body {
 
 .clouds--up {
     animation: cloudUp 1s 1 forwards ease-in-out;
-};
+}
+
+;
 
 @keyframes cloudUp {
     0% {
         top: 69vh;
     }
-	100% {
+
+    100% {
         top: 40vh;
     }
 }
 
 .clouds--down {
     animation: cloudDown 1s 1 forwards ease-in-out;
-};
+}
+
+;
 
 @keyframes cloudDown {
     0% {
         top: 40vh;
     }
-	100% {
+
+    100% {
         top: 69vh;
     }
 }
@@ -400,9 +413,10 @@ body {
     transition: 1.5s;
     opacity: 0;
 }
+
 .--active {
     transform: translate(0px, 0px);
-    opacity: 1; 
+    opacity: 1;
 }
 
 .arrowDown {
@@ -425,26 +439,32 @@ body {
 
 .mainSection--up {
     animation: mainUp 1s 1 forwards ease-in-out;
-};
+}
+
+;
 
 @keyframes mainUp {
     0% {
         margin: 10rem 5rem 7rem;
     }
-	100% {
+
+    100% {
         margin: -8rem 5rem 7rem;
     }
 }
 
 .mainSection--down {
     animation: mainDown 1s 1 forwards ease-in-out;
-};
+}
+
+;
 
 @keyframes mainDown {
     0% {
         margin: -8rem 5rem 7rem;
     }
-	100% {
+
+    100% {
         margin: 10rem 5rem 7rem;
     }
 }
@@ -468,7 +488,6 @@ body {
 
     }
 }
-
 
 .calendar {
 
@@ -736,7 +755,9 @@ body {
     }
 }
 
-.clue-active {visibility: visible;}
+.clue-active {
+    visibility: visible;
+}
 
 .notification__desc {
     @include belota-400-18;
@@ -751,7 +772,7 @@ body {
     border-radius: 8px;
 }
 
-.activeBtn{
+.activeBtn {
     background-color: #2CB57F;
 }
 
@@ -766,26 +787,45 @@ body {
         margin-right: auto;
     }
 
+    // &__ferber {
+    //     width: 50%;
+
+    //     &-photo {
+    //         height: 467px;
+    //         width: 100%;
+    //         background-image: url('/src/assets/Ferber.png');
+    //         background-repeat: no-repeat;
+    //         //сво-во пропорционально меняющее картинку от размера блока
+
+    //     }
+
+    //     &-about {
+    //         @include jetBrains-400-18;
+    //         color: $grey;
+    //         max-width: 30rem;
+    //     }
+    // }
+
     &__quote {
-        width: 50%;
+
 
         .quotes__current {
             @include flex-space-around-center;
 
-            .btnQoutes {
-                #qoutesBackward {
-                    margin-right: 2em;
-                }
 
-                #quotesForward {
-                    margin-left: 2em;
-                }
+            #qoutesBackward {
+                margin-right: 1em;
+            }
+
+            #quotesForward {
+                margin-left: 1em;
             }
 
             .quote {
                 @include belota-400-18;
                 margin-bottom: 2em;
                 margin-top: 2em;
+                opacity: 1;
             }
         }
     }
@@ -861,18 +901,64 @@ body {
                     display: none;
                 }
             }
-
-            .accordion__question-content {
-                @include belota-700-24;
-                @include flex-center-center;
-                background-color: $border-blue;
-                color: $white;
-                border-radius: 6px;
-                width: 14px;
-                height: 14px;
-                padding: 0.5rem;
-            }
         }
+
+        .accordion__question-content {
+            @include belota-700-24;
+            @include flex-center-center;
+            background-color: $border-blue;
+            color: $white;
+            border-radius: 6px;
+            width: 14px;
+            height: 14px;
+            padding: 0.5rem;
+        }
+    }
+}
+
+@keyframes itemOpen {
+    0% {
+        padding-bottom: 1em;
+        background-color: $base-dark-blue;
+    }
+
+    100% {
+        padding-bottom: 2em;
+        background-color: $border-blue;
+    }
+}
+
+@keyframes itemClose {
+    0% {
+        padding-bottom: 2em;
+        background-color: $border-blue;
+    }
+
+    100% {
+        padding-bottom: 1em;
+        background-color: $base-dark-blue;
+
+    }
+}
+
+
+@keyframes changeOpasity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes changeOpasityBack {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
@@ -972,7 +1058,7 @@ body {
 
 .registration-form {
 
-    &__titleText{
+    &__titleText {
         max-width: 60%;
     }
 
@@ -1358,26 +1444,32 @@ body {
 
 .modal--up {
     animation: modalUp 1s 1 forwards ease-in-out;
-};
+}
+
+;
 
 @keyframes modalUp {
     0% {
         top: 0;
     }
-	100% {
+
+    100% {
         top: -100vh;
     }
 }
 
 .modal--down {
     animation: modalDown 1s 1 forwards ease-in-out;
-};
+}
+
+;
 
 @keyframes modalDown {
     0% {
         top: -100vh;
     }
-	100% {
+
+    100% {
         top: 0;
     }
 }
@@ -1545,7 +1637,8 @@ body {
         flex-direction: column;
     }
 
-    &__email, &__password {
+    &__email,
+    &__password {
         margin: .5rem 0;
         padding: 1rem 2rem;
         border: 1px solid $white;
