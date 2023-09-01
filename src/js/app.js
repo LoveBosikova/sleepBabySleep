@@ -18,7 +18,7 @@ import {
 import perfectTimingByAge from './sleepingData.js';
 import changeQoutesBackward from './changeQoutesBackward.js';
 import changeQoutesForward from './changeQuotesForward.js';
-import changeBurgerMenu from './changeBurgerMenu.js'; 
+import changeBurgerMenu from './changeBurgerMenu.js';
 import renderChart from './renderChart.js';
 import favicon from '../assets/favicon.svg'
 
@@ -71,7 +71,7 @@ const app = async () => {
 
     //Комплексное состояние приложения. Здесь всё, что влияет на отображение объектов на странице
     const state = {
-        
+
         stateUI: {
             introBlocks: window.localStorage.getItem('introBlocks') === null ? 'visible' : window.localStorage.getItem('introBlocks'),
             calendarWeek: [
@@ -312,12 +312,12 @@ const app = async () => {
     })
 
     // Работа с отображением модального окна donat - показываем каждые три минуты
-    function makeDonatVisible () {
+    function makeDonatVisible() {
         state.stateUI.modals.donate = 'visible';
         render(state);
     }
 
-    function makeDonatHidden () {
+    function makeDonatHidden() {
         state.stateUI.modals.donate = 'hidden';
         render(state);
     }
@@ -327,12 +327,12 @@ const app = async () => {
     btnCloseDonate.addEventListener('click', makeDonatHidden);
 
     // Работа с отображением модального окна подсказки
-    function makeHintVisible () {
+    function makeHintVisible() {
         state.stateUI.modals.hint = 'visible';
         render(state);
     }
 
-    function makeHintHidden () {
+    function makeHintHidden() {
         state.stateUI.modals.hint = 'hidden';
         render(state);
     }
@@ -347,12 +347,12 @@ const app = async () => {
     okayHintBtn.addEventListener('click', makeHintHidden);
 
     // Работа с отображением модального окна авторизации
-    function makeAutorizationVisible () {
+    function makeAutorizationVisible() {
         state.stateUI.modals.autorization = 'visible';
         render(state);
     }
 
-    function makeAutorizationHidden () {
+    function makeAutorizationHidden() {
         state.stateUI.modals.autorization = 'hidden';
         render(state);
     };
@@ -374,10 +374,10 @@ const app = async () => {
     const callback = (entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-            entry.target.classList.add('--active')
-        } else {
-            entry.target.classList.remove('--active')
-        }
+                entry.target.classList.add('--active')
+            } else {
+                entry.target.classList.remove('--active')
+            }
         })
     }
     const options = {
@@ -387,6 +387,21 @@ const app = async () => {
     const observer = new IntersectionObserver(callback, options);
     paths.forEach((path) => observer.observe(path))
 
+    //плавный переход 
+    const anchors = document.querySelectorAll('a[href*="#"]')
+
+    for (let anchor of anchors) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault()
+
+            const blockID = anchor.getAttribute('href').substr(1);
+
+            document.getElementById(blockID).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            })
+        })
+    }
 }
 
 export default app;
