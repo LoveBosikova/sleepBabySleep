@@ -832,6 +832,7 @@ body {
 
     &__titles {
         @include flex-start;
+        align-items: center;
 
         .quotes__title {
             margin-left: 1em;
@@ -852,7 +853,7 @@ body {
     }
 
     &__titleContainer {
-        display: flex;
+        @include flex-align-items-center;
         margin-bottom: 2em
     }
 
@@ -879,7 +880,6 @@ body {
     &__list {
 
         margin-top: 3.8rem;
-        max-width: 96%;
         margin-left: auto;
         margin-right: auto;
 
@@ -1348,7 +1348,7 @@ body {
     }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 700px) {
     .header {
         justify-content: start;
 
@@ -1369,6 +1369,22 @@ body {
             &__baby-bath {
                 bottom: 3vh;
             }
+        }
+    }
+
+    .faq {
+
+        &__container {
+            max-width: 100%;
+        }
+
+        &__icon {
+            margin: 0;
+        }
+
+        &__titleContainer {
+            @include flex-column-center;
+            align-items: baseline;
         }
     }
 }
@@ -1694,6 +1710,16 @@ body {
                 height: 3em;
             }
 
+        }
+    }
+
+    .faq {
+        &__list {
+            .accordion-item {
+                @include flex-column-reverse-baseline;
+                padding: 1em;
+                margin-bottom: 1em;
+            }
         }
     }
 
