@@ -634,28 +634,27 @@ body {
         margin-right: auto;
     }
 
-    &__ferber {
-        width: 50%;
+    // &__ferber {
+    //     width: 50%;
 
-        &-photo {
-            height: 467px;
-            width: 100%;
-            background-image: url('/src/assets/Ferber.png');
-            background-repeat: no-repeat;
-            //сво-во пропорционально меняющее картинку от размера блока
+    //     &-photo {
+    //         height: 467px;
+    //         width: 100%;
+    //         background-image: url('/src/assets/Ferber.png');
+    //         background-repeat: no-repeat;
+    //         //сво-во пропорционально меняющее картинку от размера блока
 
-        }
+    //     }
 
-        &-about {
-            @include jetBrains-400-18;
-            color: $grey;
-            max-width: 30rem;
-        }
-    }
+    //     &-about {
+    //         @include jetBrains-400-18;
+    //         color: $grey;
+    //         max-width: 30rem;
+    //     }
+    // }
 
     &__quote {
-        width: 50%;
-        margin-left: 1em;
+
 
         .quotes__current {
             @include flex-space-around-center;
