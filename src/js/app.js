@@ -323,6 +323,9 @@ const app = async () => {
     }
     setInterval(makeDonatVisible, 300000);
 
+    const btnFooterDonate = document.getElementById('footer__donatBtn');
+    btnFooterDonate.addEventListener('click', makeDonatVisible);
+
     const btnCloseDonate = document.getElementById('btnCloseDonate');
     btnCloseDonate.addEventListener('click', makeDonatHidden);
 
