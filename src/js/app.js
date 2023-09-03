@@ -146,9 +146,9 @@ const app = async () => {
                 clue: "hidden",
             },
             modals: {
-                donate: 'hidden',
-                hint: 'hidden',
-                autorization: 'hidden',
+                donate: 'start',
+                hint: 'start',
+                autorization: 'start',
             }
 
         }
