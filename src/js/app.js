@@ -403,9 +403,11 @@ const app = async () => {
                 behavior: 'smooth',
                 block: 'start',
             })
+            if (window.screen.width <= 1000) {
+                state.stateUI.burger == 'close' ? state.stateUI.burger = 'open' : state.stateUI.burger = 'close';
+                render(state);
+            }
 
-            state.stateUI.burger == 'close' ? state.stateUI.burger = 'open' : state.stateUI.burger = 'close';
-            render(state);
         })
     }
 }
