@@ -407,7 +407,7 @@ const app = async () => {
                 state.stateUI.burger == 'close' ? state.stateUI.burger = 'open' : state.stateUI.burger = 'close';
                 render(state);
             }
-            console.log(window.screen.width);
+
         })
     }
 }
