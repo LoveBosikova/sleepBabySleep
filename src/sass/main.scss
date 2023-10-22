@@ -135,6 +135,10 @@ body {
     position: absolute;
     animation: starShow 1s 1 forwards cubic-bezier(.66, .11, .68, 1.77);
     animation-delay: 1s;
+
+    @media (max-width: 480px) {
+        right: -2rem;
+    }
 }
 
 @keyframes starShow {
@@ -1111,14 +1115,12 @@ body {
         &::-webkit-scrollbar-thumb {
             background-color: $border-blue;
             border-radius: 0.75rem;
-            //background: url(../assets/scroll.svg);
         }
 
         &::-webkit-scrollbar-track {
             background-color: $border-blue-transparency-64;
             border-top-right-radius: 0.625rem;
             border-bottom-right-radius: 0.625rem;
-            //background: url(../assets/scrollback.svg);
         }
     }
 
@@ -1240,7 +1242,7 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1350px) {
 
     .header {
         position: sticky;
@@ -1249,6 +1251,10 @@ body {
 
         &__nav {
             display: none;
+        }
+
+        &__buttons {
+            display: none !important;
         }
 
         .burger {
@@ -1267,7 +1273,7 @@ body {
                 display: block;
                 position: absolute;
                 top: 0.1em;
-                right: 0.5vw;
+                right: 2vw;
             }
 
             &__menu {
@@ -1526,6 +1532,10 @@ body {
         background-color: $light-blue-transparency-70;
         position: fixed;
         backdrop-filter: blur(10px);
+
+        @media (max-width: 480px) {
+            top: -110vh;
+        }
     }
 
 
