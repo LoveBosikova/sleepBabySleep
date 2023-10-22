@@ -163,6 +163,14 @@ body {
         @include flex-space-between-center;
         gap: 1rem;
         margin-left: 10rem;
+
+        @media (max-width: 1200px) {
+            margin-left: 5rem;
+        }
+
+        @media (max-width: 780px) {
+            margin-left: 2rem;
+        }
     }
 
     &__buttons {
@@ -211,6 +219,10 @@ body {
         @include shnobel-400-23;
         margin-top: 0;
         margin-bottom: 1rem;
+
+        @media (max-width: 480px) {
+            @include shnobel-400-17;
+        }
     }
 
     &__info {
@@ -220,6 +232,20 @@ body {
         background-image: url('../assets/parents.png');
         background-repeat: no-repeat;
         background-position: bottom -5.125rem right -4.555rem;
+
+        @media (max-width: 1000px) {
+            background-position: bottom -5.125rem right -14.555rem;
+        }
+
+        @media (max-width: 720px) {
+            background-position: bottom -5.125rem right -2.555rem;
+            background-size: 30rem;
+        }
+
+        @media (max-width: 480px) {
+            background-position: bottom -1.125rem right 2.445rem;
+            background-size: 20rem;
+        }
     }
 
     &__text {
@@ -227,19 +253,45 @@ body {
         width: 37.5rem;
         flex-basis: 37rem;
         margin-bottom: 17.5rem;
+        padding-left: 2rem;
+
+        @media (max-width: 720px) {
+            margin-top: 12rem;
+        }
+
+        @media (max-width: 480px) {
+            margin-top: 10rem;
+        }
     }
 
     &__title {
         @include belota-700-47;
         margin-top: 0;
+
+        @media (max-width: 1000px) {
+            @include belota-700-34;
+        }
+
+        @media (max-width: 480px) {
+            @include belota-700-25;
+        }
     }
 
     &__to-know {
+        @include belota-400-18;
         margin-top: 1rem;
         padding: 1.1rem 3.5rem;
         background-color: $border-blue;
         color: $white;
         border-radius: 0.5rem;
+
+        @media (max-width: 1000px) {
+            @include belota-400-17;
+        }
+
+        @media (max-width: 480px) {
+            @include belota-400-15;
+        }
     }
 }
 
@@ -264,14 +316,37 @@ body {
         margin-left: auto;
         margin-right: auto;
         max-width: 80%;
+
+        @media (max-width: 1000px) {
+            max-width: 90%;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 780px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
     }
 
     &__picturePart {
         display: flex;
         justify-content: space-evenly;
         gap: 2rem;
-        //Добавила отступ слева 3rem 
         padding-left: 3rem;
+
+        @media (max-width: 780px) {
+            padding-left: 0;
+        }
+
+        @media (max-width: 420px) {
+            gap: .2rem;
+        }
+    }
+
+    &__pictureContainer>svg {
+        @media(max-width: 400px) {
+            width: 90%;
+        }
     }
 
     &__picDescription {
@@ -279,22 +354,50 @@ body {
         display: flex;
         align-items: center;
         color: $main-black;
+
+        @media (max-width: 360px) {
+            font-size: 14px;
+        }
     }
 
     //Добавила шрифты к uptitle и title, убрала margin-top у title
     &__uptitle {
         @include shnobel-400-23;
         color: $main-black;
+
+        @media (max-width: 480px) {
+            @include shnobel-400-17;
+        }
+    }
+
+    &__titleWrap {
+        width: 100%;
     }
 
     &__title {
         @include belota-700-47;
         margin-top: 0;
         color: $main-black;
+
+        @media (max-width: 1000px) {
+            @include belota-700-34;
+        }
+
+        @media (max-width: 480px) {
+            @include belota-700-25;
+        }
     }
 
     &__cardTitle {
         @include belota-700-33;
+
+        @media (max-width: 1200px) {
+            @include belota-700-30;
+        }
+
+        @media (max-width: 1000px) {
+            @include belota-700-25;
+        }
     }
 
     &__cardText {
@@ -305,11 +408,25 @@ body {
         @include flex-row-space-between;
         max-width: 90vw;
         margin: auto;
+
+        @media (max-width: 1000px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
     }
 
     &__cardInnerContainer {
         padding-top: 0.7rem;
         padding-left: 2.2rem;
+        padding-right: .5rem;
         margin: .4rem 1.9rem 1.9rem 1.9rem;
         height: 100%;
         background-color: $dark-grey;
@@ -330,10 +447,32 @@ body {
             -ms-transform: scale(1.1);
             transform: scale(1.1);
         }
+
+        @media (max-width: 1200px) {
+            padding-left: 1.2rem;
+            margin: 0.1rem 1rem 1rem 1rem;
+        }
+
+        @media (max-width: 1000px) {
+            margin: 0;
+        }
     }
 
     &__card {
         flex: 30% 1 1;
+
+        &:last-child {
+            @media (max-width: 1000px) {
+                grid-column: 1 / 3;
+                height: 75%;
+            }
+
+            @media (max-width: 480px) {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                height: 100%;
+            }
+        }
     }
 
     &__hideBtn {
@@ -373,7 +512,7 @@ body {
     z-index: -1;
     left: 0;
     top: 69vh;
-    width: 100vw;
+    width: 99.1vw;
     height: 110vh;
     background-image: url('../assets/bgClouds.png');
     background-repeat: no-repeat;
