@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: sleep
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 257Anna23
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    extra_hosts:
+      - "postgres:127.0.0.1"
+
+  mongodb:
+    container_name: checking-sleep-mongodb-1
+    image: mongo
+    ports:
+      - "27017:27017"
+    extra_hosts:
+      - "mongo:127.0.0.1"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - mongodb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sleep
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 257Anna23
+
+volumes:
+  db-data:
+    external: false
